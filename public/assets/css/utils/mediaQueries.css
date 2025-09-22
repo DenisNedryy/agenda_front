@@ -57,7 +57,8 @@
     body .asside__top__logoContainer p {
         display: none;
     }
-    body .agenda{
+
+    body .agenda {
         margin: 0px;
     }
 }
@@ -102,29 +103,37 @@
         display: flex;
         flex-direction: column-reverse;
     }
-    body .vocabulary__content__left__body__left{
-        display:none;
+
+    body .vocabulary__content__left__body__left {
+        display: none;
     }
-    body .vocabulary__content__left__body__right{
+
+    body .vocabulary__content__left__body__right {
         padding: 0px;
     }
-    body .vocabulary__content__left__body__right{
-        margin-top:20px;
+
+    body .vocabulary__content__left__body__right {
+        margin-top: 20px;
     }
-    body .category__body{
+
+    body .category__body {
         width: 100%;
     }
-    body .vocabulary__content{
+
+    body .vocabulary__content {
         margin: 3px;
-        margin-top:9px;
+        margin-top: 9px;
     }
-    body .vocFiche{
+
+    body .vocFiche {
         width: 95%;
     }
-    body .agendaContent__header--iconsContainer i{
+
+    body .agendaContent__header--iconsContainer i {
         padding: 0px;
     }
-    body .agendaContent__header{
+
+    body .agendaContent__header {
         width: 80%;
     }
 }
@@ -463,11 +472,13 @@
         padding: 20px;
     }
 
-    body .agendaContent__body__right{
-        display:none;
+    body .agendaContent__body__right {
+        display: none;
     }
-    body .agendaContent__body__mobileView{
-        display:flex;
-        flex-direction:column;
+
+    body .agendaContent__body__mobileView {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
     }
 }
