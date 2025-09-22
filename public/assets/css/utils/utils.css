@@ -1,0 +1,48 @@
+.btn {
+    padding: 15px;
+    border: none;
+    background-color: rgb(0, 95, 242);
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-mini {
+    padding: 5px;
+    border: none;
+    background-color: rgb(4, 74, 183);
+    border-radius: 3px;
+    color: snow;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.box {
+    background-color: rgb(29, 29, 31);
+    color: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin: 20px 15px;
+}
+
+.box h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.paraGrey {
+    color: #bfbfbf;
+}
+
+/* spans  */
+.blue {
+    color: blue;
+}
+
+.bold {
+    font-weight: 600;
+}

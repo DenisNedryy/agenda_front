@@ -1,0 +1,227 @@
+.bgImg-blue {
+    background-image: url("../../images/bg/blue.PNG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+    border-radius: 15px;
+}
+
+.banner__text p {
+    font-size: 14px;
+    color: #bfbfbf;
+}
+
+body .banner__text--title {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.banner__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner__container .btn {
+    background-color: rgb(0, 95, 242);
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.banner__text p:last-child {
+    margin-top: 2px;
+}
+
+/* --------web sites-------- */
+
+.home__webSites {
+    background-color: rgb(29, 29, 31);
+    color: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin: 20px 0px;
+}
+
+.home__webSites img {
+    width: 25px;
+    height: 25px;
+    margin-right: 7px;
+    object-fit: cover;
+}
+
+.home__webSites--container {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.home__webSites--container a {
+    color: inherit;
+    text-decoration: none;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.home__webSites--container a div {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    padding: 8px;
+    transition-duration: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.home__webSites--container a ::before {
+    content: "";
+    position: absolute;
+    z-index: 9999;
+    height: 311px;
+    width: 100px;
+    filter: blur(10px);
+    background: linear-gradient(to right, #ffffff3d 30%, #ffffff1a);
+    top: -30px;
+    transition-duration: 1.5s;
+    transform: translate(-200%) skew(-25deg);
+}
+
+.home__webSites--container a :hover::before {
+    transform: translateX(100%) skewX(-25deg);
+    transition-duration: 1s;
+}
+
+/* ------body container------ */
+.home__bodyContainer {
+    display: flex;
+}
+
+.home__bodyContainer__plannings {
+    height: 600px;
+    width: 60%;
+}
+
+.home__bodyContainer__plannings img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home__bodyContainer__plannings__events,
+.home__bodyContainer__plannings__rdvs {
+    background-color: rgb(29, 29, 31);
+    color: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin: 20px 15px;
+    height: 229px;
+}
+
+body .home__bodyContainer__plannings__rdvs {
+    height: 300px;
+}
+
+.home__bodyContainer__alarmes {
+    background-color: rgb(29, 29, 31);
+    color: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin: 20px 0px;
+    height: 551px;
+    width: 40%;
+}
+
+.home__bodyContainer__alarmes__alerts {
+    min-height: 200px;
+}
+
+.home__bodyContainer__chatGeneral img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.home__bodyContainer__left__projets__projetsContainer ul li {
+    display: flex;
+    align-items: center;
+    background-color: rgb(20, 21, 21);
+    border: 1px solid rgba(255, 255, 255, .3);
+    padding: 15px;
+    font-size: 15px;
+    margin: 6px;
+}
+
+.home__bodyContainer__left {
+    width: 60%;
+}
+
+.home__bodyContainer__left__dayOff__dateOff {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+}
+
+.home__bodyContainer__right__englishMap img {
+    width: 370px;
+    padding: 37px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    padding: .6rem .8rem;
+    border: 1px solid #ddd;
+    margin-bottom: .4rem;
+    border-radius: .5rem;
+    background: #fff;
+}
+
+.ghost {
+    opacity: .4;
+}
+
+.home__bodyContainer__right__englishMap {
+    position: relative;
+}
+
+.pourcentageTotal {
+    position: absolute;
+    right: 25px;
+    border:1px solid white;
+    background-color: rgb(0, 95, 242);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
+.map-uk {
+    --fill: rgb(0, 95, 242);
+    --stroke: #b5cdd9;
+    --stroke-w: 0.5;
+    inline-size: 267px;
+    aspect-ratio: 421 / 593;
+    display: block;
+    height: auto;
+}
+
+.fill-uk {
+    fill: var(--fill);
+    height: calc(var(--p) * 1%);
+    y: calc(100% - (var(--p) * 1%));
+}
+
+.outline-uk {
+    fill: none;
+    stroke: var(--stroke);
+    stroke-width: var(--stroke-w);
+    vector-effect: non-scaling-stroke;
+}

@@ -1,0 +1,100 @@
+.gourvernante {
+    background-color: white;
+    color: black;
+    margin-top: 15px;
+}
+
+.gourvernante__header {
+    display: flex;
+    list-style-type: none;
+    border: 1px solid rgba(0, 0, 0, .6);
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.gourvernante__header li {
+    width: calc(100% / 7);
+    border-right: 1px solid rgba(0, 0, 0, .6);
+    padding: 5px;
+    background-image: url("../../images/bg/bg_blue.png");
+}
+
+.gourvernante__fiches {
+    display: flex;
+    flex-direction: column;
+}
+
+.gourvernante__fiches li {
+    display: flex;
+}
+
+.gourvernante__fiches li p {
+    width: calc(100% / 7);
+    border: 1px solid rgba(0, 0, 0, .6);
+    padding: 5px;
+}
+
+.checksIn {
+    background-color: #4aa9e14a;
+}
+
+.surPlace {
+    background-color: rgba(254, 207, 65, 0.55);
+}
+
+.virgin {
+    background-color: white;
+}
+
+.btn-capture {
+    margin-top: 15px;
+}
+
+.gourvernante h2 {
+    padding: 10px;
+    color: black;
+    font-family: dragonBall;
+    letter-spacing: 2px;
+}
+
+.db-red {
+    color: rgb(226, 35, 32);
+    font-size: 30px;
+}
+
+.db-orange {
+    color: rgb(255, 151, 34);
+    font-size: 30px;
+}
+
+.gourvernante__header li:first-child {
+    width: 60px;
+}
+
+.gourvernante__fiches p:first-child {
+    width: 60px;
+    background-color:white;
+}
+
+.consoContainer {
+    list-style-type: none;
+}
+
+.consoContainer li {
+    border: 1px solid black;
+    display: flex;
+}
+
+.consoContainer li p:first-child {
+    border-right: 1px solid black;
+    width: fit-content;
+    padding: 25px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.consoContainer li p:nth-child(2) {
+    padding: 25px;
+}
