@@ -298,6 +298,7 @@
 
     html body main {
         width: 100%;
+        border-left: 1px solid black;
     }
 
     html .modalContent {
