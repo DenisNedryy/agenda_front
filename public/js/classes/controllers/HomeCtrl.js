@@ -41,7 +41,7 @@ export class HomeCtrl {
         const projects = await this.taskModel.getTasksByTypeSorted("projets");
         // const projectsWithNewIndexes = this.taskModel.resetIndexes(projects);
         this.projetsView.render(projects);
-        this.homeEventBinder.initDragAndDrop();
+        this.homeEventBinder.initDragAndDrop(); 
     }
 
     async renderMap() {

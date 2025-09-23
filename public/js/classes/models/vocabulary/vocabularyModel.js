@@ -69,11 +69,9 @@ export class VocabularyModel {
     switchLanguage() {
         this.vocabularyOptions.isFrToUk = !this.vocabularyOptions.isFrToUk;
     }
-    
     pushVocabularySession(success, vocabulary) {
         this.vocabularySession.push({ uuid: vocabulary.uuid, success: success });
     }
-
     resetVocabularySession() {
         this.vocabularySession = [];
     }

@@ -79,6 +79,16 @@
 
 }
 
+@media screen and (max-width: 725px) {
+    .profil__header__menu__forms {
+        flex-direction: column;
+    }
+
+    .profil__header__menu__forms>div {
+        width: fit-content;
+    }
+}
+
 @media screen and (max-width: 660px) {
     body .home__bodyContainer__left__dayOff {
         display: none;
@@ -298,7 +308,6 @@
 
     html body main {
         width: 100%;
-        border-left: 1px solid black;
     }
 
     html .modalContent {
