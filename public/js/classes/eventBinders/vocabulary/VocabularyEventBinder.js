@@ -43,7 +43,7 @@ export class VocabularyEventBinder {
             const options = this.controller.vocabularyModel.vocabularyOptions;
             this.controller.view.renderCategory(oneVocabularyCategory, { options });
             const isEnglishMode = this.controller.vocabularyModel.vocabularyOptions.isFrToUk;
-            if (isEnglishMode) {
+            if (isEnglishMode && this.controller.vocabularyModel.vocabularyOptions.isSounds) {
                 const text = oneVocabularyCategory[this.controller.vocabularyModel.vocabularyOptions.index].ukName;
                 this.controller.debouncer.execute(() => {
                     this.controller.vocabularyModel.speak(text);
@@ -78,6 +78,18 @@ export class VocabularyEventBinder {
         const btnLg = e.target.classList.contains("switch-lg");
         if (btnLg) {
             this.controller.vocabularyModel.switchLanguage();
+            const families = await this.controller.vocabularyModel.getFamilies();
+            const options = this.controller.vocabularyModel.vocabularyOptions;
+            this.controller.view.renderFilter(families, options);
+            const category = document.querySelector(".vocabulary__content").getAttribute("data-category");
+            const oneVocabularyCategory = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
+            this.controller.view.renderCategory(oneVocabularyCategory, { options });
+        }
+
+        // toggle sounds
+        const btnSound = e.target.classList.contains("toggle-sounds");
+        if (btnSound) {
+            this.controller.vocabularyModel.toggleSounds();
             const families = await this.controller.vocabularyModel.getFamilies();
             const options = this.controller.vocabularyModel.vocabularyOptions;
             this.controller.view.renderFilter(families, options);

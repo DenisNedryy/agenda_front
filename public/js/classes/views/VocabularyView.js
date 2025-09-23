@@ -22,7 +22,7 @@ export class VocabularyView {
                         <div class="vocabulary__content__right__body"></div>
                     </div>   
             </div>
-            `;
+            `; 
         }
     }
 
@@ -36,14 +36,16 @@ export class VocabularyView {
             const titleTags = document.createElement("p");
             titleTags.textContent = "tags";
             tags.appendChild(titleTags);
-            const sorted = document.createElement("button");
-            sorted.className = "btn-mini";
-            sorted.textContent = "sorted";
-            tags.appendChild(sorted);
+            // tags-swap-lg
             const frToUk = document.createElement("button");
             frToUk.className = "btn-mini switch-lg";
             frToUk.textContent = `${options.isFrToUk ? 'fr to uk' : 'uk to fr'}`;
             tags.appendChild(frToUk);
+            // tags-sounds
+            const btnSound = document.createElement("button");
+            btnSound.className="btn-mini toggle-sounds";
+            btnSound.textContent = `${options.isSounds ? 'sounds-on' : 'sounds-off'}`;
+            tags.appendChild(btnSound);
             el.appendChild(tags);
             // families
             const families = document.createElement("div");
