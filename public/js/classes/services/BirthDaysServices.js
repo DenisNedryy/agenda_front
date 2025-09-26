@@ -4,7 +4,7 @@ export class BirthDaysServices {
 
     async getBirthDaysByAuth() {
         try {
-            const preRes = await fetch(`${HOST}/api/birthDays`, {
+            const preRes = await fetch(`${HOST}/api/birthDays`, { 
                 method: "GET",
                 headers: {
                     'Content-Type': "application/json"

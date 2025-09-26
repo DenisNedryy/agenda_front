@@ -24,7 +24,7 @@ export class VocabularyCtrl {
         const options = this.vocabularyModel.vocabularyOptions;
         this.view.renderFilter(families, options);
 
-        this.seoManager.setTitle('Ecorcerie Gestionnaire - Profil');
+        this.seoManager.setTitle('Schedule - Profil');
         this.vocabularyEventBinder.addEventListeners();
         this.vocabularyEventBinder.addEventListeners();
     }

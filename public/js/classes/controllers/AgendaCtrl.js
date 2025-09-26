@@ -39,8 +39,7 @@ export class AgendaCtrl {
 
     };
 
-    async show(dateSelected=null) {
-
+    async show(dateSelected = null) {
         await this.authServices.init();
         this.dateNavigationModel.setCurrentDateSelected();
         const auth = await this.authServices.getAuth();
@@ -49,11 +48,13 @@ export class AgendaCtrl {
         const tasksRes = await this.taskModel.getTasks();
         const tasks = tasksRes.data.tasks;
         const tasksFiltered = await this.userModel.getUserSelectedTasks(auth, userSelected, tasks);
+
         if (this.birthDaysModel.birthDays) {
             const allBirthDaysRes = await this.birthDaysServices.getBirthDaysByAuth();
-            const allBirthDays = allBirthDaysRes.data.birthDays;
-            this.birthDaysModel.birthDaysTasks = allBirthDays;
+            const allBirthDays = allBirthDaysRes.data.birthDays || [];
+            this.birthDaysModel.birthDaysTask = allBirthDays;
         }
+
         const date = new Date(this.dateNavigationModel.dateSelected);
         const weekParams = {
             isBankHolidays: this.bankHolidaysModel.bankHolidays,
@@ -73,7 +74,7 @@ export class AgendaCtrl {
         this.agendaCalendarView.renderMobileView(weekData.weeklySchedule, dateSelected);
         this.addModelView.renderModel();
         this.addModelView.renderModelMobile();
-        this.seoManager.setTitle('Ecorcerie Gestionnaire - Agenda');
+        this.seoManager.setTitle('Schedule - Agenda');
 
         this.agendaEventBinder.addEventListeners();
         this.agendaWeekEventBinder.addEventListeners();

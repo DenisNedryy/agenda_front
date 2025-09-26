@@ -7,7 +7,7 @@ export class AuthServices {
 
     async init() {
         if (this.userIdSelected === null) {
-            const auth = await this.userServices.getMyProfil(); 
+            const auth = await this.userServices.getMyProfil();
             this.userIdSelected = auth.data.user.id;
         }
     }
@@ -39,10 +39,10 @@ export class AuthServices {
     }
 
     updateUser(data) {
-        return this.userServices.updateUser(data); 
+        return this.userServices.updateUser(data);
     }
 
-    updatePassword(data){
+    updatePassword(data) {
         return this.userServices.updatePassword(data);
     }
 

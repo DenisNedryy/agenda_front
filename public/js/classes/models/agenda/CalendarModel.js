@@ -46,7 +46,7 @@ export class CalendarModel {
                     }
                 }
             }
-
+            
             if (weekParams.isBirthDays) {
                 for (let bd of weekParams.birthDaysTasks) {
                     if (stripTime(dayDate) === stripTime(new Date(bd.date))) { }

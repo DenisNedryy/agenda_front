@@ -16,7 +16,7 @@ export class ProfilCtrl {
         const data = await this.authServices.getAuth();
         this.view.render(data);
         this.profilFormView.renderName();
-        this.seoManager.setTitle('Ecorcerie Gestionnaire - Profil'); 
+        this.seoManager.setTitle('Schedule - Profil'); 
         this.eventBinder.addEventListeners();
     }
 }

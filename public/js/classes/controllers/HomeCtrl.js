@@ -26,7 +26,7 @@ export class HomeCtrl {
         this.renderProjets();
         this.renderMap();
         
-        this.seoManager.setTitle('Ecorcerie Gestionnaire - Accueil');
+        this.seoManager.setTitle('Schedule - Accueil');
         this.homeEventBinder.addEventListeners();
     }
 

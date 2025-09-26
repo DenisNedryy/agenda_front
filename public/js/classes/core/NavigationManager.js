@@ -1,4 +1,6 @@
 // import { getIfisConnected } from "../../services/Auth.js";
+import { AuthServices } from "../services/AuthServices.js";
+import { UserServices } from "../services/UserServices.js";
 
 export class NavigationManager {
 
@@ -34,9 +36,11 @@ export class NavigationManager {
     async navigate(pageKey, push = true) { 
         const pageKeyWithoutParams = pageKey.split("?")[0];
         const controller = this.routes[pageKeyWithoutParams];
+        const userServices = new UserServices();
+        const authRes = await userServices.getMyProfil();
+        const amIConnected = authRes.ok;
 
-        // const isUserConnected = await this.checkIfIsConnected();
-        // if (!isUserConnected && pageKey!=='auth') return;
+        if(!amIConnected && pageKey!=='auth') this.navigate('auth', true);
 
         if (!controller) {
             this.show404();
@@ -52,13 +56,9 @@ export class NavigationManager {
         this.navHighLighter.highlight(pageKey);
     }
 
-    // async checkIfIsConnected() {
-    //     const res = await getIfisConnected();
-    //     return (res && res.data.isUser) ? true : false;
-    // }
 
     init() {
-        const initialPage = this.getPageFromURL() || 'home';
+        const initialPage = this.getPageFromURL() || 'agenda';
         this.navigate(initialPage, false);
     }
 }

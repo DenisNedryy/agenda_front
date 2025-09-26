@@ -14,7 +14,7 @@ export class AuthCtrl {
 
     async show() {
         this.authView.render();
-        this.seoManager.setTitle('Ecorcerie Gestionnaire - Auth');
+        this.seoManager.setTitle('Schedule - Auth');
         this.authEventBinder.addEventListeners();
     }
 
