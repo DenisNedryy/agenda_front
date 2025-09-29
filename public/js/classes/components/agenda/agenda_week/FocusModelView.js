@@ -27,11 +27,17 @@ export class FocusModalView {
                                   <p> ${day} ${this.dateModel.yearMonth[month - 1]} ${year}</p>             
                                 </div>
                             </div>
+                          
 
                   ${task.description ? `<div class="modalContent__body__description">
-    <i class="fa-solid fa-bars"></i>
-    <p>${task.description}</p>
-</div>` : ''}
+                                             <i class="fa-solid fa-bars"></i>
+                                             <p>${task.description}</p>
+                                        </div>` : ''}
+                                          ${task.type === "spaced_repetition" ? '': `
+                                <div>
+                                    <button class="btn-mini btn-task-reviewTomorow">Review Tomorrow</button>
+                                </div>
+                                `}
 
                      <div class="modalContent__body__spaceRepetition"></div>
                     </div>
@@ -61,10 +67,10 @@ export class FocusModalView {
                 </div>
               `;
         }
-        if(task.type==="spaced_repetition") this.renderSpaceRepetition(task);
+        if (task.type === "spaced_repetition") this.renderSpaceRepetition(task);
     }
 
-        renderMobile(task) {
+    renderMobile(task) {
         const el = document.querySelector(".modalFocus2");
         if (el) {
             const date = new Date(task.date);
@@ -121,10 +127,10 @@ export class FocusModalView {
                 </div>
               `;
         }
-        if(task.type==="spaced_repetition") this.renderSpaceRepetition(task);
+        if (task.type === "spaced_repetition") this.renderSpaceRepetition(task);
     }
 
-    renderSpaceRepetition(task){
+    renderSpaceRepetition(task) {
         const el = document.querySelector(".modalContent__body__spaceRepetition");
         el.innerHTML = `
             <button class="btn-mini btn-nextStep">Next Step (${this.dateModel.convertStep(task.step)} jours)</button>

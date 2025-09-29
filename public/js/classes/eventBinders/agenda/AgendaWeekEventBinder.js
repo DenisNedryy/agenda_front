@@ -219,6 +219,13 @@ export class AgendaWeekEventBinder {
                 this.controller.focusModalView.renderMobile(task);
                 document.querySelector(".modalFocus2").classList.remove("hidden");
             }
+        } 
+
+        // task review Tomorow
+        if (e.target.classList.contains("btn-task-reviewTomorow")) {
+            const taskId = e.target.closest(".modalContent").getAttribute("data-id");
+            const res = await this.controller.taskModel.reviewTomorow(taskId);
+            this.controller.show();
         }
 
         // spaced_Repetition next step

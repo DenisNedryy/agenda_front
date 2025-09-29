@@ -13,8 +13,6 @@ export class HomeCtrl {
         this.seoManager = seoManager;
         this.homeEventBinder = homeEventBinder;
 
-
-
         this.taskServices = taskServices;
 
         this.homeEventBinder.setController(this);
@@ -45,6 +43,14 @@ export class HomeCtrl {
     }
 
     async renderMap() {
+        // vérification si vocabulaire 
+        const isVocabulary = await this.vocabularyModel.isVocabulary();
+        if(!isVocabulary){
+            this.englishView.render404();
+            return;
+        }
+
+        // affichage de la view english
         const pourcentageTotal = await this.vocabularyModel.getTotalFamilyPercentage();
         this.englishView.render(pourcentageTotal);
     }

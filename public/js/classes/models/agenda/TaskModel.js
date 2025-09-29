@@ -33,14 +33,14 @@ export class TaskModel {
         return tasks.filter((task) => task.type === "rdvs");
     }
 
-    async getTasksByTypeSorted(type){
+    async getTasksByTypeSorted(type) {
         const res = await this.taskService.readTasksByAuthAndType(type);
         return res.data.tasks;
     }
 
-    resetIndexes(tasks){
-        for(let i=0;i<tasks.length;i++){
-            tasks[i].sort_order = i+1;
+    resetIndexes(tasks) {
+        for (let i = 0; i < tasks.length; i++) {
+            tasks[i].sort_order = i + 1;
         }
         return tasks;
     }
@@ -89,6 +89,20 @@ export class TaskModel {
             }
         }
         return nextConsecutiveDaysOff;
+    }
+
+    async toggleCardToDelete(taskId) {
+        const res = await this.taskService.toggleCardToDelete(taskId);
+        if (res.ok) {
+            return res.data.msg;
+        } else {
+            return res.data.msg;
+        }
+    }
+
+    async reviewTomorow(taskId) {
+        const res = await this.taskService.reviewTomorow(taskId);
+        return res.data.msg;
     }
 
 }

@@ -11,6 +11,27 @@ export class VocabularyModel {
         this.vocabularySession = []; // {uuid:string, success:false}
     }
 
+    async isVocabulary() {
+        const res = await this.vocabularyService.isVocabulary();
+        return res.ok ? true : false;
+    }
+
+    async init(data) {
+
+        // vérification si du vocabulaire a été ajouté
+        const vocRes = await this.vocabularyService.getVocabulary();
+        const vocabulary = vocRes.data.vocabulary;
+        if (vocabulary && vocabulary.length > 0) {
+            // const res = await this.addService(data);
+            // console.log(res);
+            return;
+        } else {
+            // sinon on init
+            const res = await this.vocabularyService.initService(data);
+            console.log(res);
+        }
+    }
+
     speak(text) {
         if ('speechSynthesis' in window) {
             const utterance = new SpeechSynthesisUtterance(text);

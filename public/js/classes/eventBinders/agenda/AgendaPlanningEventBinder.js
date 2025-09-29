@@ -80,7 +80,7 @@ export class AgendaPlanningEventBinder {
             this.addEventListeners();
         }
 
-        else if (e.target.classList.contains("taskFilter--projects")) {
+        else if (e.target.classList.contains("taskFilter--projets")) {
             const auth = await this.controller.authServices.getAuth();
             const userSelectedRes = await this.controller.authServices.getUserById(this.controller.authServices.userIdSelected);
             const userSelected = userSelectedRes.data.user;
@@ -88,12 +88,12 @@ export class AgendaPlanningEventBinder {
             const tasks = tasksRes.data.tasks;
             const tasksByUser = await this.controller.userModel.getUserSelectedTasks(auth, userSelected, tasks);
             const tasksByUserSorted = await this.controller.planningModel.getPlanningProjets(tasksByUser);
-            this.controller.planningView.render(tasksByUserSorted, "projects");
+            this.controller.planningView.render(tasksByUserSorted, "projets");
             this.controller.planningView.renderAll(tasksByUserSorted);
             this.addEventListeners();
         }
 
-        else if (e.target.classList.contains("taskFilter--spacedRepetition")) {
+        else if (e.target.classList.contains("taskFilter--spaced_repetition")) {
             const auth = await this.controller.authServices.getAuth();
             const userSelectedRes = await this.controller.authServices.getUserById(this.controller.authServices.userIdSelected);
             const userSelected = userSelectedRes.data.user;
@@ -101,7 +101,7 @@ export class AgendaPlanningEventBinder {
             const tasks = tasksRes.data.tasks;
             const tasksByUser = await this.controller.userModel.getUserSelectedTasks(auth, userSelected, tasks);
             const tasksByUserSorted = await this.controller.planningModel.getPlanningSpaceRepetition(tasksByUser);
-            this.controller.planningView.render(tasksByUserSorted, "spacedRepetition");
+            this.controller.planningView.render(tasksByUserSorted, "spaced_repetition");
             this.controller.planningView.renderAll(tasksByUserSorted);
             this.addEventListeners();
         }
@@ -134,11 +134,40 @@ export class AgendaPlanningEventBinder {
 
         // naviger vers agenda depuis planning task
         const taskContainerEl = e.target.closest(".tasksContent__container");
-        if (taskContainerEl) {
+        if (taskContainerEl && !e.target.classList.contains("planning__checkBoxContainer") && !e.target.classList.contains("fa-solid")) {
             const dateStr = taskContainerEl.getAttribute("data-date");
             const date = new Date(dateStr);
             this.controller.dateNavigationModel.dateSelected = date.getTime();
             this.controller.show();
+        }
+
+
+        // toggle checkBox to_delete
+        const checkBoxEl = e.target.closest(".planning__checkBoxContainer");
+        if (checkBoxEl) {
+            const taskId = e.target.closest(".tasksContent__container ").getAttribute("data-id");
+            const jsonRes = await this.controller.taskModel.toggleCardToDelete(taskId);
+            console.log(jsonRes);
+
+            // récupération du type
+            const activeTaskEl = document.querySelector(".taskFilter--active").className;
+            const firstClass = activeTaskEl.split(" ")[0];
+            const type = firstClass.split("--")[1];
+
+            const auth = await this.controller.authServices.getAuth();
+            const userSelectedRes = await this.controller.authServices.getUserById(this.controller.authServices.userIdSelected);
+            const userSelected = userSelectedRes.data.user;
+            const tasksRes = await this.controller.taskServices.getTasks();
+            const tasks = tasksRes.data.tasks;
+            const tasksByUser = await this.controller.userModel.getUserSelectedTasks(auth, userSelected, tasks);
+            const tasksSortedByType = await this.controller.planningModel.getTasksByType(tasksByUser, type);
+
+
+            this.controller.planningView.render(tasksSortedByType, type);
+            this.controller.planningView.renderAll(tasksSortedByType);
+            this.addEventListeners();
+
+
         }
 
     }

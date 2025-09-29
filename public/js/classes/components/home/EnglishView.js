@@ -1,10 +1,10 @@
 export class EnglishView {
 
-    render(pourcentage) {
-        const el = document.querySelector(".home__bodyContainer__right__englishMap");
-        if (el) {
-            el.innerHTML = "";
-            el.innerHTML = `
+  render(pourcentage) {
+    const el = document.querySelector(".home__bodyContainer__right__englishMap");
+    if (el) {
+      el.innerHTML = "";
+      el.innerHTML = `
                       <h2>Progression</h2>
                       <p class="pourcentageTotal">${pourcentage} %</p>
             <svg class="map-uk"  style="--p:${pourcentage};"  viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t">
@@ -35,6 +35,18 @@ export class EnglishView {
 
 
             `;
-        }
     }
+  }
+
+  render404() {
+    const el = document.querySelector(".home__bodyContainer__right__englishMap");
+    if (el) {
+      el.innerHTML = "";
+      el.innerHTML = `
+                      <h2>Progression</h2>
+                      <img src="/public/assets/images/map/uk404.png" />
+                      `;
+    }
+
+  }
 }

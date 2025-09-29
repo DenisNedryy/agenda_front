@@ -1,4 +1,5 @@
-
+// one shoot
+import { data } from "./data/vocabulary/vocabulary.js"
 
 // utils
 import { Debouncer } from "./classes/models/utils/Debouncer.js";
@@ -17,6 +18,7 @@ import { FocusModalView } from "./classes/components/agenda/agenda_week/FocusMod
 import { DayOffView } from "./classes/components/home/DayOffView.js";
 import { ProjetsView } from "./classes/components/home/ProjetsView.js";
 import { EnglishView } from "./classes/components/home/EnglishView.js";
+import { ModalViews } from "./classes/components/vocabulary/ModalViews.js";
 
 // services
 import { UserServices } from "./classes/services/UserServices.js";
@@ -97,7 +99,6 @@ const modalModel = new ModalModel();
 const vocabularyModel = new VocabularyModel(vocabularyService);
 
 // components instances
-
 const addModelView = new AddModelView();
 const focusModalView = new FocusModalView(dateModel);
 
@@ -174,7 +175,6 @@ const agendaModels = Object.freeze({
     planningModel: planningModel,
     modalModel: modalModel
 });
-
 const agendaServices = Object.freeze({
     authServices: authServices,
     taskServices: taskServices,
@@ -196,18 +196,18 @@ const profilFormView = new ProfilFormView();
 const profilEventBinder = new ProfilEventBinder(profilView);
 const profilCtrl = new ProfilCtrl(profilView, seoManager, profilEventBinder, authServices, miseAJourAuth, profilFormView, birthDaysServices);
 
-// petit programme pour ajouter du vocabulaire
-import { data } from "./data/vocabulary/vocabulary.js"
-import { AddVocabulary } from "./AddVocabulary.js";
-const addVocabulary = new AddVocabulary();
-addVocabulary.init(data);
 // vocabulary instances
 const vocabularyView = new VocabularyView();
+const modalViews = new ModalViews();
 
 const vocabularyEventBinders = Object.freeze({
     vocabularyEventBinder: vocabularyEventBinder
 });
-const vocabularyCtrl = new VocabularyCtrl(vocabularyView, { vocabularyEventBinders }, vocabularyService, vocabularyModel, seoManager, debouncer);
+const vocabularyViews = Object.freeze({
+    vocabularyView: vocabularyView,
+    modalViews: modalViews
+})
+const vocabularyCtrl = new VocabularyCtrl({ vocabularyViews }, { vocabularyEventBinders }, vocabularyService, vocabularyModel, seoManager, debouncer, data);
 
 
 const routes = {

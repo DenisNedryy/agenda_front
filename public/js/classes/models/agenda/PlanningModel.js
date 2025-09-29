@@ -4,6 +4,15 @@ export class PlanningModel {
         this.dateModel = dateModel;
     }
 
+    getTasksByType(tasks, type = "all") {
+        if (type === "all") {
+            return this.getPlanning(tasks);
+        } else {
+            return this.dateModel.sortTasksByDate(tasks.filter((task) => task.type === type));
+        }
+
+    }
+
 
     async getPlanning(tasks) {
         return this.dateModel.sortTasksByDate(tasks);

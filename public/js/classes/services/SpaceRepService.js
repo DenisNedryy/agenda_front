@@ -27,7 +27,7 @@ export class SpaceRepService {
             const preRes = await fetch(`${HOST}/api/spaced_repetition/reviewTomorow/${id}`, {
                 method: "PUT",
                 headers: {
-                    'Content-Type': "application/json"
+                    'Content-Type': "application/json" 
                 },
                 credentials: "include",
             });

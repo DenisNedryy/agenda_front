@@ -224,4 +224,48 @@ export class TaskServices {
         }
     }
 
+
+
+
+    async toggleCardToDelete(taskId) {
+        try {
+            const preRes = await fetch(`${HOST}/api/tasks/toDelete/${taskId}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                credentials: "include",
+            });
+            const res = await preRes.json();
+            return {
+                status: preRes.status,
+                ok: preRes.ok,
+                data: res
+            };
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+
+    async reviewTomorow(id) {
+        try {
+            const preRes = await fetch(`${HOST}/api/tasks/reviewTomorow/${id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                credentials: "include",
+            });
+            const res = await preRes.json();
+            return {
+                status: preRes.status,
+                ok: preRes.ok,
+                data: res
+            };
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
 }

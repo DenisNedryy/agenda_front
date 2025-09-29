@@ -33,14 +33,17 @@ export class NavigationManager {
         }
     }
 
-    async navigate(pageKey, push = true) { 
+    async navigate(pageKey, push = true) {
         const pageKeyWithoutParams = pageKey.split("?")[0];
         const controller = this.routes[pageKeyWithoutParams];
         const userServices = new UserServices();
         const authRes = await userServices.getMyProfil();
         const amIConnected = authRes.ok;
 
-        if(!amIConnected && pageKey!=='auth') this.navigate('auth', true);
+        if (!amIConnected && pageKey !== 'auth') {
+            this.navigate('auth', true);
+            return;
+        }
 
         if (!controller) {
             this.show404();

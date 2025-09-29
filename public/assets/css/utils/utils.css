@@ -21,6 +21,37 @@
     margin: 5px;
 }
 
+.btn-mini-white {
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 5px;
+    font-weight: 600;
+    background-color: unset;
+    color: white;
+    transition-duration: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-mini-white:before {
+    content: "";
+    position: absolute;
+    z-index: 9999;
+    height: 311px;
+    width: 100px;
+    filter: blur(10px);
+    background: linear-gradient(to right, #ffffff3d 30%, #ffffff1a);
+    top: -30px;
+    transition-duration: 1.5s;
+    transform: translate(-200%) skew(-25deg);
+}
+
+.btn-mini-white:hover:before {
+    transform: translateX(100%) skewX(-25deg);
+    transition-duration: 1s;
+}
+
 .box {
     background-color: rgb(29, 29, 31);
     color: white;
@@ -32,6 +63,15 @@
 .box h2 {
     font-size: 20px;
     font-weight: 500;
+}
+
+.dark {
+    filter: brightness(.5);
+    background-color: rgb(20, 21, 21);
+}
+
+.rayé {
+    text-decoration: line-through;
 }
 
 .paraGrey {

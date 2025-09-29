@@ -3,7 +3,7 @@ import { HOST } from "../../host.js";
 export class VocabularyView {
 
     render() {
-        const el = document.getElementById("root");
+        const el = document.getElementById("root"); 
         if (el) {
             el.innerHTML = ` 
             <div class="vocabulary">
@@ -15,14 +15,10 @@ export class VocabularyView {
                     </div>
                 </div>
                          <div class="vocabulary__content__right box">
-                        <div class="vocabulary__content__right__header">
-                            <p class="">Filter</p> 
-                            <p class="">Display</p>
-                        </div>
                         <div class="vocabulary__content__right__body"></div>
                     </div>   
             </div>
-            `; 
+            `;
         }
     }
 
@@ -30,20 +26,42 @@ export class VocabularyView {
         const el = document.querySelector(".vocabulary__content__right__body");
         if (el) {
             el.innerHTML = "";
+
+            // addVocabulary
+            const addVoc = document.createElement("div");
+            addVoc.className = "vocabulary__add";
+            const titleAddVoc = document.createElement("p");
+            titleAddVoc.textContent = "Vocabulary";
+            addVoc.appendChild(titleAddVoc);
+
+            // btn base
+            const addBase = document.createElement("button");
+            addBase.className = "btn-mini-white addBaseVocabulary";
+            addBase.textContent = "Add basic vocabulary";
+            addVoc.appendChild(addBase);
+
+            // btn add voc
+            const btnAddVoc = document.createElement("button");
+            btnAddVoc.className = "btn-mini-white addVocabulary";
+            btnAddVoc.textContent = "Add vocabulary";
+            addVoc.appendChild(btnAddVoc);
+
+            el.appendChild(addVoc);
+
             // tags
             const tags = document.createElement("div");
             tags.className = "vocabulary__tags";
             const titleTags = document.createElement("p");
-            titleTags.textContent = "tags";
+            titleTags.textContent = "Tags";
             tags.appendChild(titleTags);
             // tags-swap-lg
             const frToUk = document.createElement("button");
-            frToUk.className = "btn-mini switch-lg";
+            frToUk.className = "btn-mini-white switch-lg";
             frToUk.textContent = `${options.isFrToUk ? 'fr to uk' : 'uk to fr'}`;
             tags.appendChild(frToUk);
             // tags-sounds
             const btnSound = document.createElement("button");
-            btnSound.className="btn-mini toggle-sounds";
+            btnSound.className = "btn-mini-white toggle-sounds";
             btnSound.textContent = `${options.isSounds ? 'sounds-on' : 'sounds-off'}`;
             tags.appendChild(btnSound);
             el.appendChild(tags);
@@ -51,11 +69,11 @@ export class VocabularyView {
             const families = document.createElement("div");
             families.className = "vocabulary__families";
             const titleFamilies = document.createElement("p");
-            titleFamilies.textContent = "families";
+            titleFamilies.textContent = "Families";
             families.appendChild(titleFamilies);
             for (let i = 0; i < data.length; i++) {
                 const btn = document.createElement("button");
-                btn.className = "btn-mini";
+                btn.className = "btn-mini-white";
                 btn.setAttribute("data-name", data[i]);
                 btn.textContent = data[i];
                 families.appendChild(btn);
@@ -86,6 +104,25 @@ export class VocabularyView {
 
             const vocBodyLeft = document.createElement("div");
             vocBodyLeft.className = "vocabulary__content__left__body__left";
+            console.log(data);
+
+            const wordsLength = keys.reduce((acc, currV) => {
+                return acc += data[currV].length;
+            }, 0);
+
+            // nombre de mots appris
+            const nbWordLearntContainer = document.createElement("div");
+            nbWordLearntContainer.className = "vocabulary__content__left__body__left__wordsLearnt";
+            const nbLength = document.createElement("p");
+            nbLength.textContent = wordsLength;
+            const comm = document.createElement("p");
+            comm.textContent = "words to learn";
+            nbWordLearntContainer.appendChild(nbLength);
+            nbWordLearntContainer.appendChild(comm);
+            vocBodyLeft.appendChild(nbWordLearntContainer);
+
+            const progressContainer = document.createElement("div");
+            progressContainer.className = "vocabulary__content__left__body__left__progress";
 
             // progress circle bar
             const progressCircle = document.createElement("div");
@@ -98,11 +135,13 @@ export class VocabularyView {
             insideCircle.textContent = `${familyPercentil} %`;
             circle.appendChild(insideCircle);
             progressCircle.appendChild(circle);
-            vocBodyLeft.appendChild(progressCircle);
+            progressContainer.appendChild(progressCircle);
 
             const cpbComment = document.createElement("p");
-            cpbComment.textContent = "Words learnt";
-            vocBodyLeft.appendChild(cpbComment);
+            cpbComment.textContent = "Avg. progress";
+            progressContainer.appendChild(cpbComment);
+
+            vocBodyLeft.appendChild(progressContainer);
 
             vocBody.appendChild(vocBodyLeft);
 
@@ -142,27 +181,23 @@ export class VocabularyView {
                 progressBar.appendChild(rectangle);
                 ficheBottom.appendChild(progressBar);
 
+
                 fiche.appendChild(ficheBottom);
-
-
                 setTimeout(() => {
                     vocBodyRight.appendChild(fiche);
                 }, cpt);
-                cpt+=200;
+                cpt += 200;
 
 
             }
 
             vocBody.appendChild(vocBodyRight);
-
             el.appendChild(vocBody);
 
         }
     }
 
     renderCategory(data, { options }) {
-        // console.log(data);
-        // console.log(options);
         const el = document.querySelector(".vocabulary__content");
         el.setAttribute("data-category", data[0].category);
         if (el) {
@@ -229,6 +264,33 @@ export class VocabularyView {
         }
     }
 
+    render404() {
+        const el = document.querySelector(".vocabulary__content");
+        if (el) {
+            el.innerHTML = `<div class="englandMap404Container">
+                                <img class="englendMap404" src="/public/assets/images/map/uk404.png" />
+                            </div>`;
+        }
+    }
+
+    renderFilter404() {
+        const el = document.querySelector(".vocabulary__content__right__body");
+        if (el) {
+            el.innerHTML = "";
+            // addVocabulary
+            const addVoc = document.createElement("div");
+            addVoc.className = "vocabulary__add";
+            const titleAddVoc = document.createElement("p");
+            titleAddVoc.textContent = "Vocabulary";
+            addVoc.appendChild(titleAddVoc);
+            // btn base
+            const addBase = document.createElement("button");
+            addBase.className = "btn-mini-white addBaseVocabulary";
+            addBase.textContent = "Add basic vocabulary";
+            addVoc.appendChild(addBase);
+            el.appendChild(addVoc);
+        }
+    }
 
 
 }
