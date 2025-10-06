@@ -163,6 +163,10 @@
 
 @media screen and (max-width: 600px) {
 
+    body .modalViewContainer input, body .modalViewContainer select{
+        width: 100%;
+    }
+
     body .fiche-birthDay {
         border: 1px solid rgba(108, 102, 102, 0.2);
         border-radius: 3px;
@@ -177,8 +181,6 @@
     body .fiche-birthDay p {
         margin: 0px 0px;
     }
-
-
 
     body .iconContainer-birthDay i {
         margin-right: 0px;
