@@ -2,7 +2,7 @@ export class ModalView {
 
 
     renderAlertsLength(alerts) {
-        console.log(alerts.length);
+
         const el = document.querySelector(".header__right__alerts--bells--status");
         if (el) {
             el.textContent = alerts.length === 0 ? "" : alerts.length;

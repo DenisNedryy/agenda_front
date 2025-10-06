@@ -69,6 +69,27 @@
     }
 }
 
+@media screen and (max-width: 814px) {
+    body .vocabulary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    html body .vocabulary__content {
+        margin: 20px 15px;
+        width: 90%;
+    }
+
+    html body .vocabulary__content__right {
+        width: 90%;
+    }
+
+    html body .vocabulary {
+        margin: 0px;
+    }
+
+
+}
 
 @media screen and (max-width: 800px) {
 
@@ -109,11 +130,6 @@
         margin: 0px 0px;
     }
 
-    body .vocabulary {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
     body .vocabulary__content__left__body__left {
         display: none;
     }
@@ -130,10 +146,7 @@
         width: 100%;
     }
 
-    body .vocabulary__content {
-        margin: 3px;
-        margin-top: 9px;
-    }
+    body .vocabulary__content {}
 
     body .vocFiche {
         width: 95%;
