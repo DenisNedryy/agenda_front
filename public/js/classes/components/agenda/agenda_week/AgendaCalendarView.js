@@ -121,10 +121,10 @@ export class AgendaCalendarView {
                day.className = `${
   (dateSelected && dateSelected === `${year}-${month}-${currentDay}`) ||
   (!dateSelected && cell.dayInfo.isCurrentDay)
-    ? "calendarMobileView__header__day currentDay-mobile-on"
+    ? "calendarMobileView__header__day currentDay-mobile-on" 
     : "calendarMobileView__header__day"
 }`;
-                day.style.width = `${(containerWidth / 7) - 1}px`;
+                day.style.width = `${((containerWidth-(60)) / 7)}px`;
                 const date = `${cell.dayInfo.year}-${cell.dayInfo.month}-${cell.dayInfo.dayDateNum}`;
                 day.innerHTML = `
                  <p class="mobileDay">${this.dateModel.weekDays[index].slice(0, 3)}</p>

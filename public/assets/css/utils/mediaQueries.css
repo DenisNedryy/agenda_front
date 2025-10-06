@@ -96,7 +96,7 @@
     body .agendaContent__body {
         display: flex;
         flex-direction: column;
-        width: 96%;
+        width: 100%;
     }
 
 }
@@ -132,7 +132,10 @@
     }
 
     body .agenda {
-        margin: 15px 12px;
+        padding: 15px 12px;
+    }
+    .calendarMobileView__header .calendarMobileView__header__day:last-child{
+        margin: 0px;
     }
 
     body .vocabulary__content__left__body__left {
