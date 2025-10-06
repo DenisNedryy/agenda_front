@@ -67,7 +67,7 @@ export class VocabularyView {
             tags.appendChild(frToUk);
             // tags-sounds
             const btnSound = document.createElement("button");
-            btnSound.className = "btn-mini-white toggle-sounds";
+            btnSound.className = `btn-mini-white toggle-sounds ${options.isSounds ? "bgGreen" : "bgRed"}`;
             btnSound.textContent = `${options.isSounds ? 'sounds-on' : 'sounds-off'}`;
             tags.appendChild(btnSound);
             el.appendChild(tags);

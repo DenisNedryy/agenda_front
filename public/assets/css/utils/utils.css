@@ -51,6 +51,12 @@
     transform: translateX(100%) skewX(-25deg);
     transition-duration: 1s;
 }
+.bgGreen{
+    background-color:rgb(0, 95, 242);
+}
+.bgRed{
+    background-color:rgb(242, 11, 0);
+}
 
 .box {
     background-color: rgb(29, 29, 31);

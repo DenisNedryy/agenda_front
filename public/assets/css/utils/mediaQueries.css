@@ -163,6 +163,33 @@
 
 @media screen and (max-width: 600px) {
 
+    body .fiche-birthDay {
+        border: 1px solid rgba(108, 102, 102, 0.2);
+        border-radius: 3px;
+        padding: 0px;
+        margin: 0px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    body .fiche-birthDay p {
+        margin: 0px 0px;
+    }
+
+
+
+    body .iconContainer-birthDay i {
+        margin-right: 0px;
+    }
+
+
+    body .profil {
+        margin: 5px;
+        padding: 0px;
+    }
+
     body .home__webSites--container {
         flex-wrap: wrap;
     }

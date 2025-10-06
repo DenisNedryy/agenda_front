@@ -492,6 +492,7 @@ body .agendaContent__body__left {
     background-color: rgb(41, 41, 41);
 }
 
-.agendaContent__body__mobileView .agendaTask__body{
+.agendaContent__body__mobileView .agendaTask__body {
     font-size: 14px;
+    overflow-wrap: break-word;
 }
