@@ -1,0 +1,75 @@
+.popUp {
+    position: fixed;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgb(41, 44, 49);
+    color: white;
+    width: 400px;
+    animation-name: afr;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    top: 20%;
+    left: 40%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 999;
+}
+
+.header__right__alerts--bells--status {
+    font-size: 12px;
+}
+
+.popUp__header__length {
+    position: absolute;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 5px;
+    right: -12px;
+    top: 26px;
+}
+
+.popUp__header {
+    display: flex;
+    justify-content: center;
+}
+
+.popUp__header>div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    top: -50px;
+}
+
+.popUp__header i {
+    position: absolute;
+    font-size: 50px;
+    color: gold;
+}
+
+.popUp__body__alerts {
+    margin-top: 30px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: rgb(48, 51, 58);
+}
+
+.popUp__body__alerts__alert {
+    padding: 15px;
+    font-weight: 600;
+}
+
+.popUp__body__alerts__alert:hover {
+    filter: brightness(.8);
+    cursor: pointer;
+}
+
+.popUp__body--title {
+    font-weight: 600;
+}

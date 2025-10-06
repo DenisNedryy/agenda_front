@@ -71,7 +71,7 @@ header {
 .header__right__alerts--bells {
     transition-duration: 0.4s;
     border: 1px solid rgba(255, 255, 255, .3);
-    padding: 10px;
+    padding: 13px;
     border-radius: 5px;
     margin: 5px;
     position: relative;
@@ -83,10 +83,17 @@ header {
 .header__right__alerts--bells--status {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 2px;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.ball-red {
     background-color: rgb(255, 50, 63);
     border: 1px solid white;
 }
@@ -101,6 +108,7 @@ header {
     width: 35px;
     height: 35px;
     margin-right: 10px;
+    object-fit: cover;
 }
 
 .header__right__profil__text {

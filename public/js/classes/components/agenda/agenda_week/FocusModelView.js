@@ -95,9 +95,15 @@ export class FocusModalView {
                             </div>
 
                   ${task.description ? `<div class="modalContent__body__description">
-    <i class="fa-solid fa-bars"></i>
-    <p>${task.description}</p>
-</div>` : ''}
+                                             <i class="fa-solid fa-bars"></i>
+                                             <p>${task.description}</p>
+                                 
+                    </div>` : ''}
+                                ${task.type === "spaced_repetition" ? '': `
+                                        <div>
+                                             <button class="btn-mini btn-task-reviewTomorow">Review Tomorrow</button>
+                                        </div>
+                                `}
 
                      <div class="modalContent__body__spaceRepetition"></div>
                     </div>

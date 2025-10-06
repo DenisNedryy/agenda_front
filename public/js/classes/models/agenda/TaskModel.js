@@ -14,6 +14,11 @@ export class TaskModel {
         return res.data.tasks;
     }
 
+    async getAlerts() {
+        const res = await this.taskService.getAlerts();
+        return res.data.alerts;
+    }
+
     getDaysOff(tasks) {
         if (tasks)
             return tasks.filter((task) => task.type === "dayOff");

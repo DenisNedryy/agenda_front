@@ -126,7 +126,7 @@
 }
 
 .vocabulary__content__left {
-    width: 100%;
+    width: 600px;
 }
 
 .select-vocabulary__content__right {
@@ -360,4 +360,271 @@
 .category__footer__buttons button {
     margin: 0px 10px;
     padding: 5px 15px;
+}
+
+
+/* modal */
+#form-family,
+#form-category {
+    display: flex;
+    flex-direction: column;
+}
+
+.familyLink,
+.categoryLink {
+    cursor: pointer;
+}
+
+.unvisible {
+    visibility: hidden;
+}
+
+.modalViewContainer__body__family__keys,
+.modalViewContainer__body__family__values {
+    display: flex;
+}
+
+
+#fieldset-family,
+#fieldset-category {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.modalViewContainer input,
+.modalViewContainer select {
+    background-color: rgb(30, 33, 36);
+    border: 1px solid rgb(46, 49, 54);
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    width: 327px;
+}
+
+.modalViewContainer input[type="file"] {
+    margin: 15px 0px;
+}
+
+.vocabulary-add-container form>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.vocabularyAddModal__family fieldset {
+    margin: 20px 0px;
+}
+
+.vocabularyAddModal label {
+    margin: 7px 0px;
+}
+
+.familyLink,
+.categoryLink {
+    width: fit-content;
+    color: rgb(134, 205, 254);
+    margin: 5px 0px;
+    font-size: 14px;
+}
+
+#fieldset-family label,
+#fieldset-category label {
+    margin: 10px 0px;
+}
+
+#vocabularyAddModal button[type='submit'] {
+    padding: 9px;
+    border: none;
+    background-color: rgb(4, 74, 183);
+    border-radius: 3px;
+    color: snow;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0px;
+}
+
+.btn-container button {
+    padding: 9px;
+    border: none;
+    border-radius: 3px;
+    color: snow;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 15px 10px 0px 0px
+}
+
+.btn-container button:nth-child(1) {
+    background-color: rgb(4, 74, 183);
+}
+
+.btn-container button:nth-child(2) {
+    background-color: rgb(14, 201, 138);
+}
+
+
+html body .btn-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.vocabulary-add-container form>div label {
+    margin: 10px 0px;
+}
+
+/* tableau family - category - length */
+.modalViewContainer__body__family__keys,
+.modalViewContainer__body__family__values {
+    display: flex;
+}
+
+.modalViewContainer__body__family__keys {
+    background-color: black;
+    padding: 15px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+}
+
+.modalViewContainer__body__family__values {
+    padding: 15px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    margin-bottom: 25px;
+}
+
+.modalViewContainer__body__family__keys p:nth-child(1) {
+    width: 300px;
+}
+
+.modalViewContainer__body__family__keys p:nth-child(2) {
+    width: 300px;
+}
+
+.modalViewContainer__body__family__keys p:nth-child(3) {
+    width: 20px;
+}
+
+.modalViewContainer__body__family__values p:nth-child(1) {
+    width: 300px;
+}
+
+.modalViewContainer__body__family__values p:nth-child(2) {
+    width: 300px;
+}
+
+.modalViewContainer__body__family__values p:nth-child(3) {
+    width: 20px;
+}
+
+/* update vocabulary */
+.vocabulary__content__updateArray__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.vocabulary__content__updateArray__container__header {
+    display: flex;
+    background-color: black;
+    padding: 15px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+}
+
+.vocabulary__content__updateArray__container__header p:nth-child(1) {
+    width: 35%;
+}
+
+.vocabulary__content__updateArray__container__header p:nth-child(2) {
+    width: 35%;
+}
+
+.vocabulary__content__updateArray__container__header p:nth-child(3) {
+    width: 30%;
+}
+
+.vocabulary__content__updateArray__container__body__vocLine {
+    display: flex;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.vocabulary__content__updateArray__container__body__vocLine p:nth-child(1) {
+    width: 35%;
+    display: flex;
+    align-items: center;
+}
+
+.vocabulary__content__updateArray__container__body__vocLine p:nth-child(2) {
+    width: 35%;
+    display: flex;
+    align-items: center;
+}
+
+.vocabulary__content__updateArray__container__body__vocLine p:nth-child(3) {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+#vocabularyUpdateModal fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+#vocabularyUpdateModal fieldset label {
+    margin: 10px 0px;
+}
+
+#vocabularyUpdateModal fieldset select {
+    background-color: rgb(30, 33, 36);
+    border: 1px solid rgb(46, 49, 54);
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    padding-left: 5px;
+    padding-left: 10px;
+    width: 327px;
+}
+
+#vocabularyUpdateModal button[type="submit"] {
+    padding: 9px;
+    border: none;
+    background-color: rgb(4, 74, 183);
+    border-radius: 3px;
+    color: snow;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0px;
+}
+
+.btn-delete-vocabulary-line {
+    background-color: rgb(201, 14, 14);
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    color: snow;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.deleteFamilyOrCategoryButtons button {
+    padding: 9px;
+    border: none;
+    background-color: rgb(201, 14, 14);
+    border-radius: 3px;
+    color: snow;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0px;
 }

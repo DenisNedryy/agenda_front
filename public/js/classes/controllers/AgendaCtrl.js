@@ -1,12 +1,14 @@
 export class AgendaCtrl {
 
-    constructor(seoManager, { agendaViews, agendaModels, agendaServices, agendaEventBinders }) {
+    constructor(seoManager,modalView, { agendaViews, agendaModels, agendaServices, agendaEventBinders }) {
         this.seoManager = seoManager;
+        this.modalView = modalView;
+
         this.agendaView = agendaViews.agendaView;
         this.agendaWeekView = agendaViews.agendaWeekView;
         this.agendaNavView = agendaViews.agendaNavView;
         this.agendaParamsView = agendaViews.agendaParamsView;
-        this.agendaCalendarView = agendaViews.agendaCalendarView;
+        this.agendaCalendarView = agendaViews.agendaCalendarView; 
         this.yearView = agendaViews.yearView;
         this.planningView = agendaViews.planningView;
         this.addModelView = agendaViews.addModelView;

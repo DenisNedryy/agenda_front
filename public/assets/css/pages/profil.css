@@ -213,7 +213,7 @@
     width: 125px;
     border: 2px solid white;
     height: 125px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .profil__header__menu__name>div {

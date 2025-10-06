@@ -6,6 +6,9 @@
 @import "./utils/fonts.css";
 @import "./utils/ModalAdd.css";
 
+/* Pop up*/
+@import "./popUp/popUp.css";
+
 /* asside */
 @import "./layouts/aside.css";
 @import "./layouts/header.css";

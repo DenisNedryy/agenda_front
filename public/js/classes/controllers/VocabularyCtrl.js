@@ -1,6 +1,6 @@
 export class VocabularyCtrl {
 
-    constructor({vocabularyViews}, { vocabularyEventBinders }, vocabularyService, vocabularyModel, seoManager, debouncer,data) {
+    constructor({ vocabularyViews }, { vocabularyEventBinders }, vocabularyService, vocabularyModel, seoManager, debouncer, data) {
         this.view = vocabularyViews.vocabularyView;
         this.modalViews = vocabularyViews.modalViews;
         this.vocabularyService = vocabularyService;
@@ -13,7 +13,7 @@ export class VocabularyCtrl {
         this.vocabularyEventBinder.setController(this);
     }
 
-    async show(family = "nature et environnement") {
+    async show(family = null) {
         // si pas de vocabulaire, affichage réduit
         const isVocabulary = await this.vocabularyModel.isVocabulary();
         if (!isVocabulary) {
@@ -26,6 +26,11 @@ export class VocabularyCtrl {
         }
 
         // main
+        if (!family) {
+            // mettre la première de la liste
+            const families = await this.vocabularyModel.getFamilies();
+             family = families[0];
+        }
         const vocabulary = await this.vocabularyModel.getVocabulary();
         const vocabularyByCategories = await this.vocabularyModel.getVocabularyByCategories();
         const vocabularyByFamily = await this.vocabularyModel.getVocabularyByFamily(family);
