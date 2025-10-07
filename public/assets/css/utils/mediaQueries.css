@@ -134,7 +134,8 @@
     body .agenda {
         padding: 15px 12px;
     }
-    .calendarMobileView__header .calendarMobileView__header__day:last-child{
+
+    .calendarMobileView__header .calendarMobileView__header__day:last-child {
         margin: 0px;
     }
 
@@ -308,6 +309,8 @@
         background-color: rgb(20, 20, 20);
         top: 0px;
         z-index: 999;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
     }
 
     html body .paramsOptions {
@@ -373,6 +376,11 @@
 
     html .modal {
         justify-content: flex-start;
+    }
+
+    html body .agendaContent {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
     }
 
     body .tasksFilters p {
@@ -537,9 +545,24 @@
         display: none;
     }
 
+    body .auth {
+        background-color: unset;
+        align-items: unset;
+    }
+
+    body .auth form {
+        border-radius: 15px;
+        margin-top: 34px;
+    }
+    body .calendarMobileView__body{
+        min-height: 200px; 
+    }
+
     body .agendaContent__body__mobileView {
         display: flex;
         flex-direction: column;
         border: 1px solid black;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
     }
 }
