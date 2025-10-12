@@ -2,12 +2,17 @@ export class VocabularyCtrl {
 
     constructor({ vocabularyViews }, { vocabularyEventBinders }, vocabularyService, vocabularyModel, seoManager, debouncer, data) {
         this.view = vocabularyViews.vocabularyView;
-        this.modalViews = vocabularyViews.modalViews;
+        this.vocabularyAddView = vocabularyViews.vocabularyAddView;
+        this.vocabulary404 = vocabularyViews.vocabulary404;
+        this.vocabularyUpdate = vocabularyViews.vocabularyUpdate; 
+        this.vocabularyCategory = vocabularyViews.vocabularyCategory;
+        this.vocabularyFamilyAndCategories = vocabularyViews.vocabularyFamilyAndCategories;
+        this.vocabularyFilters = vocabularyViews.vocabularyFilters;
         this.vocabularyService = vocabularyService;
         this.vocabularyModel = vocabularyModel;
         this.vocabularyEventBinder = vocabularyEventBinders.vocabularyEventBinder;
         this.seoManager = seoManager;
-        this.debouncer = debouncer;
+        this.debouncer = debouncer; 
         this.data = data;
 
         this.vocabularyEventBinder.setController(this);
@@ -18,8 +23,8 @@ export class VocabularyCtrl {
         const isVocabulary = await this.vocabularyModel.isVocabulary();
         if (!isVocabulary) {
             this.view.render();
-            this.view.render404();
-            this.view.renderFilter404();
+            this.vocabulary404.render404();
+            this.vocabulary404.renderFilter404();
             this.seoManager.setTitle('Schedule - Vocabulary');
             this.vocabularyEventBinder.addEventListeners();
             return;
@@ -29,7 +34,7 @@ export class VocabularyCtrl {
         if (!family) {
             // mettre la première de la liste
             const families = await this.vocabularyModel.getFamilies();
-             family = families[0];
+            family = families[0];
         }
         const vocabulary = await this.vocabularyModel.getVocabulary();
         const vocabularyByCategories = await this.vocabularyModel.getVocabularyByCategories();
@@ -39,9 +44,9 @@ export class VocabularyCtrl {
         const categories = await this.vocabularyModel.getCategories();
         const familyPercentil = await this.vocabularyModel.getFamiliesPercentils(family);
         this.view.render();
-        this.view.renderVocabulary(vocabularyByFamily, categories, familyPercentil);
+        this.vocabularyFamilyAndCategories.renderVocabulary(vocabularyByFamily, categories, familyPercentil);
         const options = this.vocabularyModel.vocabularyOptions;
-        this.view.renderFilter(families, options);
+        this.vocabularyFilters.renderFilter(families, options);
 
         this.seoManager.setTitle('Schedule - Vocabulary');
         this.vocabularyEventBinder.addEventListeners();

@@ -10,9 +10,7 @@ export class PlanningModel {
         } else {
             return this.dateModel.sortTasksByDate(tasks.filter((task) => task.type === type));
         }
-
     }
-
 
     async getPlanning(tasks) {
         return this.dateModel.sortTasksByDate(tasks);

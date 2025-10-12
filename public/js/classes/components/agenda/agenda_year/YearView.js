@@ -1,22 +1,10 @@
+import { YEAR_MONTH } from "../../../../constants/schedule.js";
+
 export class YearView {
 
     constructor() {
-        this.yearMonth = [
-            "Janvier",
-            "Février",
-            "Mars",
-            "Avril",
-            "Mai",
-            "Juin",
-            "Juillet",
-            "Août",
-            "Septembre",
-            "Octobre",
-            "Novembre",
-            "Décembre"
-        ];
+        this.yearMonth = YEAR_MONTH;
     }
-
 
     render(data) {
         const el = document.querySelector(".agendaContent");
@@ -126,7 +114,7 @@ export class YearView {
                     const today = new Date();
                     const isToday = today.getFullYear() === year && today.getMonth() === monthIndex && today.getDate() === day;
                     cell.className = isToday ? 'numero yearCurrentDay' : 'numero';
-                    cell.setAttribute('data-date', `${year}-${this.getFormatForNumbersWidhtZeroBefore(monthIndex+1)}-${this.getFormatForNumbersWidhtZeroBefore(day)}`);
+                    cell.setAttribute('data-date', `${year}-${this.getFormatForNumbersWidhtZeroBefore(monthIndex + 1)}-${this.getFormatForNumbersWidhtZeroBefore(day)}`);
                     weekRow.appendChild(cell);
 
                     // Si on arrive à dimanche (7 colonnes), on termine la ligne

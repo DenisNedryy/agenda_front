@@ -41,16 +41,6 @@ export class ProfilEventBinder {
             this.addEventListeners();
         }
 
-        else if (e.target.classList.contains("profilUpdate-birthdays")) {
-            this.setProfilActive(e.target);
-            const birthDaysRes = await this.controller.birthDaysServices.getBirthDaysByAuth();
-            const birthDays = await birthDaysRes.data.birthDays;
-            this.controller.profilFormView.renderUpdateBirthDay(birthDays);
-            this.addEventListeners();
-        }
-
-
-
         else if (e.target.classList.contains("btn-profil-name")) {
             e.preventDefault();
             const form = e.target.closest("form");
@@ -118,6 +108,20 @@ export class ProfilEventBinder {
             this.controller.profilFormView.renderUpdateBirthDay(birthDays);
             this.addEventListeners();
         }
+
+        const btnFilter = e.target.closest(".profilUpdate-birthdays");
+        if (btnFilter) {
+            this.setProfilActive(e.target);
+            const birthDaysRes = await this.controller.birthDaysServices.getBirthDaysByAuth();
+            const birthDays = await birthDaysRes.data.birthDays;
+            this.controller.profilFormView.renderBaseFilter();
+            this.controller.profilFormView.renderBirthdayList(birthDays);
+            this.addEventListeners();
+        }
+
+
+
+
     }
 
     setProfilActive(el) {
@@ -141,19 +145,42 @@ export class ProfilEventBinder {
 
     async handleInputTask(e) {
         e.preventDefault();
-        const inputs = document.querySelectorAll('.date');
-        const input = e.target;
-        if (!input.closest(".birthdayInputsContainer")) return;
-        const idx = Array.from(inputs).indexOf(input);
-        const maxLength = input.maxLength;
-        const value = input.value;
+        const dateContainer = e.target.closest(".birthdayInputsContainer");
+        if (dateContainer) {
+            const inputs = document.querySelectorAll('.date');
+            const input = e.target;
+            if (!input.closest(".birthdayInputsContainer")) return;
+            const idx = Array.from(inputs).indexOf(input);
+            const maxLength = input.maxLength;
+            const value = input.value;
 
-        if (value.length >= maxLength) {
-            const nextInput = inputs[idx + 1];
-            if (nextInput) {
-                nextInput.focus();
+            if (value.length >= maxLength) {
+                const nextInput = inputs[idx + 1];
+                if (nextInput) {
+                    nextInput.focus();
+                }
             }
         }
+
+        const inputFilter = e.target.closest(".birthday-filter");
+        if (inputFilter) {
+            const text = inputFilter.value;
+            if (text) {
+                console.log(text);
+                // fetch le text
+                const namesRes = await this.controller.birthDaysServices.getBirthDaysByName(text);
+                const names = namesRes.data.birthDays;
+                this.controller.profilFormView.renderBirthdayList(names);
+                this.addEventListeners();
+            }
+            if (text === "") {
+                const birthDaysRes = await this.controller.birthDaysServices.getBirthDaysByAuth();
+                const birthDays = await birthDaysRes.data.birthDays;
+                this.controller.profilFormView.renderBirthdayList(birthDays);
+                this.addEventListeners();
+            }
+        }
+
     }
 
 }

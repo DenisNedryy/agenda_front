@@ -29,7 +29,7 @@ export class VocabularyEventBinder {
             const categories = await this.controller.vocabularyModel.getCategoriesNames(family);
             this.controller.vocabularyModel.isNewCategory = false;
             const isNewCategory = this.controller.vocabularyModel.isNewCategory;
-            this.controller.modalViews.renderSelectCategories(categories, isNewCategory);
+            this.controller.vocabularyAddView.renderSelectCategories(categories, isNewCategory);
         }
 
         // update voc form
@@ -38,7 +38,7 @@ export class VocabularyEventBinder {
             e.preventDefault();
             const family = fieldsetUpdateFamily.elements['family'].value;
             const categories = await this.controller.vocabularyModel.getCategoriesNames(family);
-            this.controller.view.renderUpdateVocabularyCategories(categories);
+            this.controller.vocabularyUpdate.renderUpdateVocabularyCategories(categories);
         }
 
     }
@@ -62,7 +62,7 @@ export class VocabularyEventBinder {
             }
             this.controller.vocabularyModel.setUpVocabularyAddOptions(options);
             const length = await this.controller.vocabularyModel.getCategoryLength(category);
-            this.controller.modalViews.renderVocabularyForm(options, length);
+            this.controller.vocabularyAddView.renderVocabularyForm(options, length);
         }
 
         const vocabularyUpdateModal = e.target.closest("#vocabularyUpdateModal");
@@ -74,7 +74,7 @@ export class VocabularyEventBinder {
             // afficher le tableau des update
             const data = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
             console.log(data);
-            this.controller.view.renderVocabularyUpdateArray(data);
+            this.controller.vocabularyUpdate.renderVocabularyUpdateArray(data);
 
         }
     }
@@ -97,7 +97,7 @@ export class VocabularyEventBinder {
             form.reset();
             // maj ui
             const length = await this.controller.vocabularyModel.getCategoryLength(options.category);
-            this.controller.modalViews.renderVocabularyForm(options, length);
+            this.controller.vocabularyAddView.renderVocabularyForm(options, length);
         }
 
         // revenir au menu vocabulary
@@ -131,7 +131,7 @@ export class VocabularyEventBinder {
             const category = fiche.getAttribute("data-name");
             const oneVocabularyCategory = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
             const options = this.controller.vocabularyModel.vocabularyOptions;
-            this.controller.view.renderCategory(oneVocabularyCategory, { options });
+            this.controller.vocabularyCategory.renderCategory(oneVocabularyCategory, { options });
         }
 
         // traduction
@@ -141,7 +141,7 @@ export class VocabularyEventBinder {
             const category = e.target.closest(".vocabulary__content").getAttribute("data-category");
             const oneVocabularyCategory = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
             const options = this.controller.vocabularyModel.vocabularyOptions;
-            this.controller.view.renderCategory(oneVocabularyCategory, { options });
+            this.controller.vocabularyCategory.renderCategory(oneVocabularyCategory, { options });
             const isEnglishMode = this.controller.vocabularyModel.vocabularyOptions.isFrToUk;
             if (isEnglishMode && this.controller.vocabularyModel.vocabularyOptions.isSounds) {
                 const text = oneVocabularyCategory[this.controller.vocabularyModel.vocabularyOptions.index].ukName;
@@ -171,7 +171,7 @@ export class VocabularyEventBinder {
             this.controller.vocabularyModel.pushVocabularySession(answer, oneVocabularyCategory[index]);
             this.controller.vocabularyModel.next();
             const options = this.controller.vocabularyModel.vocabularyOptions;
-            this.controller.view.renderCategory(oneVocabularyCategory, { options });
+            this.controller.vocabularyCategory.renderCategory(oneVocabularyCategory, { options });
         }
 
         // switch language
@@ -180,10 +180,10 @@ export class VocabularyEventBinder {
             this.controller.vocabularyModel.switchLanguage();
             const families = await this.controller.vocabularyModel.getFamilies();
             const options = this.controller.vocabularyModel.vocabularyOptions;
-            this.controller.view.renderFilter(families, options);
+            this.controller.vocabularyFilters.renderFilter(families, options);
             const category = document.querySelector(".vocabulary__content").getAttribute("data-category");
             const oneVocabularyCategory = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
-            this.controller.view.renderCategory(oneVocabularyCategory, { options });
+            this.controller.vocabularyCategory.renderCategory(oneVocabularyCategory, { options });
         }
 
         // toggle sounds
@@ -192,10 +192,10 @@ export class VocabularyEventBinder {
             this.controller.vocabularyModel.toggleSounds();
             const families = await this.controller.vocabularyModel.getFamilies();
             const options = this.controller.vocabularyModel.vocabularyOptions;
-            this.controller.view.renderFilter(families, options);
+            this.controller.vocabularyFilters.renderFilter(families, options);
             const category = document.querySelector(".vocabulary__content").getAttribute("data-category");
             const oneVocabularyCategory = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
-            this.controller.view.renderCategory(oneVocabularyCategory, { options });
+            this.controller.vocabularyCategory.renderCategory(oneVocabularyCategory, { options });
         }
 
         // render modal container
@@ -203,13 +203,13 @@ export class VocabularyEventBinder {
         if (btnModalContainer) {
             this.controller.vocabularyModel.resetVocabularyAddOptions();
             const familiesNames = await this.controller.vocabularyModel.getFamilies();
-            this.controller.modalViews.renderModalContainer();
-            this.controller.modalViews.renderBodyFamilyForm();
+            this.controller.vocabularyAddView.renderModalContainer();
+            this.controller.vocabularyAddView.renderBodyFamilyForm();
             const isNewFamily = this.controller.vocabularyModel.isNewFamily;
-            this.controller.modalViews.renderSelectFamilies(familiesNames, isNewFamily);
+            this.controller.vocabularyAddView.renderSelectFamilies(familiesNames, isNewFamily);
             const categories = await this.controller.vocabularyModel.getCategoriesNames(familiesNames[0]);
             const isNewCategory = this.controller.vocabularyModel.isNewCategory;
-            this.controller.modalViews.renderSelectCategories(categories, isNewCategory);
+            this.controller.vocabularyAddView.renderSelectCategories(categories, isNewCategory);
         }
 
         const familyLink = e.target.closest(".familyLink");
@@ -218,10 +218,10 @@ export class VocabularyEventBinder {
             this.controller.vocabularyModel.isCategory = true;
             const isNewFamily = this.controller.vocabularyModel.isNewFamily;
             const familiesNames = await this.controller.vocabularyModel.getFamilies();
-            this.controller.modalViews.renderSelectFamilies(familiesNames, isNewFamily);
+            this.controller.vocabularyAddView.renderSelectFamilies(familiesNames, isNewFamily);
             const isNewCategory = this.controller.vocabularyModel.isCategory;
             const categories = await this.controller.vocabularyModel.getCategoriesNames();
-            this.controller.modalViews.renderSelectCategories(categories, isNewCategory);
+            this.controller.vocabularyAddView.renderSelectCategories(categories, isNewCategory);
         }
 
         const categoryLink = e.target.closest(".categoryLink");
@@ -229,7 +229,7 @@ export class VocabularyEventBinder {
             this.controller.vocabularyModel.isCategory = !this.controller.vocabularyModel.isCategory;
             const isNewCategory = this.controller.vocabularyModel.isCategory;
             const categories = await this.controller.vocabularyModel.getCategoriesNames();
-            this.controller.modalViews.renderSelectCategories(categories, isNewCategory);
+            this.controller.vocabularyAddView.renderSelectCategories(categories, isNewCategory);
         }
 
         // btn update vocabulary 
@@ -239,11 +239,11 @@ export class VocabularyEventBinder {
             const data = await this.controller.vocabularyModel.getVocabularySortedByFamiliesAndCategories();
             const families = data.map((cell) => cell.name);
             // créer une base et diviser families et categories en 2 pour mettre à jour categories
-            this.controller.view.renderUpdateVocabularyBase();
-            this.controller.view.renderUpdateVocabularyFamilies(families);
+            this.controller.vocabularyUpdate.renderUpdateVocabularyBase();
+            this.controller.vocabularyUpdate.renderUpdateVocabularyFamilies(families);
             const categoriesObj = await this.controller.vocabularyModel.getVocabularyByFamily(families[0]);
             const categories = Object.keys(categoriesObj);
-            this.controller.view.renderUpdateVocabularyCategories(categories);
+            this.controller.vocabularyUpdate.renderUpdateVocabularyCategories(categories);
         }
 
         // btn delete family
@@ -257,10 +257,21 @@ export class VocabularyEventBinder {
         // btn delete category
         const btnDeleteCategory = e.target.closest(".btn-delete-category");
         if (btnDeleteCategory) {
+            console.log("couocu");
             const family = btnDeleteCategory.getAttribute("data-family");
             const category = btnDeleteCategory.getAttribute("data-category");
             await this.controller.vocabularyModel.deleteCategory(family, category);
             this.controller.show();
+        }
+
+        // btn-delete-vocabulary-line
+        const btnDeleteVocabulary = e.target.closest(".btn-delete-vocabulary-line");
+        if (btnDeleteVocabulary) {
+            const vocId = btnDeleteVocabulary.closest(".vocabulary__content__updateArray__container__body__vocLine").getAttribute("data-id");
+            const category = await this.controller.vocabularyModel.deleteVocabulary(vocId);
+            // mettre à jour l'ui
+            const data = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
+            this.controller.vocabularyUpdate.renderVocabularyUpdateArray(data);
         }
     }
 

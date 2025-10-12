@@ -13,6 +13,6 @@ export class HeaderCtrl {
         const alerts = await this.taskModel.getAlerts();
         this.modalView.renderAlertsLength(alerts);
 
-        this.headerEventBinder.addEventListeners();
+        this.headerEventBinder.addEventListeners(); 
     }
 }

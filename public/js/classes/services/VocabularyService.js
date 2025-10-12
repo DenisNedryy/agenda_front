@@ -1,4 +1,4 @@
-import { HOST } from "../../host.js";
+import { HOST } from "../../constants/host.js";
 
 export class VocabularyService {
 
@@ -319,5 +319,25 @@ export class VocabularyService {
         }
     }
 
+    
+    async deleteVocabulary(vocabularyId) {
+        try {
+            const preRes = await fetch(`${HOST}/api/vocabulary/${vocabularyId}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                credentials: "include",
+            });
+            const res = await preRes.json();
+            return {
+                status: preRes.status,
+                ok: preRes.ok,
+                data: res
+            };
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
 }

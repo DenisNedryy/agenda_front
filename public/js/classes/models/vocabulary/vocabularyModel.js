@@ -288,4 +288,10 @@ export class VocabularyModel {
         console.log(res.data.msg);
     }
 
+    async deleteVocabulary(vocabularyId) {
+        const res = await this.vocabularyService.deleteVocabulary(vocabularyId);
+        console.log(res.data.msg);
+        return res.data.category;
+    }
+
 }

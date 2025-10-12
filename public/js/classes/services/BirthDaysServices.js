@@ -1,10 +1,10 @@
-import { HOST } from "../../host.js";
+import { HOST } from "../../constants/host.js";
 
 export class BirthDaysServices {
 
     async getBirthDaysByAuth() {
         try {
-            const preRes = await fetch(`${HOST}/api/birthDays`, { 
+            const preRes = await fetch(`${HOST}/api/birthDays`, {
                 method: "GET",
                 headers: {
                     'Content-Type': "application/json"
@@ -51,6 +51,26 @@ export class BirthDaysServices {
         try {
             const preRes = await fetch(`${HOST}/api/birthdays/${id}`, {
                 method: "DELETE",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                credentials: "include",
+            });
+            const res = await preRes.json();
+            return {
+                status: preRes.status,
+                ok: preRes.ok,
+                data: res
+            };
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async getBirthDaysByName(name) {
+        try {
+            const preRes = await fetch(`${HOST}/api/birthDays/${name}`, {
+                method: "GET",
                 headers: {
                     'Content-Type': "application/json"
                 },

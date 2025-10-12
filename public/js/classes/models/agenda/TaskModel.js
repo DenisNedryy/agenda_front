@@ -16,6 +16,7 @@ export class TaskModel {
 
     async getAlerts() {
         const res = await this.taskService.getAlerts();
+        console.log(res);
         return res.data.alerts;
     }
 

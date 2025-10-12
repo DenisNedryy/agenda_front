@@ -1,30 +1,10 @@
+import { YEAR_MONTH, WEEK_DAYS } from "../../../constants/schedule.js";
+
 export class DateModel {
 
     constructor() {
-        this.yearMonth = [
-            "Janvier",
-            "Février",
-            "Mars",
-            "Avril",
-            "Mai",
-            "Juin",
-            "Juillet",
-            "Août",
-            "Septembre",
-            "Octobre",
-            "Novembre",
-            "Décembre"
-        ];
-
-        this.weekDays = [
-            "lundi",
-            "mardi",
-            "mercredi",
-            "jeudi",
-            "vendredi",
-            "samedi",
-            "dimanche"
-        ];
+        this.yearMonth = YEAR_MONTH;
+        this.weekDays = WEEK_DAYS;
 
     }
 

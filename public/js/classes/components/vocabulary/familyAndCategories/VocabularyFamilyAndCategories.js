@@ -1,0 +1,114 @@
+import { HOST} from "../../../../constants/host.js";
+
+export class VocabularyFamilyAndCategories{ 
+
+
+    //  gauche page avec la famille, le avg % et les categories
+        // pareil, à diviser en (title-header)/panneau-affichage/categories 
+        renderVocabulary(data, categories, familyPercentil) {
+    
+            const el = document.querySelector(".vocabulary__content__left");
+            if (el) {
+                let cpt = 0;
+                const keys = Object.keys(data);
+                //header
+                const vocHeader = document.createElement("div");
+                vocHeader.className = "vocabulary__content__left__header";
+                const title = document.createElement("p");
+                title.textContent = data[keys[0]][0].family; 
+                vocHeader.appendChild(title);
+                el.appendChild(vocHeader);
+                //body
+                const vocBody = document.createElement("div");
+                vocBody.className = "vocabulary__content__left__body";
+    
+                const vocBodyLeft = document.createElement("div");
+                vocBodyLeft.className = "vocabulary__content__left__body__left";
+    
+                const wordsLength = keys.reduce((acc, currV) => {
+                    return acc += data[currV].length;
+                }, 0);
+    
+                // nombre de mots appris
+                const nbWordLearntContainer = document.createElement("div");
+                nbWordLearntContainer.className = "vocabulary__content__left__body__left__wordsLearnt";
+                const nbLength = document.createElement("p");
+                nbLength.textContent = wordsLength;
+                const comm = document.createElement("p");
+                comm.textContent = "words to learn";
+                nbWordLearntContainer.appendChild(nbLength);
+                nbWordLearntContainer.appendChild(comm);
+                vocBodyLeft.appendChild(nbWordLearntContainer);
+    
+                const progressContainer = document.createElement("div");
+                progressContainer.className = "vocabulary__content__left__body__left__progress";
+    
+                // progress circle bar
+                const progressCircle = document.createElement("div");
+                progressCircle.className = "progress-circle";
+                const circle = document.createElement("div");
+                circle.className = "circle";
+                circle.style.background = `conic-gradient(rgb(0, 95, 242) 0 ${familyPercentil}%, #e0e0e0 ${familyPercentil}%)`;
+                const insideCircle = document.createElement("div");
+                insideCircle.className = "inside-circle";
+                insideCircle.textContent = `${familyPercentil} %`;
+                circle.appendChild(insideCircle);
+                progressCircle.appendChild(circle);
+                progressContainer.appendChild(progressCircle);
+    
+                const cpbComment = document.createElement("p");
+                cpbComment.textContent = "Avg. progress";
+                progressContainer.appendChild(cpbComment);
+    
+                vocBodyLeft.appendChild(progressContainer);
+    
+                vocBody.appendChild(vocBodyLeft);
+    
+                const vocBodyRight = document.createElement("div");
+                vocBodyRight.className = "vocabulary__content__left__body__right";
+    
+                for (let i = 0; i < keys.length; i++) {
+                    const fiche = document.createElement("div");
+                    fiche.setAttribute("data-name", keys[i]);
+                    fiche.className = "vocFiche fade-in";
+                    const ficheTop = document.createElement("div");
+                    ficheTop.className = "vocFiche__top";
+                    const leftContainer = document.createElement("div");
+                    const img = document.createElement("img");
+                    img.setAttribute("src", `${HOST}/api/images/categories/${data[keys[i]][0].img_url}`);
+                    leftContainer.appendChild(img);
+    
+                    const category = document.createElement("p");
+                    category.textContent = keys[i];
+                    const percentage = document.createElement("p");
+                    const percentilsData = categories.filter((cell) => cell.name === keys[i])[0];
+                    const pct = percentilsData?.percentage ?? 0;
+                    percentage.textContent = `${pct}%`;
+                    leftContainer.appendChild(category);
+                    ficheTop.appendChild(leftContainer);
+                    ficheTop.appendChild(percentage);
+                    fiche.appendChild(ficheTop);
+    
+                    const ficheBottom = document.createElement("div");
+                    ficheBottom.className = "vocFiche__bottom";
+                    const progressBar = document.createElement("div");
+                    progressBar.className = "progress-bar";
+                    const rectangle = document.createElement("div");
+                    rectangle.className = "rectangle";
+    
+                    rectangle.style.width = `${pct}%`;
+                    progressBar.appendChild(rectangle);
+                    ficheBottom.appendChild(progressBar);
+    
+                    fiche.appendChild(ficheBottom);
+                    setTimeout(() => {
+                        vocBodyRight.appendChild(fiche);
+                    }, cpt);
+                    cpt += 200;
+                }
+    
+                vocBody.appendChild(vocBodyRight);
+                el.appendChild(vocBody);
+            }
+        }
+}

@@ -1,0 +1,1 @@
+export const HOST = `https://agenda.tbuilder.fr`;

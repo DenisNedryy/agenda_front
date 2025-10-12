@@ -86,16 +86,30 @@ export class ProfilFormView {
     }
   }
 
-  renderUpdateBirthDay(birthDays) {
+  renderBaseFilter() {
     const el = document.querySelector(".profil_form");
     if (el) {
+      el.innerHTML = `
+      <div class="profil_form__filter">
+        <form>
+          <input type="text" class="birthday-filter" name="birthday-filter" placeholder="Search" />
+        </form>
+      </div>
+      <div class="profil_form__birthdaysList"></div>
+      `;
+    }
+  }
+
+  renderBirthdayList(birthDays) {
+    const el = document.querySelector(".profil_form__birthdaysList");
+    if (el) {
       el.innerHTML = "";
-      el.classList.add("box");
+
       for (let i = 0; i < birthDays.length; i++) {
         const fiche = document.createElement("div");
-        fiche.setAttribute("data-id",birthDays[i].id);
+        fiche.setAttribute("data-id", birthDays[i].id);
         const names = document.createElement("div");
-        names.className="names";
+        names.className = "names";
         fiche.className = "fiche-birthDay";
         const name = document.createElement("p");
         name.textContent = birthDays[i].name;
@@ -112,7 +126,54 @@ export class ProfilFormView {
         const euroDate = formatted.split("/").join("-");
         birthDate.textContent = euroDate;
 
-        const iconContainer = document.createElement("div"); 
+        const iconContainer = document.createElement("div");
+        iconContainer.className = "iconContainer-birthDay";
+        const deleteBirthDate = document.createElement("i");
+        deleteBirthDate.className = "fa-solid fa-trash-can delete-birthDay";
+        iconContainer.appendChild(deleteBirthDate);
+
+
+        // mettre date(DD/MM/YYYY)
+
+        fiche.appendChild(names);
+        fiche.appendChild(birthDate);
+        fiche.appendChild(iconContainer);
+
+        el.appendChild(fiche);
+      }
+    }
+  }
+
+
+  renderUpdateBirthDay(birthDays) {
+    const el = document.querySelector(".profil_form");
+    if (el) {
+      el.innerHTML = "";
+
+      // mettre un filter
+      el.classList.add("box");
+      for (let i = 0; i < birthDays.length; i++) {
+        const fiche = document.createElement("div");
+        fiche.setAttribute("data-id", birthDays[i].id);
+        const names = document.createElement("div");
+        names.className = "names";
+        fiche.className = "fiche-birthDay";
+        const name = document.createElement("p");
+        name.textContent = birthDays[i].name;
+        names.appendChild(name);
+
+        const lastName = document.createElement("p");
+        lastName.textContent = birthDays[i].last_name;
+        names.appendChild(lastName);
+
+        const birthDate = document.createElement("p");
+        const isoDate = birthDays[i].date;
+        const date = new Date(isoDate);
+        const formatted = date.toLocaleDateString('fr-FR');
+        const euroDate = formatted.split("/").join("-");
+        birthDate.textContent = euroDate;
+
+        const iconContainer = document.createElement("div");
         iconContainer.className = "iconContainer-birthDay";
         const deleteBirthDate = document.createElement("i");
         deleteBirthDate.className = "fa-solid fa-trash-can delete-birthDay";

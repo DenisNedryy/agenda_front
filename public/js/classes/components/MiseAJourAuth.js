@@ -1,4 +1,4 @@
-import { HOST } from "../../host.js";
+import { HOST } from "../../constants/host.js";
 
 export class MiseAJourAuth {
     constructor(authServices) {

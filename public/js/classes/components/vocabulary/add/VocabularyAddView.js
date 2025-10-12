@@ -1,5 +1,6 @@
-export class ModalViews {
+export class VocabularyAddView {
 
+    // base
     renderModalContainer() {
         const el = document.querySelector(".vocabulary__content");
         if (el) {
@@ -15,6 +16,7 @@ export class ModalViews {
         }
     }
 
+    // add base for selects families/categories
     renderBodyFamilyForm() {
         const el = document.querySelector(".modalViewContainer__body__family");
         if (el) {
@@ -28,6 +30,7 @@ export class ModalViews {
         }
     }
 
+    // af submit add select => vocabulary add forms + resume
     renderVocabularyForm(options, length = 0) {
         const el = document.querySelector(".modalViewContainer__body__family");
         if (el) {
@@ -62,6 +65,7 @@ export class ModalViews {
         }
     }
 
+    // select family add
     renderSelectFamilies(families, isNewFamily) {
         const el = document.querySelector(".vocabularyAddModal__family");
         if (el) {
@@ -96,6 +100,7 @@ export class ModalViews {
         }
     }
 
+    // select categories add
     renderSelectCategories(categories, isNewCategory) {
         const el = document.querySelector(".vocabularyAddModal__category");
         if (el) {

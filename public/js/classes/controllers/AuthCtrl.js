@@ -1,14 +1,15 @@
 export class AuthCtrl {
 
-    constructor(authView, seoManager, authEventBinder, authModel, authServices, majAuth) {
+    constructor(authView, seoManager, authEventBinder, authModel, authServices, majAuth, taskModel, modalView) {
         this.authView = authView;
         this.seoManager = seoManager;
         this.authEventBinder = authEventBinder;
         this.authModel = authModel;
         this.authServices = authServices;
         this.majAuth = majAuth;
+        this.taskModel = taskModel;
+        this.modalView = modalView;
 
-        // Liaison : le EventBinder saura appeler le contrôleur
         this.authEventBinder.setController(this);
     }
 
