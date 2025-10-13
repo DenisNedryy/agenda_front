@@ -9,6 +9,18 @@
 }
 
 @media screen and (max-width: 1065px) {
+
+    html body .agendaContent {
+        margin: 0px;
+    }
+
+    html body .agenda__viewSelection {
+        margin: 15px 0px;
+        background-color: rgb(29, 29, 31);
+    }
+}
+
+@media screen and (max-width: 1065px) {
     body #root {
         padding: 20px 10px;
     }
@@ -166,7 +178,8 @@
     }
 
     body .agendaContent__header {
-        width: 80%;
+        width: 100%;
+        margin: 15px;
     }
 }
 
@@ -309,8 +322,8 @@
         background-color: rgb(20, 20, 20);
         top: 0px;
         z-index: 999;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
     }
 
     html body .paramsOptions {
@@ -379,8 +392,9 @@
     }
 
     html body .agendaContent {
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        background-color: rgb(7, 8, 11);
     }
 
     body .tasksFilters p {
@@ -551,18 +565,18 @@
     }
 
     body .auth form {
-        border-radius: 15px;
         margin-top: 34px;
     }
-    body .calendarMobileView__body{
-        min-height: 200px; 
+
+    body .calendarMobileView__body {
+        min-height: 200px;
     }
 
     body .agendaContent__body__mobileView {
         display: flex;
         flex-direction: column;
         border: 1px solid black;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
     }
 }

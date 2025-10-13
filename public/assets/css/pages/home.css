@@ -2,8 +2,6 @@
     background-image: url("../../images/bg/blue.PNG");
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 24px;
-    border-radius: 15px;
 }
 
 .banner__text p {
@@ -39,9 +37,6 @@ body .banner__text--title {
 .home__webSites {
     background-color: rgb(29, 29, 31);
     color: white;
-    padding: 24px;
-    border-radius: 15px;
-    margin: 20px 0px;
 }
 
 .home__webSites img {

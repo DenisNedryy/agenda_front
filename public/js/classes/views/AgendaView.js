@@ -5,7 +5,7 @@ export class AgendaView {
         if (el) {
             el.innerHTML = `
             <div class="agenda">
-                <div class="agenda__viewSelection">
+                <div class="agenda__viewSelection box">
                     <p class="agenda__viewSelection--title">Views</p>
                     <ul class="agenda__viewSelection__viewContainer"> 
                         <li class="weekView">
@@ -22,7 +22,7 @@ export class AgendaView {
                         </li>
                     </ul>
                 </div>
-                <div class="agendaContent"></div> 
+                <div class="agendaContent box"></div> 
                 
             </div>
             `

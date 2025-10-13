@@ -14,8 +14,8 @@ export class AuthView {
     renderConnectionPage(el) {
         if (el) {
             el.innerHTML = ` 
-            <div class="auth"> 
-                <form id="form-connection">
+            <div class="auth box"> 
+                <form id="form-connection box">
                     <div class="form__header">
                         <img src="/public/assets/images/logos/employIn.png"/> 
                         <p>Log in to your account</p>

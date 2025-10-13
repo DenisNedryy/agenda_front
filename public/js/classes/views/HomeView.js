@@ -6,7 +6,7 @@ export class HomeView {
             el.innerHTML = `
             <div class="home">
 
-                <div class="banner bgImg-blue">
+                <div class="banner bgImg-blue box">
                     <div class="banner__container">
                           <div class="banner__text">
                              <p class="banner__text--title">I'm doing my part</p>
@@ -19,7 +19,7 @@ export class HomeView {
                     </div>
                 </div>
 
-                <div class="home__webSites">
+                <div class="home__webSites box">
                     <p class="home__webSites--title">Sites webs</p>
                     <div class="home__webSites--container">
                         <a href="https://www.youtube.com/" target="_blank">
