@@ -16,7 +16,6 @@ export class TaskModel {
 
     async getAlerts() {
         const res = await this.taskService.getAlerts();
-        console.log(res);
         return res.data.alerts;
     }
 
@@ -70,7 +69,59 @@ export class TaskModel {
         return arr;
     }
 
+    getweekEndFor2Weeks(weekend) {
+
+        // récupération du weekend en propre
+        const weekEndDays = [
+            { day: "lundi", isWeekEnd: weekend.lundi, num: 1, date: this.getDateOfWeek("lundi") },
+            { day: "mardi", isWeekEnd: weekend.mardi, num: 2, date: this.getDateOfWeek("mardi") },
+            { day: "merdredi", isWeekEnd: weekend.merdredi, num: 3, date: this.getDateOfWeek("mercredi") },
+            { day: "jeudi", isWeekEnd: weekend.jeudi, num: 4, date: this.getDateOfWeek("jeudi") },
+            { day: "vendredi", isWeekEnd: weekend.vendredi, num: 5, date: this.getDateOfWeek("vendredi") },
+            { day: "samedi", isWeekEnd: weekend.samedi, num: 6, date: this.getDateOfWeek("samedi") },
+            { day: "dimanche", isWeekEnd: weekend.dimanche, num: 0, date: this.getDateOfWeek("dimanche") },
+        ];
+
+        const weekEndThisWeek = weekEndDays.filter((cell) => cell.isWeekEnd);
+        const total = weekEndThisWeek;
+        weekEndThisWeek.forEach((cell) => {
+            total.push({ ...cell, date: this.getDateOfWeek(cell.day, true) });
+        })
+        return total;
+    }
+
+    cleanDayOff(dayOff) {
+        const sorted = dayOff.filter((cell) => new Date(cell.date) >= new Date());
+        return sorted || [];
+    }
+
+    getDateOfWeek(dayName, nextWeek = false) {
+        const daysOfWeek = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+        const today = new Date();
+
+        // Ajustement : lundi = 0, dimanche = 6
+        const todayIndex = (today.getDay() + 6) % 7;
+        const targetIndex = daysOfWeek.indexOf(dayName.toLowerCase());
+
+        if (targetIndex === -1) {
+            throw new Error("Nom de jour invalide : " + dayName);
+        }
+
+        // Trouver le lundi de cette semaine
+        const monday = new Date(today);
+        monday.setDate(today.getDate() - todayIndex);
+
+        // Ajouter le décalage pour atteindre le jour voulu
+        const targetDate = new Date(monday);
+        targetDate.setDate(monday.getDate() + targetIndex + (nextWeek ? 7 : 0));
+
+        return targetDate;
+    }
+
+
+
     getNextConsecutiveDaysOff(arr) {
+        console.log(arr);
         let isStarted = false;
         let previousDate = null;
         const nextConsecutiveDaysOff = [];

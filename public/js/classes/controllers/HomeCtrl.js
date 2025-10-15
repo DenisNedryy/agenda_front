@@ -9,6 +9,7 @@ export class HomeCtrl {
         this.dateModel = homeModels.dateModel;
         this.taskModel = homeModels.taskModel;
         this.vocabularyModel = homeModels.vocabularyModel;
+        this.weekEndModel = homeModels.weekEndModel;
 
         this.seoManager = seoManager;
         this.homeEventBinder = homeEventBinder;
@@ -23,15 +24,24 @@ export class HomeCtrl {
         this.renderDayOff();
         this.renderProjets();
         this.renderMap();
-        
+
         this.seoManager.setTitle('Schedule - Accueil');
         this.homeEventBinder.addEventListeners();
     }
 
     async renderDayOff() {
+        const weekend = await this.weekEndModel.getWeekEnd();
         const myTasks = await this.taskModel.getTasksByAuth();
         const daysOff = this.taskModel.getDaysOff(myTasks);
-        const nextConsecutiveDaysOff = this.taskModel.getNextConsecutiveDaysOff(daysOff);
+        const weekEndFor2Weeks = this.taskModel.getweekEndFor2Weeks(weekend);
+        weekEndFor2Weeks.forEach((cell)=>{
+            daysOff.push(cell);
+        });
+        // retirer les jours passés
+        const currentDayOff = this.taskModel.cleanDayOff(daysOff);
+        
+        const nextConsecutiveDaysOff = this.taskModel.getNextConsecutiveDaysOff(currentDayOff);
+
         this.dayOffView.render(nextConsecutiveDaysOff);
     }
 
@@ -39,13 +49,13 @@ export class HomeCtrl {
         const projects = await this.taskModel.getTasksByTypeSorted("projets");
         // const projectsWithNewIndexes = this.taskModel.resetIndexes(projects);
         this.projetsView.render(projects);
-        this.homeEventBinder.initDragAndDrop(); 
+        this.homeEventBinder.initDragAndDrop();
     }
 
     async renderMap() {
         // vérification si vocabulaire 
         const isVocabulary = await this.vocabularyModel.isVocabulary();
-        if(!isVocabulary){
+        if (!isVocabulary) {
             this.englishView.render404();
             return;
         }

@@ -6,7 +6,7 @@ export class CalendarModel {
         this.bankHolidays = bankHolidays;
     }
 
-    async getAgendaPerWeek({ weekParams }, tasks, date = false) {
+    async getAgendaPerWeek({ weekParams }, tasks, date = false, weekend) {
         date = date ? date : new Date();
 
         // calcul du lundiMs
@@ -22,6 +22,9 @@ export class CalendarModel {
 
         const joursFeries = this.bankHolidays.getbankHolidays(currentYear);
         const weeklySchedule = []; // agenda pour la semaine 
+
+        // récupération des weekends
+        const weekendArray = [weekend.lundi, weekend.mardi, weekend.mercredi, weekend.jeudi, weekend.vendredi, weekend.samedi, weekend.dimanche];
 
         for (let i = 0; i < 7; i++) {
 
@@ -46,7 +49,7 @@ export class CalendarModel {
                     }
                 }
             }
-            
+
             if (weekParams.isBirthDays) {
                 for (let bd of weekParams.birthDaysTasks) {
                     if (stripTime(dayDate) === stripTime(new Date(bd.date))) { }
@@ -72,7 +75,8 @@ export class CalendarModel {
                 month: dayMonth,
                 dayDateNum,
                 bankHolidays: this.bankHolidays,
-                isCurrentDay: (isSameDay(dayDate, new Date()))
+                isCurrentDay: (isSameDay(dayDate, new Date())),
+                isWeekEnd: weekendArray[i] === 1 ? true : false
             };
 
             for (let task of tasks) {

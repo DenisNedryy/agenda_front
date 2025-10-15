@@ -16,8 +16,10 @@ export class AgendaCalendarView {
                 let isDayOff = false;
                 const tasksCheck = cell.tasksByDay;
                 for (let i = 0; i < tasksCheck.length; i++) {
-                    if (tasksCheck[i].type === "dayOff") isDayOff = true;
+                    if (tasksCheck[i].type === "dayOff" || cell.dayInfo.isWeekEnd) isDayOff = true;
                 }
+                // ajout des weekends affichés fériés
+                if(cell.dayInfo.isWeekEnd) isDayOff = true;
                 if (isDayOff) containerSupreme.className = "dayFiche dayOff";
 
                 const titleContainer = document.createElement("div");
@@ -37,7 +39,7 @@ export class AgendaCalendarView {
                 titleContainer.appendChild(dayMini);
                 titleContainer.appendChild(number);
                 containerSupreme.appendChild(titleContainer);
-                
+
                 const ul = document.createElement("ul");
                 for (let i = 0; i < 20; i++) {
                     const li = document.createElement("li");
@@ -117,14 +119,13 @@ export class AgendaCalendarView {
 
                 const day = document.createElement("div");
                 const containerWidth = document.querySelector(".agendaContent__body__mobileView").offsetWidth;
-            
-               day.className = `${
-  (dateSelected && dateSelected === `${year}-${month}-${currentDay}`) ||
-  (!dateSelected && cell.dayInfo.isCurrentDay)
-    ? "calendarMobileView__header__day currentDay-mobile-on" 
-    : "calendarMobileView__header__day"
-}`;
-                day.style.width = `${((containerWidth-(60)) / 7)}px`;
+
+                day.className = `${(dateSelected && dateSelected === `${year}-${month}-${currentDay}`) ||
+                        (!dateSelected && cell.dayInfo.isCurrentDay)
+                        ? "calendarMobileView__header__day currentDay-mobile-on"
+                        : "calendarMobileView__header__day"
+                    }`;
+                day.style.width = `${((containerWidth - (60)) / 7)}px`;
                 const date = `${cell.dayInfo.year}-${cell.dayInfo.month}-${cell.dayInfo.dayDateNum}`;
                 day.innerHTML = `
                  <p class="mobileDay">${this.dateModel.weekDays[index].slice(0, 3)}</p>

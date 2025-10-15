@@ -1,6 +1,6 @@
 export class AgendaCtrl {
 
-    constructor(seoManager,modalView, { agendaViews, agendaModels, agendaServices, agendaEventBinders }) {
+    constructor(seoManager, modalView, { agendaViews, agendaModels, agendaServices, agendaEventBinders }) {
         this.seoManager = seoManager;
         this.modalView = modalView;
 
@@ -8,11 +8,12 @@ export class AgendaCtrl {
         this.agendaWeekView = agendaViews.agendaWeekView;
         this.agendaNavView = agendaViews.agendaNavView;
         this.agendaParamsView = agendaViews.agendaParamsView;
-        this.agendaCalendarView = agendaViews.agendaCalendarView; 
+        this.agendaCalendarView = agendaViews.agendaCalendarView;
         this.yearView = agendaViews.yearView;
         this.planningView = agendaViews.planningView;
         this.addModelView = agendaViews.addModelView;
         this.focusModalView = agendaViews.focusModalView;
+        this.agendaDayOffView = agendaViews.agendaDayOffView;
 
         this.dateModel = agendaModels.dateModel;
         this.taskModel = agendaModels.taskModel;
@@ -23,21 +24,25 @@ export class AgendaCtrl {
         this.userModel = agendaModels.userModel;
         this.planningModel = agendaModels.planningModel;
         this.modalModel = agendaModels.modalModel;
+        this.weekEndModel = agendaModels.weekEndModel;
 
         this.authServices = agendaServices.authServices;
         this.taskServices = agendaServices.taskServices;
         this.birthDaysServices = agendaServices.birthDaysServices;
         this.spaceRepService = agendaServices.spaceRepService;
+        this.weekEndService = agendaServices.weekEndService;
 
         this.agendaEventBinder = agendaEventBinders.agendaEventBinder;
         this.agendaWeekEventBinder = agendaEventBinders.agendaWeekEventBinder;
         this.agendaYearEventBinder = agendaEventBinders.agendaYearEventBinder;
         this.agendaPlanningEventBinder = agendaEventBinders.agendaPlanningEventBinder;
+        this.agendaDayOffEventBinder = agendaEventBinders.agendaDayOffEventBinder;
 
         this.agendaEventBinder.setController(this);
         this.agendaWeekEventBinder.setController(this);
         this.agendaYearEventBinder.setController(this);
         this.agendaPlanningEventBinder.setController(this);
+        this.agendaDayOffEventBinder.setController(this);
 
     };
 
@@ -63,7 +68,8 @@ export class AgendaCtrl {
             isBirthDays: this.birthDaysModel.birthDays,
             birthDaysTasks: this.birthDaysModel.birthDaysTask
         }
-        const weekData = await this.calendarModel.getAgendaPerWeek({ weekParams }, tasksFiltered, date);
+        const weekend = await this.weekEndModel.getWeekEnd();
+        const weekData = await this.calendarModel.getAgendaPerWeek({ weekParams }, tasksFiltered, date, weekend);
         const params = await this.authServices.getUsersStatus();
         params.bankHolidays = this.bankHolidaysModel.bankHolidays;
         params.birthDays = this.birthDaysModel.birthDays;
@@ -82,5 +88,6 @@ export class AgendaCtrl {
         this.agendaWeekEventBinder.addEventListeners();
         this.agendaYearEventBinder.addEventListeners();
         this.agendaPlanningEventBinder.addEventListeners();
+        this.agendaDayOffEventBinder.addEventListeners();
     }
 }

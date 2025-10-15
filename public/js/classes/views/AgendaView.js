@@ -1,7 +1,7 @@
 export class AgendaView {
 
     render() {
-        const el = document.getElementById("root"); 
+        const el = document.getElementById("root");
         if (el) {
             el.innerHTML = `
             <div class="agenda">
@@ -19,6 +19,10 @@ export class AgendaView {
                         <li class="planningView">
                              <i class="fa-solid fa-rectangle-list planningViewi"></i>
                              <p class="planningViewPara">Planning</p>
+                        </li> 
+                        <li class="dayOff-manager">
+                               <i class="fa-solid fa-bed"></i>
+                             <p class="planningViewPara">Day-off mger</p>
                         </li>
                     </ul>
                 </div>
