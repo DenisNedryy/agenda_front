@@ -126,6 +126,7 @@ export class VocabularyModel {
     pushVocabularySession(success, vocabulary) {
         this.vocabularySession.push({ uuid: vocabulary.uuid, success: success });
     }
+    
     resetVocabularySession() {
         this.vocabularySession = [];
     }

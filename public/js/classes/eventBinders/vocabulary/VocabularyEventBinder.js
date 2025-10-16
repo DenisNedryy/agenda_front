@@ -163,7 +163,7 @@ export class VocabularyEventBinder {
                 this.controller.vocabularyModel.pushVocabularySession(answer, oneVocabularyCategory[index]);
                 this.controller.vocabularyModel.next();
                 await this.controller.vocabularyModel.updateategoryPertencil(category);
-                this.controller.vocabularyModel.end();
+                this.controller.vocabularyModel.end(); 
                 this.controller.show();
                 return;
             }

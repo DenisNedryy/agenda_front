@@ -319,7 +319,7 @@ export class VocabularyService {
         }
     }
 
-    
+
     async deleteVocabulary(vocabularyId) {
         try {
             const preRes = await fetch(`${HOST}/api/vocabulary/${vocabularyId}`, {
