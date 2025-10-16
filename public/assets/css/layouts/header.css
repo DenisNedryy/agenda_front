@@ -71,7 +71,7 @@ header {
 .header__right__alerts--bells {
     transition-duration: 0.4s;
     border: 1px solid rgba(255, 255, 255, .3);
-    padding: 13px;
+    padding: 11px;
     border-radius: 5px;
     margin: 5px;
     position: relative;
