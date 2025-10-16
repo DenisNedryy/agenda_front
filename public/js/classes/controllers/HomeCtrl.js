@@ -39,8 +39,10 @@ export class HomeCtrl {
         });
         // retirer les jours passés
         const currentDayOff = this.taskModel.cleanDayOff(daysOff);
+        // retirer le weekend en commun avec le dayOff
+        const currentDayOffClean = this.taskModel.reduceSameDate(currentDayOff);
         
-        const nextConsecutiveDaysOff = this.taskModel.getNextConsecutiveDaysOff(currentDayOff);
+        const nextConsecutiveDaysOff = this.taskModel.getNextConsecutiveDaysOff(currentDayOffClean);
 
         this.dayOffView.render(nextConsecutiveDaysOff);
     }

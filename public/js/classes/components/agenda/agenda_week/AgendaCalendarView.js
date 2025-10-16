@@ -19,7 +19,7 @@ export class AgendaCalendarView {
                     if (tasksCheck[i].type === "dayOff" || cell.dayInfo.isWeekEnd) isDayOff = true;
                 }
                 // ajout des weekends affichés fériés
-                if(cell.dayInfo.isWeekEnd) isDayOff = true;
+                if (cell.dayInfo.isWeekEnd) isDayOff = true;
                 if (isDayOff) containerSupreme.className = "dayFiche dayOff";
 
                 const titleContainer = document.createElement("div");
@@ -120,10 +120,18 @@ export class AgendaCalendarView {
                 const day = document.createElement("div");
                 const containerWidth = document.querySelector(".agendaContent__body__mobileView").offsetWidth;
 
+                const tasksCheck = cell.tasksByDay;
+                let isDayOff = false;
+                for (let i = 0; i < tasksCheck.length; i++) {
+                    if (tasksCheck[i].type === "dayOff" || cell.dayInfo.isWeekEnd) isDayOff = true;
+                }
+                if (cell.dayInfo.isWeekEnd) isDayOff = true;
+                if (isDayOff) day.className = "dayFiche dayOff";
+
                 day.className = `${(dateSelected && dateSelected === `${year}-${month}-${currentDay}`) ||
-                        (!dateSelected && cell.dayInfo.isCurrentDay)
-                        ? "calendarMobileView__header__day currentDay-mobile-on"
-                        : "calendarMobileView__header__day"
+                    (!dateSelected && cell.dayInfo.isCurrentDay)
+                    ? `calendarMobileView__header__day currentDay-mobile-on ${isDayOff ? "dayOff": ""}`
+                    : `calendarMobileView__header__day ${isDayOff ? "dayOff": ""}`
                     }`;
                 day.style.width = `${((containerWidth - (60)) / 7)}px`;
                 const date = `${cell.dayInfo.year}-${cell.dayInfo.month}-${cell.dayInfo.dayDateNum}`;

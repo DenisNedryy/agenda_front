@@ -95,6 +95,32 @@ export class TaskModel {
         return sorted || [];
     }
 
+    reduceSameDate(arr) {
+
+        // mettre les dates en fuseau local à minuit et convertir en ISO UTC
+        const sameDateFormat = arr.reduce((acc, currV) => {
+            if (currV.day && currV.date instanceof Date) {
+                const d = new Date(currV.date);
+                d.setHours(0, 0, 0, 0); // mettre à minuit
+                acc.push({ ...currV, date: d.toISOString() });
+            } else {
+                acc.push(currV);
+            }
+            return acc;
+        }, []);
+
+        const uniqueDateArr = [];
+        for (let i = 0; i < sameDateFormat.length; i++) {
+            const currentDate = sameDateFormat[i].date;
+            // Vérifie si la date existe déjà
+            if (!uniqueDateArr.some(cell => cell.date === currentDate)) {
+                uniqueDateArr.push(sameDateFormat[i]);
+            }
+        }
+        
+        return uniqueDateArr;
+    }
+
     getDateOfWeek(dayName, nextWeek = false) {
         const daysOfWeek = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
         const today = new Date();
@@ -121,7 +147,6 @@ export class TaskModel {
 
 
     getNextConsecutiveDaysOff(arr) {
-        console.log(arr);
         let isStarted = false;
         let previousDate = null;
         const nextConsecutiveDaysOff = [];

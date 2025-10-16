@@ -579,3 +579,22 @@
         border-bottom-right-radius: 7px;
     }
 }
+
+
+
+@media screen and (max-width: 500px) {
+    html body .agenda__viewSelection__viewContainer li {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        padding: 7px;
+        transition-duration: 0.4s;
+        position: relative;
+        overflow: hidden;
+        margin-right: 5px;
+        cursor: pointer;
+        color: white;
+        font-size: 12px;
+    }
+}

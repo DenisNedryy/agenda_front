@@ -69,7 +69,7 @@ export class HomeView {
                 <div class="home__bodyContainer">
                     <div class="home__bodyContainer__left">
                       <div class="home__bodyContainer__left__dayOff box">
-                      <h2>Prochain jour de congé (hors weekend)</h2>
+                      <h2>Prochain jour de congé</h2>
                       <div class="home__bodyContainer__left__dayOff__dateOff"> 
                        
                       </div>
