@@ -369,6 +369,10 @@
 
 .modalContent__header i {
     cursor: pointer;
+    padding: 0px 10px;
+}
+.modalContent__header i:hover{
+    color:rgb(4, 74, 183);
 }
 
 .agendaContent__body__right .dayFiche {

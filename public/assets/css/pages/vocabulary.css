@@ -629,3 +629,7 @@ html body .btn-container {
     cursor: pointer;
     margin: 16px 0px;
 }
+
+.category__header__left>p{
+    margin-left: 5px;
+}
