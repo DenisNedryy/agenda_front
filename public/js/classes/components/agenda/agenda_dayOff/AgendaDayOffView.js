@@ -1,7 +1,6 @@
 export class AgendaDayOffView {
 
     render(data) {
-        console.log(data);
         const el = document.querySelector(".agendaContent");
         if (el) {
             el.innerHTML = "";

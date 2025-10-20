@@ -42,8 +42,10 @@ export class AuthCtrl {
                 const auth = await this.authServices.setCurrentUser();
                 this.authServices.userIdSelected = auth.id;
                 this.majAuth.init();
+                return true;
             } else {
                 this.authView.showError(result.data?.msg || "Something went wrong.");
+                return false;
             }
 
         } catch (error) {

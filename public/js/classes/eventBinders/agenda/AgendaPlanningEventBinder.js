@@ -141,14 +141,13 @@ export class AgendaPlanningEventBinder {
             this.controller.show();
         }
 
-
+        // click > case checkbox
         // toggle checkBox to_delete
         const checkBoxEl = e.target.closest(".planning__checkBoxContainer");
         if (checkBoxEl) {
             const taskId = e.target.closest(".tasksContent__container ").getAttribute("data-id");
             const jsonRes = await this.controller.taskModel.toggleCardToDelete(taskId);
-            console.log(jsonRes);
-
+ 
             // récupération du type
             const activeTaskEl = document.querySelector(".taskFilter--active").className;
             const firstClass = activeTaskEl.split(" ")[0];

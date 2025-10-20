@@ -36,7 +36,6 @@ export class ModalView {
     }
 
     renderAlertsModal(alerts) {
-        console.log(alerts);
         const el = document.querySelector(".popUp");
         if (el) {
             this.toggle();

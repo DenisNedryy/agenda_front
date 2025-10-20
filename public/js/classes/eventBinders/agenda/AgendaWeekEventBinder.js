@@ -131,7 +131,6 @@ export class AgendaWeekEventBinder {
             }
             this.controller.show();
             const alerts = await this.controller.taskModel.getAlerts();
-            console.log(alerts);
             this.controller.modalView.renderAlertsLength(alerts);
         }
 
@@ -148,7 +147,6 @@ export class AgendaWeekEventBinder {
             const auth = await this.controller.authServices.getAuth();
             const task = this.controller.modalModel.getTaskObj(form, userIdSelected, auth);
             if (task) {
-                console.log(task);
                 await this.controller.taskServices.createTask(task);
             }
             this.controller.show();

@@ -350,11 +350,11 @@
 
 .modalContent__body__name div:last-child p:last-child {
     font-size: 12px;
+    color: rgb(255, 255, 1);
 }
 
 .modalContent__body__description {
     display: flex;
-    align-items: center;
 }
 
 .modalContent__body__description i {
@@ -371,8 +371,9 @@
     cursor: pointer;
     padding: 0px 10px;
 }
-.modalContent__header i:hover{
-    color:rgb(4, 74, 183);
+
+.modalContent__header i:hover {
+    color: rgb(4, 74, 183);
 }
 
 .agendaContent__body__right .dayFiche {
@@ -398,7 +399,7 @@
     display: flex;
     background-color: rgb(7, 8, 11);
     cursor: pointer;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 .calendarMobileView__header .calendarMobileView__header__day:hover {
@@ -500,4 +501,9 @@ body .agendaContent__body__left {
 .agendaContent__body__mobileView .agendaTask__body {
     font-size: 14px;
     overflow-wrap: break-word;
+}
+
+.focusTask-title {
+    font-size: 19px;
+    margin: 5px 0px;
 }

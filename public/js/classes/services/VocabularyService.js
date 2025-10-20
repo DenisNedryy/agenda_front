@@ -68,8 +68,6 @@ export class VocabularyService {
 
     async deleteCategory(family, category) {
         try {
-            console.log(family);
-            console.log(category);
             const preRes = await fetch(`${HOST}/api/vocabulary/families/${family}/categories/${category}`, {
                 method: "DELETE",
                 headers: {

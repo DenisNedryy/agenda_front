@@ -31,7 +31,7 @@ export class VocabularyModel {
         formData.append("uk_name", options.uk_name);
         formData.append("fr_name", options.fr_name);
         const res = await this.vocabularyService.addVocabulary(formData);
-        console.log(res);
+      
         return res.data.msg;
     }
 
@@ -62,7 +62,6 @@ export class VocabularyModel {
 
     async init(data) {
         const res = await this.vocabularyService.initService(data);
-        console.log(res);
     }
 
     speak(text) {
@@ -228,6 +227,7 @@ export class VocabularyModel {
 
     async getCategoryLength(category) {
         const data = await this.getCategory(category);
+        if(!data) return false;
         return data.length;
     }
 
@@ -281,17 +281,14 @@ export class VocabularyModel {
 
     async deleteCategory(family, category) {
         const res = await this.vocabularyService.deleteCategory(family, category);
-        console.log(res.data.msg);
     }
 
     async deleteFamily(family) {
         const res = await this.vocabularyService.deleteFamily(family);
-        console.log(res.data.msg);
     }
 
     async deleteVocabulary(vocabularyId) {
         const res = await this.vocabularyService.deleteVocabulary(vocabularyId);
-        console.log(res.data.msg);
         return res.data.category;
     }
 

@@ -24,17 +24,16 @@ export class AuthEventBinder {
             const form = e.target.closest("form");
             const formData = new FormData(form);
             this.controller.inscription(formData);
-
         }
 
         if (e.target.classList.contains("btn-connection")) {
             e.preventDefault();
             const form = e.target.closest("form");
             const formData = new FormData(form);
-           await this.controller.connection(formData);
+            const res = await this.controller.connection(formData);
+            if (!res) return;
             // mise  jour ui pour alerts
             const alerts = await this.controller.taskModel.getAlerts();
-            console.log(alerts);
             this.controller.modalView.renderAlertsLength(alerts);
         }
     }

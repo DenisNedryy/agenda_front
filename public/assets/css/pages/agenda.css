@@ -55,3 +55,13 @@
     border-radius: 7px;
     margin-top: 20px;
 }
+
+.type-title {
+    border: 0px solid white;
+    padding: 3px 5px;
+    width: fit-content;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    background-color: rgb(4, 74, 183);
+    color: white;
+}

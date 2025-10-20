@@ -73,7 +73,6 @@ export class VocabularyEventBinder {
 
             // afficher le tableau des update
             const data = await this.controller.vocabularyModel.getOneVocabularyCategory(category);
-            console.log(data);
             this.controller.vocabularyUpdate.renderVocabularyUpdateArray(data);
 
         }
@@ -257,7 +256,6 @@ export class VocabularyEventBinder {
         // btn delete category
         const btnDeleteCategory = e.target.closest(".btn-delete-category");
         if (btnDeleteCategory) {
-            console.log("couocu");
             const family = btnDeleteCategory.getAttribute("data-family");
             const category = btnDeleteCategory.getAttribute("data-category");
             await this.controller.vocabularyModel.deleteCategory(family, category);

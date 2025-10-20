@@ -6,6 +6,7 @@ export class VocabularyCategory {
     // render le vocabulary de la category
     renderCategory(data, { options }) {
         const el = document.querySelector(".vocabulary__content");
+        if (!data) return;
         el.setAttribute("data-category", data[0].category);
         if (el) {
             el.innerHTML = "";
