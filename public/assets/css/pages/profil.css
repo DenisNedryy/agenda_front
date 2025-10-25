@@ -103,7 +103,7 @@
     border: 1px solid rgba(108, 102, 102, 0.2);
     border-radius: 3px;
     padding: 5px 15px;
-    margin: 7px;
+    margin: 9px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -116,6 +116,7 @@
 
 .fiche-birthDay .names {
     color: rgb(0, 95, 242);
+    width: 126px;
 }
 
 
@@ -144,12 +145,13 @@
 
 .fiche-birthDay p:nth-child(2) {
     text-transform: uppercase;
+    width: 100px;
 }
 
 .profil_form__filter form input[type='text'] {
     background-color: rgb(30, 33, 36);
     border: 1px solid rgb(46, 49, 54);
-    height: 40px;
+    height: 55px;
     border-radius: 5px;
     color: white;
     padding: 5px;

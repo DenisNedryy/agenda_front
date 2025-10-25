@@ -71,71 +71,172 @@ export class FocusModalView {
     //     if (task.type === "spaced_repetition") this.renderSpaceRepetition(task);
     // }
 
-    // renderMobile(task) {
-    //     const el = document.querySelector(".modalFocus2");
-    //     if (el) {
-    //         const date = new Date(task.date);
-    //         const year = date.getFullYear();
-    //         const month = date.getMonth() + 1;
-    //         const day = date.getDate();
-    //         const dayNum = date.getDay();
-    //         el.innerHTML = `
-    //             <div class="modalContent" data-id=${task.id}>
-    //                 <div class="modalContent__header">
-    //                     <i class="fa-solid fa-pencil task-update2"></i>
-    //                     <i class="fa-solid fa-trash-can task-delete2"></i>
-    //                     <i class="fa-solid fa-xmark task-leave2"></i>
-    //                 </div>
-    //                 <div class="modalContent__body">
-    //                 <div class="modalContent__body__name">
-    //                         <div class="boxTitle"> </div>
-    //                             <div>
-    //                               <p>${task.name} [${task.type}]</p>
-    //                               <p> ${day} ${this.dateModel.yearMonth[month - 1]} ${year}</p>             
-    //                             </div>
-    //                         </div>
+    renderMobile(task) {
+        const el = document.querySelector(".modalFocus2");
+        if (!el) return;
 
-    //               ${task.description ? `<div class="modalContent__body__description">
-    //                                          <i class="fa-solid fa-bars"></i>
-    //                                          <p>${task.description}</p>
+        // Nettoyage du contenu précédent
+        el.innerHTML = "";
 
-    //                 </div>` : ''}
-    //                             ${task.type === "spaced_repetition" ? '': `
-    //                                     <div>
-    //                                          <button class="btn-mini btn-task-reviewTomorow">Review Tomorrow</button>
-    //                                     </div>
-    //                             `}
+        const date = new Date(task.date);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const monthName = this.dateModel?.yearMonth?.[month - 1] || month;
 
-    //                  <div class="modalContent__body__spaceRepetition"></div>
-    //                 </div>
-    //                 <div class="modalContent__footer hidden">
-    //                     <form>
-    //                         <div>
-    //                             <label>Name</label>
-    //                             <input type="text" name="name"/>
-    //                         </div>
-    //                         <div>
-    //                             <label for="description">Description</label>
-    //                             <textarea name="description" id="description"></textarea>
-    //                         </div>
-    //                         <div>
-    //                           <label for="typeSelect">Type</label>
-    //                          <select id="typeSelect" name="type">
-    //                              <option value="tasks">Tasks</option>
-    //                              <option value="courses">Courses</option>
-    //                              <option value="rdvs">Rdvs</option>
-    //                              <option value="events">Events</option>
-    //                              <option value="projets">Projets</option>
-    //                           </select>
-    //                      </div>
-    //                        <button type="submit" class="btn btn-updateTask">Update</button>
-    //                     </form>
-    //                 </div>
-    //             </div>
-    //           `;
-    //     }
-    //     if (task.type === "spaced_repetition") this.renderSpaceRepetition(task);
-    // }
+        // === MODAL CONTENT ===
+        const modalContent = document.createElement("div");
+        modalContent.classList.add("modalContent");
+        modalContent.dataset.id = task.id;
+
+        // === HEADER ===
+        const header = document.createElement("div");
+        header.classList.add("modalContent__header");
+
+        const iconUpdate = document.createElement("i");
+        iconUpdate.classList.add("fa-solid", "fa-pencil", "task-update2");
+
+        const iconDelete = document.createElement("i");
+        iconDelete.classList.add("fa-solid", "fa-trash-can", "task-delete2");
+
+        const iconLeave = document.createElement("i");
+        iconLeave.classList.add("fa-solid", "fa-xmark", "task-leave2");
+
+        header.append(iconUpdate, iconDelete, iconLeave);
+
+        // === BODY ===
+        const body = document.createElement("div");
+        body.classList.add("modalContent__body");
+
+        // -- bloc name --
+        const nameBlock = document.createElement("div");
+        nameBlock.classList.add("modalContent__body__name");
+
+        const boxTitle = document.createElement("div");
+        boxTitle.classList.add("boxTitle");
+
+        const nameInner = document.createElement("div");
+
+        const pType = document.createElement("p");
+        pType.classList.add("type-title");
+        pType.textContent = task.type;
+
+        const pName = document.createElement("p");
+        pName.classList.add("focusTask-title");
+        pName.textContent = task.name;
+
+        const pDate = document.createElement("p");
+        pDate.textContent = `${day} ${monthName} ${year}`;
+
+        nameInner.append(pType, pName, pDate);
+        nameBlock.append(boxTitle, nameInner);
+        body.appendChild(nameBlock);
+
+        // -- description optionnelle --
+        if (task.description) {
+            const descWrap = document.createElement("div");
+            descWrap.classList.add("modalContent__body__description");
+
+            const descIcon = document.createElement("i");
+            descIcon.classList.add("fa-solid", "fa-bars");
+
+            const descTextContainer = document.createElement("div");
+
+            const descTextArray = task.description.split("\n");
+            descTextArray.forEach((cell) => {
+                const descText = document.createElement("p");
+                descText.textContent = cell;
+                descTextContainer.appendChild(descText);
+            })
+
+            descWrap.append(descIcon, descTextContainer);
+            body.appendChild(descWrap);
+        }
+
+        // -- bouton Review Tomorrow (si pas spaced_repetition) --
+        if (task.type !== "spaced_repetition") {
+            const btnContainer = document.createElement("div");
+            const btn = document.createElement("button");
+            btn.classList.add("btn-mini", "btn-task-reviewTomorow");
+            btn.setAttribute("type", "button");
+            btn.textContent = "Review Tomorrow";
+            btnContainer.appendChild(btn);
+            body.appendChild(btnContainer);
+        }
+
+        // -- espace répétition (vide pour l’instant) --
+        const srContainer = document.createElement("div");
+        srContainer.classList.add("modalContent__body__spaceRepetition");
+        body.appendChild(srContainer);
+
+        // === FOOTER ===
+        const footer = document.createElement("div");
+        footer.classList.add("modalContent__footer", "hidden");
+
+        const form = document.createElement("form");
+
+        // --- champ Name ---
+        const divName = document.createElement("div");
+        const labelName = document.createElement("label");
+        labelName.textContent = "Name";
+        const inputName = document.createElement("input");
+        inputName.setAttribute("type", "text");
+        inputName.setAttribute("name", "name");
+        divName.append(labelName, inputName);
+
+        // --- champ Description ---
+        const divDesc = document.createElement("div");
+        const labelDesc = document.createElement("label");
+        labelDesc.setAttribute("for", "description");
+        labelDesc.textContent = "Description";
+        const textarea = document.createElement("textarea");
+        textarea.setAttribute("name", "description");
+        textarea.setAttribute("id", "description");
+        divDesc.append(labelDesc, textarea);
+
+        // --- champ Type ---
+        const divType = document.createElement("div");
+        const labelType = document.createElement("label");
+        labelType.setAttribute("for", "typeSelect");
+        labelType.textContent = "Type";
+        const select = document.createElement("select");
+        select.setAttribute("id", "typeSelect");
+        select.setAttribute("name", "type");
+
+        const options = [
+            { value: "tasks", text: "Tasks" },
+            { value: "courses", text: "Courses" },
+            { value: "rdvs", text: "Rdvs" },
+            { value: "events", text: "Events" },
+            { value: "projets", text: "Projets" }
+        ];
+        options.forEach(opt => {
+            const optionEl = document.createElement("option");
+            optionEl.value = opt.value;
+            optionEl.textContent = opt.text;
+            select.appendChild(optionEl);
+        });
+        divType.append(labelType, select);
+
+        // --- bouton Update ---
+        const btnSubmit = document.createElement("button");
+        btnSubmit.classList.add("btn", "btn-updateTask");
+        btnSubmit.setAttribute("type", "submit");
+        btnSubmit.textContent = "Update";
+
+        form.append(divName, divDesc, divType, btnSubmit);
+        footer.appendChild(form);
+
+        // === ASSEMBLAGE FINAL ===
+        modalContent.append(header, body, footer);
+        el.appendChild(modalContent);
+
+        // === si spaced_repetition ===
+        if (task.type === "spaced_repetition") {
+            this.renderSpaceRepetition(task);
+        }
+    }
+
 
     render(task) {
         const el = document.querySelector(".modalFocus");
@@ -180,7 +281,7 @@ export class FocusModalView {
         typeTitle.textContent = task.type;
 
         const taskName = document.createElement('p');
-        taskName.className="focusTask-title"; 
+        taskName.className = "focusTask-title";
         taskName.textContent = task.name;
 
         const datePara = document.createElement('p');
@@ -198,7 +299,7 @@ export class FocusModalView {
             const descIcon = document.createElement('i');
             descIcon.className = 'fa-solid fa-bars';
 
-             const descText = document.createElement('div');
+            const descText = document.createElement('div');
             // descText.textContent = task.description;
 
             const descriptionContentArray = task.description.split("\n");

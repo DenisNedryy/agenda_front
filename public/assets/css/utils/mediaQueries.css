@@ -121,6 +121,22 @@
     .profil__header__menu__forms>div {
         width: fit-content;
     }
+
+    .body .fiche-birthDay .names {
+        width: auto;
+    }
+
+    body .fiche-birthDay p:nth-child(2) {
+        width: auto;
+    }
+
+    body .profil_form {
+        width: 100%;
+    }
+
+    body .fiche-birthDay .names p {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 660px) {
@@ -559,8 +575,9 @@
     }
 
     body .auth {
-        background-color: unset;
+        background-color: rgb(29, 29, 31);
         align-items: unset;
+        margin: 7px;
     }
 
     body .auth form {
@@ -596,5 +613,32 @@
         cursor: pointer;
         color: white;
         font-size: 12px;
+    }
+
+    body .profil__header {
+        margin: 0px;
+        padding: 11px;
+    }
+
+    body .profil__body {
+        padding: 0px;
+        margin: 5px 0px;
+    }
+
+    body .fiche-birthDay {
+        padding: 9px;
+        margin: 6px 0px;
+    }
+
+    body .boxy {}
+
+    body .profil__header div {
+        margin: 0px;
+    }
+
+    body .avatar-preview {
+        position: absolute;
+        bottom: -67px;
+        left: 137px;
     }
 }
