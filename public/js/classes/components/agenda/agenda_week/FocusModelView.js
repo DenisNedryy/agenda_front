@@ -395,9 +395,10 @@ export class FocusModalView {
     renderSpaceRepetition(task) {
         const el = document.querySelector(".modalContent__body__spaceRepetition");
         el.innerHTML = `
-            <button class="btn-mini btn-nextStep">Next Step (${this.dateModel.convertStep(task.step)} jours)</button>
-            <button class="btn-mini btn-reviewTomorow">Review Tomorrow</button>
-            <button class="btn-mini btn-resetCard">Reset</button> 
+            <button class="btn-mini redBg btn-resetCard">Reset <i class="fa-solid fa-rotate-left"></i></button>  
+            <button class="btn-mini mutatedRed btn-reviewTomorow">Review Tomorrow </button> 
+            <button class="btn-mini mutatedBludeBg btn-intervalRollback">Roll Back (${this.dateModel.convertStepRollBack(task.step)} jours)</button>
+            <button class="btn-mini btn-nextStep">Next Step <i class="fa-solid fa-check"></i>  (${this.dateModel.convertStep(task.step)} jours)</button>
         `;
     }
 }

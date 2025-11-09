@@ -235,7 +235,7 @@ export class AgendaWeekEventBinder {
         if (e.target.classList.contains("btn-task-reviewTomorow")) {
             const taskId = e.target.closest(".modalContent").getAttribute("data-id");
             const res = await this.controller.taskModel.reviewTomorow(taskId);
-            this.controller.show();
+            this.controller.show(); 
         }
 
         // spaced_Repetition next step
@@ -249,6 +249,13 @@ export class AgendaWeekEventBinder {
         if (e.target.classList.contains("btn-reviewTomorow")) {
             const taskId = e.target.closest(".modalContent").getAttribute("data-id");
             const res = await this.controller.spaceRepService.reviewTomorow(taskId);
+            this.controller.show();
+        }
+
+        // space_Repetition interval rollback
+        if (e.target.classList.contains("btn-intervalRollback")) {
+            const taskId = e.target.closest(".modalContent").getAttribute("data-id");
+            const res = await this.controller.spaceRepService.intervalRollback(taskId); 
             this.controller.show();
         }
 

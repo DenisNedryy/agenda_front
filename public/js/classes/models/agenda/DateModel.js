@@ -134,4 +134,41 @@ export class DateModel {
         }
     }
 
+        convertStepRollBack(step) {
+        switch (step) {
+            case 0:
+                return 1;
+                break;
+
+            case 1:
+                return 1;
+                break;
+
+            case 2:
+                return 3;
+                break;
+
+            case 3:
+                return 7;
+                break;
+
+            case 4:
+                return 15;
+                break;
+
+            case 5:
+                return 30;
+                break;
+
+            case 6:
+                return 90;
+                break;
+
+            case 7:
+                return 180;
+                break;
+
+        }
+    }
+
 }
