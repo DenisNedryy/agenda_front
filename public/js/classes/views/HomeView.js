@@ -56,10 +56,24 @@ export class HomeView {
                             </div>
                         </a>
 
-                        <a href="https://www.wawacity.tokyo" target="_blank">
+                        <a href="https://gemini.google.com/app?hl=fr" target="_blank">
                              <div>
-                                <img src="/public/assets/images/icons/pirate.png"/>
-                                 <p>Wawa</p>
+                                <img src="/public/assets/images/icons/gemini_logo.png"/>
+                                 <p>Gemini</p>
+                            </div>
+                        </a>
+
+                        <a href="https://aistudio.google.com/apps" target="_blank">
+                             <div>
+                                <img src="/public/assets/images/icons/google_ai_studio_logo.png"/>
+                                 <p>Google ai studio</p>
+                            </div>
+                        </a>
+
+                        <a href="https://antigravity.google" target="_blank">
+                             <div>
+                                <img src="/public/assets/images/icons/antigravity_logo.png"/>
+                                 <p>Antigravity</p>
                             </div>
                         </a>
                 
