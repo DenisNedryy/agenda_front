@@ -1,1 +1,1 @@
-export const HOST = `https://agenda.tbuilder.fr`;
+export const HOST = `https://agenda-perso.skysleep.fr`;  // `https://agenda.tbuilder.fr`
