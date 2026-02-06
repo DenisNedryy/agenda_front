@@ -32,6 +32,7 @@ export class AuthEventBinder {
             const formData = new FormData(form);
             const res = await this.controller.connection(formData);
             if (!res) return;
+              window.location.href = '/home';
             // mise  jour ui pour alerts
             const alerts = await this.controller.taskModel.getAlerts();
             this.controller.modalView.renderAlertsLength(alerts);

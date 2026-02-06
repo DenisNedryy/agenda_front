@@ -1,0 +1,281 @@
+.depense__header ul {
+  display: flex;
+}
+
+.depense__header li {
+  list-style-type: none;
+  padding: 5px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 8px;
+  transition-duration: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.depense__header li:first-child {
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+
+.depense__header li:last-child {
+  background-color: white;
+  color: black;
+}
+
+.depense__main__forms input,
+.depense__main__forms select {
+  background-color: rgb(30, 33, 36);
+  border: 1px solid rgb(46, 49, 54);
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  width: 327px;
+}
+
+.depense__main__forms label {
+  margin-right: 15px;
+}
+
+.depense__main__forms form>div {
+  margin-top: 10px;
+}
+
+.horizontal_bar_chart img {
+  width: 54px;
+}
+
+
+
+
+/* Container des 2 barres */
+.budget-bars {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 14px;
+  max-width: 800px;
+}
+
+.budget-percent {
+  margin-left: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #555;
+}
+
+/* Ligne (une catégorie) */
+.budget-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 90px;
+  /* gauche / barre / montant */
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.depense__main__graphics h2 {
+  margin: 15px 5px;
+}
+
+/* Partie gauche : icône + label */
+.budget-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.budget-icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.budget-icon img {
+  width: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+.budget-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Barre */
+.budget-bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.budget-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width 300ms ease;
+}
+
+/* Couleurs (style proche de l'image: orange) */
+.budget-fill--needs {
+  background: #f28c28;
+}
+
+.budget-fill--wants {
+  background: #f28c28;
+}
+
+/* Montant à droite */
+.budget-amount {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  display: flex;
+}
+
+
+.recap {
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.recap__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.recap__header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+}
+
+.dep-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  border-radius: 5px;
+  max-width: 800px;
+}
+
+.dep-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+}
+
+.dep-item__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dep-item__name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #222;
+}
+
+.dep-item__price {
+  font-weight: 800;
+  font-size: 13px;
+  color: #222;
+  white-space: nowrap;
+}
+
+.dep-item__meta {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dep-item__date {
+  font-size: 12px;
+  color: #777;
+}
+
+.dep-chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f3f3f3;
+  color: #333;
+}
+
+.dep-item__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dep-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dep-btn--edit {
+  background: #f3f3f3;
+  color: #222;
+}
+
+.dep-btn--delete {
+  background: #ffe7e7;
+  color: #b10000;
+}
+
+.dep-empty {
+  padding: 12px;
+  border: 1px dashed #ddd;
+  border-radius: 10px;
+  color: #666;
+  font-size: 13px;
+}
+
+.depense__main__forms form>div>label {
+  width: 153px;
+  display: inline-block;
+}
+
+.depense__main__forms form>div>input,
+.depense__main__forms form>div>select {
+  padding-left: 15px;
+}
+
+.recap__total {
+  margin: 15px 0px;
+}
+
+.dep-item__meta img{
+  width: 24px;
+}

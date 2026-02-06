@@ -8,6 +8,7 @@ import { initAuth } from "./init/initAuth.js";
 import { initAgenda } from "./init/initAgenda.js";
 import { initVocabulary } from "./init/initVocabulary.js";
 import { initProfil } from "./init/initProfil.js";
+import { initDepense } from "./init/initDepense.js";
 
 import { HeaderEventBinder } from "./classes/eventBinders/HeaderEventBinder.js";
 import { HeaderCtrl } from "./classes/controllers/HeaderCtrl.js";
@@ -40,6 +41,7 @@ const routes = {
     "agenda": initAgenda(seoManager),
     "vocabulary": initVocabulary(seoManager),
     "profil": initProfil(seoManager),
+    "depense": initDepense(seoManager)
 };
 
 const navHighLighter = new NavHighLighter();

@@ -19,9 +19,8 @@ export class HeaderEventBinder {
     async handleClickTask(e) {
         const logOut = e.target.closest(".log-out");
         if (logOut) {
-            console.log("coucou");
             // créer une déconection des cookies https-only
-            await this.userServices.logOut();
+            await this.userServices.logOut(); 
             await this.miseAJourAuth.init();
         }
 

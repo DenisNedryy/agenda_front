@@ -166,7 +166,6 @@ export class ProfilEventBinder {
         if (inputFilter) {
             const text = inputFilter.value;
             if (text) {
-                console.log(text);
                 // fetch le text
                 const namesRes = await this.controller.birthDaysServices.getBirthDaysByName(text);
                 const names = namesRes.data.birthDays;
