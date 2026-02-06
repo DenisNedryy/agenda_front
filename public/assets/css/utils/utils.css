@@ -18,7 +18,7 @@
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    margin:10px;
+    margin: 10px;
 }
 
 .btn-mini {
@@ -62,6 +62,10 @@
 .btn-mini-white:hover:before {
     transform: translateX(100%) skewX(-25deg);
     transition-duration: 1s;
+}
+
+.capitale {
+    text-transform: capitalize;
 }
 
 .bgGreen {

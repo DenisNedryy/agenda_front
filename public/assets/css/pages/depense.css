@@ -56,11 +56,26 @@
   max-width: 800px;
 }
 
+.budget-row {
+  position: relative;
+}
+
 .budget-percent {
   margin-left: 6px;
   font-weight: 700;
   font-size: 12px;
   color: #555;
+  position: absolute;
+  top: 5px;
+  right: 21%;
+}
+
+.budget-percent--needs {
+  top: 5px;
+}
+
+.budget-percent--wants {
+  top: -1px;
 }
 
 /* Ligne (une catégorie) */
@@ -177,6 +192,10 @@
   max-width: 800px;
 }
 
+.dep-list img {
+  width: 36px;
+}
+
 .dep-item {
   display: flex;
   align-items: center;
@@ -220,6 +239,11 @@
   color: #777;
 }
 
+.dep-item__main {
+  display: flex;
+  align-items: center;
+}
+
 .dep-chip {
   font-size: 11px;
   font-weight: 700;
@@ -227,6 +251,8 @@
   border-radius: 999px;
   background: #f3f3f3;
   color: #333;
+  width: 116px;
+  text-align: center;
 }
 
 .dep-item__actions {
@@ -276,6 +302,6 @@
   margin: 15px 0px;
 }
 
-.dep-item__meta img{
+.dep-item__meta img {
   width: 24px;
 }
