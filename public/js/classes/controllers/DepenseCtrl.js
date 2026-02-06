@@ -15,7 +15,10 @@ export class DepenseCtrl {
 
     async show() {
         // calcul du 60/20/20
-        const { salaire, depenses } = await this.getSalaireAndDepenses();
+        const { salaire = 0, depenses = [] } = await this.getSalaireAndDepenses();
+        if(salaire === false){
+            return;
+        }
         const data = await this.get802020(salaire, depenses);
         this.depenseView.render(data);
         this.seoManager.setTitle('Schedule - Depense');
@@ -24,6 +27,7 @@ export class DepenseCtrl {
 
     async getSalaireAndDepenses() {
         const salaireRes = await this.depenseService.getSalary();
+        if (!salaireRes.ok) return false;
         const salaire = salaireRes.data.data.montant_net;
         const depensesRes = await this.depenseService.getAll();
         const depenses = depensesRes.data.depenses;
