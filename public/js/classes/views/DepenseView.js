@@ -160,7 +160,7 @@ export class DepenseView {
             </div>
             <div class="recap__total">
               <span>Total: </span>
-              <strong>${totalSpent} / ${totalAfterSave} €</strong>
+              <strong>${totalSpent.toFixed(2)} / ${totalAfterSave.toFixed(2)} €</strong>
             </div>
 
             <ul class="dep-list">
