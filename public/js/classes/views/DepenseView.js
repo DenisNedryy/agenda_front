@@ -21,6 +21,7 @@ export class DepenseView {
 
     // ---- Data mapping (adapte si besoin) ----
     const salaire = toNumber(data?.salaire);
+    const salaireAnnuel = Number(data?.salaire*12).toFixed(2);
 
     // ⚠️ Corrige typo potentielle: needsTotal vs nedsTotal
     const needsBudget = toNumber(data?.needsTotal ?? data?.nedsTotal); // budget besoins
@@ -96,7 +97,8 @@ export class DepenseView {
           <div class="depense__main__forms"></div>
 
           <div class="depense__main__graphics box">
-            <h2>Budget : ${money(salaire)}</h2>
+            <h2>Salaire : ${money(salaire)} (${salaireAnnuel}/an)</h2>
+            
 
             <div class="budget-bars" aria-label="Budgets">
               <!-- Besoins -->
