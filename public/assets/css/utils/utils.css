@@ -59,6 +59,10 @@
     transform: translate(-200%) skew(-25deg);
 }
 
+.annuel {
+    font-size: 16px;
+}
+
 .btn-mini-white:hover:before {
     transform: translateX(100%) skewX(-25deg);
     transition-duration: 1s;

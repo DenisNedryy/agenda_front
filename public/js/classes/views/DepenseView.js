@@ -97,7 +97,7 @@ export class DepenseView {
           <div class="depense__main__forms"></div>
 
           <div class="depense__main__graphics box">
-            <h2>Salaire : ${money(salaire)} (${salaireAnnuel}/an)</h2>
+            <h2>Salaire : ${money(salaire)} <span class="annuel">(${salaireAnnuel}/an)</span></h2>
             
 
             <div class="budget-bars" aria-label="Budgets">
