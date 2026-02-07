@@ -81,7 +81,7 @@
 /* Ligne (une catégorie) */
 .budget-row {
   display: grid;
-  grid-template-columns: 140px 1fr 90px;
+  grid-template-columns: 140px 1fr 106px;
   /* gauche / barre / montant */
   align-items: center;
   gap: 12px;
@@ -148,13 +148,13 @@
 }
 
 /* Couleurs (style proche de l'image: orange) */
-.budget-fill--needs {
-  background: #f28c28;
+/* .budget-fill--needs {
+ background: rgb(0, 95, 242);
 }
 
 .budget-fill--wants {
-  background: #f28c28;
-}
+background: rgb(0, 95, 242);
+} */
 
 /* Montant à droite */
 .budget-amount {
@@ -309,7 +309,9 @@
 }
 
 .recap__total {
-  margin: 15px 0px;
+  background-color: black;
+  padding: 14px;
+  max-width: 800px;
 }
 
 .dep-item__meta img {

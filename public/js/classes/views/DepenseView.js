@@ -43,6 +43,9 @@ export class DepenseView {
     const depenses = Array.isArray(data?.depenses) ? data.depenses : [];
     const totalSpent = depenses.reduce((sum, d) => sum + toNumber(d?.price), 0);
 
+    // total 
+    let totalAfterSave = Number(needsBudget) + Number(wantsBudget);
+
     const depensesHtml = depenses.length
       ? depenses
         .slice()
@@ -108,6 +111,13 @@ export class DepenseView {
                 <div class="budget-bar" role="progressbar"
                      aria-valuemin="0" aria-valuemax="100" aria-valuenow="${needsPct.toFixed(0)}">
                   <span class="budget-fill budget-fill--needs" style="width:${needsPct}%"></span>
+                  <span
+                  class="budget-fill budget-fill--needs"
+                  style="
+                    width: ${needsPct}%;
+                    background-color: ${Number(needsPct) < 100 ? 'rgb(0, 95, 242)' : 'red'};
+                  ">
+                </span>
                 </div>
 
                 <div class="budget-amount">
@@ -127,7 +137,13 @@ export class DepenseView {
 
                 <div class="budget-bar" role="progressbar"
                      aria-valuemin="0" aria-valuemax="100" aria-valuenow="${wantsPct.toFixed(0)}">
-                  <span class="budget-fill budget-fill--wants" style="width:${wantsPct}%"></span>
+                  <span
+                  class="budget-fill budget-fill--wants"
+                  style="
+                    width: ${wantsPct}%;
+                    background-color: ${Number(wantsPct) < 100 ? 'rgb(0, 95, 242)' : 'red'};
+                  ">
+                </span>
                 </div>
 
                 <div class="budget-amount">
@@ -142,15 +158,16 @@ export class DepenseView {
             <div class="recap__header">
               <h2>Mes dépenses</h2>
             </div>
+            <div class="recap__total">
+              <span>Total: </span>
+              <strong>${totalSpent} / ${totalAfterSave} €</strong>
+            </div>
 
             <ul class="dep-list">
               ${depensesHtml}
             </ul>
 
-            <div class="recap__total">
-              <span>Total</span>
-              <strong>${money(totalSpent)}</strong>
-            </div>
+
           </div>
         </div>
       </div>
