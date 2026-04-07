@@ -245,9 +245,9 @@
 }
 
 .bgJaune {
-    background-color: #D4AF37;
+    background-image:url("../../images/bg/blue.PNG");
     /* Jaune or élégant */
-    color: #121415;
+    color: white;
 }
 
 .bgBlack {
