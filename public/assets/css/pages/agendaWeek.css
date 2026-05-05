@@ -301,8 +301,8 @@
 }
 
 .bgProjects {
-    background-color: #2E86C1;
-    /* Bleu moyen */
+    background-image: url("../../images/bg/bg_green.png");
+    /* Vert naturel */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
@@ -312,7 +312,7 @@
 }
 
 .bgCourses {
-    background-image: url("../../images/bg/bg_blue_pale.png");
+    background-image: url("../../images/bg/bg_grey.png");
     /* Bleu clair adouci */
     color: #f0f0f0;
     cursor: pointer;
