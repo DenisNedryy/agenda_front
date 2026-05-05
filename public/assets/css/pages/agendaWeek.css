@@ -174,7 +174,7 @@
 
 .dayFiche ul li {
     border: 1px solid rgba(255, 255, 255, .1);
-    border: 1px solid rgba(0,0,0,.8);
+    border: 1px solid rgba(0, 0, 0, .8);
     padding: 13px;
     padding-top: 20px;
     text-align: center;
@@ -245,11 +245,11 @@
 }
 
 .bgJaune {
-    background-image:url("../../images/bg/blue.PNG");
+    background-image: url("../../images/bg/blue.PNG");
     /* Jaune or élégant */
     color: white;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 .bgBlack {
@@ -262,11 +262,11 @@
     /* Rouge atténué */
     cursor: pointer;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 .bgTasks {
-    background-image:url("../../images/bg/blue.PNG");
+    background-image: url("../../images/bg/blue.PNG");
     /* Jaune or élégant */
     color: white;
     /* Orange terre cuite */
@@ -275,29 +275,29 @@
     animation-duration: .2s;
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 .bgRdvs {
-   background-image: url("../../images/bg/bg_blue.png");
+    background-image: url("../../images/bg/bg_blue.png");
     /* Vert naturel */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 .bgEvents {
- background-image: url("../../images/bg/bg_purple.png");
+    background-image: url("../../images/bg/bg_purple.png");
     /* Violet doux */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 .bgProjects {
@@ -308,11 +308,11 @@
     animation-duration: .2s;
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 .bgCourses {
-   background-image: url("../../images/bg/bg_blue_pale.png");
+    background-image: url("../../images/bg/bg_blue_pale.png");
     /* Bleu clair adouci */
     color: #f0f0f0;
     cursor: pointer;
@@ -320,7 +320,7 @@
     animation-duration: .2s;
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
 }
 
 
