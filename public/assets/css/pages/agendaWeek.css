@@ -248,6 +248,8 @@
     background-image:url("../../images/bg/blue.PNG");
     /* Jaune or élégant */
     color: white;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgBlack {
@@ -259,6 +261,8 @@
     background-image: url("../../images/bg/bg_red.png");
     /* Rouge atténué */
     cursor: pointer;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgTasks {
@@ -270,6 +274,8 @@
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgRdvs {
@@ -279,6 +285,8 @@
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgEvents {
@@ -288,6 +296,8 @@
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgProjects {
@@ -297,6 +307,8 @@
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgCourses {
@@ -307,6 +319,8 @@
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
