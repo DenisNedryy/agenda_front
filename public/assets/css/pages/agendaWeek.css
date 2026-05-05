@@ -245,9 +245,9 @@
 }
 
 .bgJaune {
-    background-image:url("../../images/bg/blue.PNG");
+    background-color: #D4AF37;
     /* Jaune or élégant */
-    color: white;
+    color: #121415;
 }
 
 .bgBlack {
@@ -256,15 +256,15 @@
 }
 
 .bgBanksHollidays {
-    background-color: #B04A4A;
+    background-image: url("../../images/bg/bg_red.png");
     /* Rouge atténué */
     cursor: pointer;
 }
 
 .bgTasks {
-    background-image:url("../../images/bg/blue.PNG");
+    background-color: #D4AF37;
     /* Jaune or élégant */
-    color: white;
+    color: #121415;
     /* Orange terre cuite */
     cursor: pointer;
     animation-name: growUp;
@@ -273,7 +273,7 @@
 }
 
 .bgRdvs {
-    background-color: #4C9A2A;
+   background-image: url("../../images/bg/bg_blue.png");
     /* Vert naturel */
     cursor: pointer;
     animation-name: growUp;
@@ -282,7 +282,7 @@
 }
 
 .bgEvents {
-    background-color: #A56CC1;
+ background-image: url("../../images/bg/bg_purple.png");
     /* Violet doux */
     cursor: pointer;
     animation-name: growUp;
@@ -300,7 +300,7 @@
 }
 
 .bgCourses {
-    background-color: #5DADE2;
+   background-image: url("../../images/bg/bg_blue_pale.png");
     /* Bleu clair adouci */
     color: #f0f0f0;
     cursor: pointer;
