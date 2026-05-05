@@ -279,7 +279,7 @@
 }
 
 .bgRdvs {
-    background-image: url("../../images/bg/bg_blue.png");
+    background-image: url("../../images/bg/bg_green.png");
     /* Vert naturel */
     cursor: pointer;
     animation-name: growUp;
