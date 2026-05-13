@@ -234,10 +234,10 @@
 /* === Thème personnalisé pour fond #121415 === */
 
 .birthDayBg {
-    background-color: #4D4AB0;
+    background-image: url("../../images/bg/birthday2.png");
     ;
     /* Pêche doux festif */
-    color: #121415;
+    color: white;
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
