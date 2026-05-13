@@ -242,6 +242,8 @@
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .bgJaune {
