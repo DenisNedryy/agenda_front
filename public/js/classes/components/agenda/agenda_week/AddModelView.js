@@ -39,6 +39,14 @@ export class AddModelView {
         </select>
       </div>
 
+
+      <!-- Time -->
+      <div>
+        <label for="timeSelect">Time</label>
+        <input type="time" name="scheduled_time" id="timeSelect">
+      </div>
+      
+
       <!-- Subject -->
       <div class="subjectContainer hidden">
         <label for="subjectSelect">Subject</label>
@@ -70,10 +78,10 @@ export class AddModelView {
     }
   }
 
-renderModel() {
-  const el = document.querySelector(".modalAddContainer");
-  if (el) {
-    el.innerHTML = `
+  renderModel() {
+    const el = document.querySelector(".modalAddContainer");
+    if (el) {
+      el.innerHTML = `
             <div class="modal hidden">
   <div class="modalContent">
     <div class="modal__content__header">
@@ -137,6 +145,6 @@ renderModel() {
 </div>
 
             `;
+    }
   }
-}
 }

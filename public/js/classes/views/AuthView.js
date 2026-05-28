@@ -7,18 +7,27 @@ export class AuthView {
         const el = document.getElementById("root");
         if (el) {
             this.isConnectionPage ? this.renderConnectionPage(el) : this.renderInscriptionPage(el);
-            
+
         }
     }
 
     renderConnectionPage(el) {
         if (el) {
-            el.innerHTML = ` 
-            <div class="auth box"> 
-                <form id="form-connection box">
+            el.innerHTML = `  
+            <div class="auth"> 
+            <div class="auth__left">
+              <h2>Rhodia</h2>
+                <form id="form-connection">
                     <div class="form__header">
-                        <img src="/public/assets/images/logos/employIn.png"/> 
-                        <p>Log in to your account</p>
+                      <div>
+                      <p>Log In</p>
+                      </div>
+                      <div>
+                      <p class="authPage">to your</p>
+                      </div>
+                      <div>
+                      <p>account<span class="authPage">.</span></p>
+                      </div>
                     </div>
                      <div class="form__body">
                         <div class="form-group">
@@ -36,6 +45,7 @@ export class AuthView {
                           <div class="form__footer__answer"></div>
                     </div>
                 </form>
+                </div>
             </div>
             `;
         }
@@ -45,10 +55,17 @@ export class AuthView {
         if (el) {
             el.innerHTML = ` 
             <div class="auth"> 
+                <div class="auth__left">
+                <h2>Rhodia</h2>
                 <form id="form-inscription">
                     <div class="form__header">
-                        <img src="/public/assets/images/logos/employIn.png"/>
-                        <p>Create an account</p>
+                        <div>
+                      <p>Create</p>
+                      </div>
+                      <div>
+                      <p class="authPage">An account</p>
+                      </div>
+
                     </div>
                      <div class="form__body">
                         <div class="form-group">
@@ -70,6 +87,7 @@ export class AuthView {
                       <div class="form__footer__answer"></div>
                     </div>
                 </form>
+                </div>
             </div>
             `;
         }

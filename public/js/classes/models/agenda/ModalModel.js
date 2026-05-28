@@ -14,6 +14,7 @@ export class ModalModel {
         const description = form.elements['description'].value;
         const type = form.elements['type'].value;
         const subject = form.elements['subject'].value;
+        const scheduled_time = form.elements['scheduled_time'].value;
         form.reset();
         const task = {
             name: name || null,
@@ -21,6 +22,7 @@ export class ModalModel {
             type: type || null,
             subject: subject || null,
             date: date,
+            scheduled_time: scheduled_time || null,
             owner_id: userIdSelected
         };
         // check if auth!==current 

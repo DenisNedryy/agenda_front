@@ -98,6 +98,7 @@ export class CalendarModel {
                         name: task.name,
                         description: task.description,
                         date,
+                        scheduled_time: task.scheduled_time,
                         year: dayYear,
                         month: taskMonth,
                         dateNum: taskDay,

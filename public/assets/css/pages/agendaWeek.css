@@ -71,7 +71,6 @@
 }
 
 .agendaContent__body__left {
-    width: 30%;
     position: relative;
 }
 
@@ -127,13 +126,14 @@
 }
 
 .dayFiche {
-    width: 14.2%;
+    width: 12.5%;
 }
 
 .dayFiche--title {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10px;
 }
 
 .dayMini {
@@ -141,13 +141,19 @@
     display: none;
 }
 
-.currentDay {
+/* .currentDay {
     background-color: rgb(0, 95, 242);
+} */
+
+.dayFiche--title:has(.currentDay) {
+    background-color: rgba(216, 69, 138, .1);
+    border-bottom: 2px solid rgb(216, 69, 138);
 }
 
 .dayFiche--title p:first-child {
     text-align: center;
     margin-bottom: 5px;
+    padding-top: 13px;
 }
 
 .dayFiche--title p:last-child {
@@ -169,22 +175,24 @@
 }
 
 .dayFiche--title p:last-child:hover {
-    background-color: rgb(168, 199, 250);
+    background-color: rgba(216, 69, 138, .1);
 }
 
 .dayFiche ul li {
-    border: 1px solid rgba(255, 255, 255, .1);
-    border: 1px solid rgba(0, 0, 0, .8);
-    padding: 13px;
-    padding-top: 20px;
-    text-align: center;
     text-overflow: ellipsis;
     white-space: wrap;
-    height: 89px;
     font-size: 13px;
     position: relative;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    margin: 7px 3px;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.dayFiche ul li:hover {
+    /* background-color: rgb(240, 226, 175); */
+    filter: brightness(.9)
 }
 
 /* .dayFiche ul li img {
@@ -200,10 +208,12 @@
     position: absolute;
     border-radius: 50%;
     top: -14px;
-    left: 15px;
+    left: 80px;
     border: 1px solid white;
     padding: 1px;
     background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
 }
 
 .agendaTask__header__avatar {
@@ -218,9 +228,6 @@
     background-color: white;
 }
 
-.dayFiche ul li:first-child {
-    border-top: none;
-}
 
 .checkBox,
 .checkBox__birthDay,
@@ -234,24 +241,21 @@
 /* === Thème personnalisé pour fond #121415 === */
 
 .birthDayBg {
-    background-image: url("../../images/bg/birthday2.png");
-    ;
     /* Pêche doux festif */
-    color: white;
+    color: #121415;
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #dfe4ff;
+    border: 1px solid #c8d0ff;
+    color: #2d3a74;
 }
 
 .bgJaune {
-    background-image: url("../../images/bg/blue.PNG");
+    background-color: #D4AF37;
     /* Jaune or élégant */
-    color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
+    color: #121415;
 }
 
 .bgBlack {
@@ -260,69 +264,63 @@
 }
 
 .bgBanksHollidays {
-    background-image: url("../../images/bg/bg_red.png");
-    /* Rouge atténué */
+    background: #ffe5e1;
+    color: #8f3d32;
+    color: #8f3d32;
     cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .bgTasks {
-    background-image: url("../../images/bg/blue.PNG");
+    background-color: rgb(255, 243, 201);
     /* Jaune or élégant */
-    color: white;
+    color: #121415;
     /* Orange terre cuite */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .bgRdvs {
-    background-image: url("../../images/bg/bg_green.png");
     /* Vert naturel */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #edffe1;
+    ;
+    color: #8f3d32;
 }
 
 .bgEvents {
-    background-image: url("../../images/bg/bg_purple.png");
     /* Violet doux */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #e1fff6;
+    color: #8f3d32;
 }
 
 .bgProjects {
-    background-image: url("../../images/bg/bg_green.png");
-    /* Vert naturel */
+    background: #fee1ff;
+    color: #8f3d32;
+    /* Bleu moyen */
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .bgCourses {
-    background-image: url("../../images/bg/bg_grey.png");
     /* Bleu clair adouci */
     color: #f0f0f0;
     cursor: pointer;
     animation-name: growUp;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #fff9e1;
+    color: #8f3d32;
 }
 
 
@@ -338,7 +336,7 @@
     width: 20px;
     height: 20px;
     border-radius: 5px;
-    background-color: rgb(0, 95, 242);
+    background-color: rgb(216, 69, 138);
     margin-right: 15px;
 }
 
@@ -359,15 +357,26 @@
     justify-content: flex-end;
 }
 
+.modalContent__header i {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 7px 7px;
+    border-radius: 5px;
+    margin: 0px 3px;
+}
+
 .modalContent__body>div {
     display: flex;
     margin-top: 20px;
+    align-items: center;
 }
 
+.modalContent__body__description >i{
+    margin-right: 15px;
+}
 
 .modalContent__body__name div:last-child p:last-child {
     font-size: 12px;
-    color: rgb(255, 255, 1);
+    color: rgb(216, 69, 138);
 }
 
 .modalContent__body__description {
@@ -386,7 +395,6 @@
 
 .modalContent__header i {
     cursor: pointer;
-    padding: 0px 10px;
 }
 
 .modalContent__header i:hover {
@@ -523,4 +531,220 @@ body .agendaContent__body__left {
 .focusTask-title {
     font-size: 19px;
     margin: 5px 0px;
+}
+
+.agenda {
+    display: flex;
+}
+
+.agenda__left {
+    padding: 25px;
+}
+
+.agenda__right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.agendaYear__monthBox__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* my calendars */
+.optionsContainer ul li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.agenda__left__parameters__options .checkBox,
+.agenda__left__parameters__options .checkBoxParams {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.checkBox__user {
+    background-color: #668BE1;
+    padding: 3px;
+}
+
+.box-user {
+    border: 2px solid #668BE1;
+    border-radius: 3px;
+}
+
+.box-user i {
+    padding: 5px;
+    color: white;
+}
+
+.checkBox__Bank {
+    background-color: rgb(216, 69, 138);
+    padding: 3px;
+}
+
+.box-bank {
+    border: 2px solid rgb(216, 69, 138);
+    border-radius: 3px;
+}
+
+.box-bank i {
+    padding: 5px;
+    color: white;
+}
+
+.checkBox__birthDay {
+    background-color: #55B080;
+    padding: 3px;
+}
+
+.box-birth {
+    border: 2px solid #55B080;
+    border-radius: 3px;
+}
+
+.box-birth i {
+    padding: 5px;
+    color: white;
+}
+
+.agenda__right__agenda {
+    display: flex;
+}
+
+.dayFicheContainer {
+    display: flex;
+    width: 80%;
+}
+
+/* period of the day */
+.periodOfTheDay {
+    margin-top: 69px;
+    border-top: 2px solid rgba(192, 192, 192, 0.3);
+    margin-top: 92px;
+}
+
+.periodOfTheDay>div {
+    height: 200px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid rgba(192, 192, 192, 0.3);
+    border-right: 2px solid rgba(192, 192, 192, 0.3);
+}
+
+.typeList {
+    height: 200px;
+    overflow-y: auto;
+    border-right: 2px solid rgba(192, 192, 192, 0.3);
+    padding: 5px;
+    list-style-type: none;
+}
+
+.morning {
+    border-top: 2px solid rgba(192, 192, 192, 0.3)
+}
+
+.noon {
+    border-top: 2px solid rgba(192, 192, 192, 0.3)
+}
+
+.evening {
+    border-top: 2px solid rgba(192, 192, 192, 0.3);
+    border-bottom: 2px solidrgba(192, 192, 192, 0.3);
+}
+
+.agendaTask__header {
+    text-align: left;
+    padding: 10px 0px;
+    color: rgb(216, 69, 138);
+    font-size: 12px;
+}
+
+.agendaTask__body::first-letter {
+    text-transform: uppercase;
+}
+
+.agendaTask__body {
+    font-weight: 600;
+    color: rgba(0, 0, 0, .8);
+}
+
+.periodOfTheDay>div>p {
+    text-align: center;
+    font-weight: 600;
+}
+
+.periodOfTheDay__evening__horraire {
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(0, 0, 0, .7);
+    margin-top: 5px;
+}
+
+/* agenda right header */
+.agenda__right__header {
+    display: flex;
+    align-items: center;
+}
+
+.agenda__right__header__navigation__arrows {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.agenda__right__header__navigation__arrows i:hover {
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.agenda__right__header__navigation__arrows i {
+    padding: 7px;
+    color: black;
+}
+
+
+/* agenda left header */
+.agenda__left__header>button {
+    margin: 15px 0px;
+}
+
+.agenda__left__header>p {
+    color: rgba(0, 0, 0, .7);
+}
+
+
+/* agenda right header */
+.agenda__right__header__navigation__arrows>div {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1px 7px;
+    border-radius: 5px;
+    margin: 0px 3px;
+}
+
+.agenda__right__header__navigation__arrows>div:hover i {
+    /* color: rgb(216, 69, 138); */
+}
+
+.agenda__right__header__navigation__arrows>div:hover {
+    background-color: rgba(197, 197, 197, 0.1);
+}
+
+.agenda__right__header {
+    padding: 30px 0px 0px 23px;
+
 }

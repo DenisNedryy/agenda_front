@@ -14,6 +14,7 @@ export class AgendaCtrl {
         this.addModelView = agendaViews.addModelView;
         this.focusModalView = agendaViews.focusModalView;
         this.agendaDayOffView = agendaViews.agendaDayOffView;
+        this.miniCalendarView = agendaViews.miniCalendarView;
 
         this.dateModel = agendaModels.dateModel;
         this.taskModel = agendaModels.taskModel;
@@ -46,7 +47,7 @@ export class AgendaCtrl {
 
     };
 
-    async show(dateSelected = null) {
+    async show(dateSelected = null, month = null) {
         await this.authServices.init();
         this.dateNavigationModel.setCurrentDateSelected();
         const auth = await this.authServices.getAuth();
@@ -79,7 +80,28 @@ export class AgendaCtrl {
         this.agendaNavView.render(weekData.dateSelected);
         this.agendaParamsView.render(params);
         this.agendaCalendarView.render(weekData.weeklySchedule);
-        this.agendaCalendarView.renderMobileView(weekData.weeklySchedule, dateSelected);
+        // this.agendaCalendarView.renderMobileView(weekData.weeklySchedule, dateSelected);
+
+        const selectedDate = new Date(this.dateNavigationModel.dateSelected);
+        const selectedYear = selectedDate.getFullYear();
+        const data = this.calendarModel.getAgendaPerYear(selectedYear);
+
+        const monthSelected = month !== null
+            ? month
+            : dateSelected !== null
+                ? new Date(dateSelected).getMonth()
+                : new Date().getMonth();
+
+
+        const dataMonth = data.filter((cell) => cell.month === monthSelected + 1);
+
+        if (!dataMonth.length) {
+            console.error("Aucun mois trouvé pour :", monthSelected, data);
+            return;
+        }
+
+        this.miniCalendarView.render(dataMonth);
+
         this.addModelView.renderModel();
         this.addModelView.renderModelMobile();
         this.seoManager.setTitle('Schedule - Agenda');

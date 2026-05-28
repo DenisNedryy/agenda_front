@@ -31,6 +31,7 @@ import { SpaceRepService } from "../classes/services/SpaceRepService.js";
 import { WeekEndService } from "../classes/services/WeekEndService.js";
 import { WeekEndModel } from "../classes/models/agenda/WeekEndModel.js";
 import { ModalView } from "../classes/views/ModalView.js";
+import { MiniCalendar } from "../classes/components/agenda/agenda_week/MiniCalendar.js";
 
 
 export function initAgenda(seoManager) {
@@ -67,6 +68,7 @@ export function initAgenda(seoManager) {
     const agendaDayOffEventBinder = new AgendaDayOffEventBinder();
     const spaceRepService = new SpaceRepService();
     const modalView = new ModalView();
+    const miniCalendarView = new MiniCalendar();
 
 
     const agendaViews = Object.freeze({
@@ -79,7 +81,8 @@ export function initAgenda(seoManager) {
         planningView: planningView,
         addModelView: addModelView,
         focusModalView: focusModalView,
-        agendaDayOffView: agendaDayOffView
+        agendaDayOffView: agendaDayOffView,
+        miniCalendarView: miniCalendarView,
     });
 
     const agendaModels = Object.freeze({

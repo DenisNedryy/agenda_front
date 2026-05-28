@@ -4,7 +4,6 @@ export class ProfilFormView {
   renderName() {
     const el = document.querySelector(".profil_form");
     if (el) {
-      el.classList.add("box");
       el.innerHTML = `
             <p>Update Name</p>
             <form>
@@ -21,7 +20,6 @@ export class ProfilFormView {
   renderPassword() {
     const el = document.querySelector(".profil_form");
     if (el) {
-      el.classList.add("box");
       el.innerHTML = `
             <form>
             <label>Update Password</label>
@@ -46,7 +44,6 @@ export class ProfilFormView {
   renderRole() {
     const el = document.querySelector(".profil_form");
     if (el) {
-      el.classList.add("box");
       el.innerHTML = `
             <form>
             <label>Update Role</label>
@@ -63,7 +60,6 @@ export class ProfilFormView {
   renderAddBirthday() {
     const el = document.querySelector(".profil_form");
     if (el) {
-      el.classList.add("box");
       el.innerHTML = `
             <form>
           <label>Birthday</label>
@@ -151,7 +147,6 @@ export class ProfilFormView {
       el.innerHTML = "";
 
       // mettre un filter
-      el.classList.add("box");
       for (let i = 0; i < birthDays.length; i++) {
         const fiche = document.createElement("div");
         fiche.setAttribute("data-id", birthDays[i].id);

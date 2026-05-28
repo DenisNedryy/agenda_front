@@ -1,13 +1,9 @@
 header {
     display: flex;
-    justify-content: space-between;
     width: 100%;
-    background-color: rgb(29, 29, 31);
+ background-color: rgb(6,22,34);
     color: white;
-    padding: 20px;
-    border-left: 2px solid rgb(49, 49, 51);
-    border-bottom: 2px solid rgb(49, 49, 51);
-
+    height: 60px;
 }
 
 .header__right {
@@ -102,6 +98,8 @@ header {
     display: flex;
     align-items: center;
     padding: 15px;
+    position: absolute;
+    right: 0px;
 }
 
 .header__right__profil img {
@@ -204,4 +202,61 @@ header .header__right__profil__text--role {
 
 .header__right__profil__options ul li:hover {
     background-color: rgb(59, 57, 57);
+}
+
+.header__right__links {
+    display: flex;
+    align-items: center;
+}
+
+.header__right__links a li img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.header__right__links a {
+    color: inherit;
+    transform: translateY(5px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    text-decoration:none;
+}
+
+.header__right__links a li {
+    list-style-type: none;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__right__links a li p {
+    opacity: 0;
+    max-width: 30px;
+    font-size: 9px;
+    text-align: center;
+}
+
+.header__right__links a:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+}
+
+.header__right__links a:hover li {
+    background-color: rgb(0, 153, 204);
+    background-color: white;
+    color: black;
+}
+
+.header__right__links a:hover li p {
+    opacity: 1;
+    color: inherit;
+    transition: opacity 0.18s ease, transform 0.78s ease;
+}
+
+.header__left {
+    width: auto;
+    margin-left: 30px;
 }

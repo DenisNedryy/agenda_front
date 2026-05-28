@@ -43,12 +43,14 @@ export class AgendaWeekEventBinder {
 
         else if (e.target.classList.contains("previousWeek")) {
             this.controller.dateNavigationModel.agendaWeekTurnLeft();
-            this.controller.show();
+            const date = this.controller.dateNavigationModel.dateSelected;
+            this.controller.show(date);
         }
 
         else if (e.target.classList.contains("nextWeek")) {
             this.controller.dateNavigationModel.agendaWeekTurnRight();
-            this.controller.show();
+            const date = this.controller.dateNavigationModel.dateSelected;
+            this.controller.show(date);
         }
 
         // changement d'utilisateur
@@ -118,21 +120,22 @@ export class AgendaWeekEventBinder {
             const alerts = await this.controller.taskModel.getAlerts();
             this.controller.modalView.renderAlertsLength(alerts);
         }
-        else if (e.target.classList.contains("btn-submit-addTask2")) {
-            e.preventDefault();
-            const date = document.querySelector(".calendarMobileView__body").getAttribute("data-date");
-            this.controller.modalModel.modalAddDate = date;
-            const form = e.target.closest("form");
-            const userIdSelected = this.controller.authServices.userIdSelected;
-            const auth = await this.controller.authServices.getAuth();
-            const task = this.controller.modalModel.getTaskObj(form, userIdSelected, auth);
-            if (task) {
-                await this.controller.taskServices.createTask(task);
-            }
-            this.controller.show();
-            const alerts = await this.controller.taskModel.getAlerts();
-            this.controller.modalView.renderAlertsLength(alerts);
-        }
+        // else if (e.target.classList.contains("btn-submit-addTask2")) {
+        //     e.preventDefault();
+        //     console.log(document.querySelector(".calendarMobileView__body"));
+        //     const date = document.querySelector(".calendarMobileView__body").getAttribute("data-date");
+        //     this.controller.modalModel.modalAddDate = date;
+        //     const form = e.target.closest("form");
+        //     const userIdSelected = this.controller.authServices.userIdSelected;
+        //     const auth = await this.controller.authServices.getAuth();
+        //     const task = this.controller.modalModel.getTaskObj(form, userIdSelected, auth);
+        //     if (task) {
+        //         await this.controller.taskServices.createTask(task);
+        //     }
+        //     this.controller.show();
+        //     const alerts = await this.controller.taskModel.getAlerts();
+        //     this.controller.modalView.renderAlertsLength(alerts);
+        // }
 
         // modal addTask VERSION MOBILE
 
@@ -202,8 +205,10 @@ export class AgendaWeekEventBinder {
             const data = {
                 name: form.elements['name'].value || null,
                 description: form.elements['description'].value || null,
-                type: form.elements['type'].value || null
+                type: form.elements['type'].value || null,
+                scheduled_time: form.elements['scheduled_time'].value || null
             }
+     
 
             await this.controller.taskServices.updateTask(data, taskId);
             this.controller.show();
@@ -235,7 +240,7 @@ export class AgendaWeekEventBinder {
         if (e.target.classList.contains("btn-task-reviewTomorow")) {
             const taskId = e.target.closest(".modalContent").getAttribute("data-id");
             const res = await this.controller.taskModel.reviewTomorow(taskId);
-            this.controller.show(); 
+            this.controller.show();
         }
 
         // spaced_Repetition next step
@@ -255,7 +260,7 @@ export class AgendaWeekEventBinder {
         // space_Repetition interval rollback
         if (e.target.classList.contains("btn-intervalRollback")) {
             const taskId = e.target.closest(".modalContent").getAttribute("data-id");
-            const res = await this.controller.spaceRepService.intervalRollback(taskId); 
+            const res = await this.controller.spaceRepService.intervalRollback(taskId);
             this.controller.show();
         }
 
@@ -275,6 +280,20 @@ export class AgendaWeekEventBinder {
             });
             myDay.classList.add("currentDay-mobile-on");
             const date = myDay.querySelector(".mobileNumber").getAttribute("data-date");
+            this.controller.show(date);
+        }
+
+        const miniAgendaNextMonth = e.target.closest(".miniAgendaNextMonth");
+        if (miniAgendaNextMonth) {
+            this.controller.dateNavigationModel.miniAgendaNextMonth();
+            const date = this.controller.dateNavigationModel.dateSelected;
+            this.controller.show(date);
+        }
+
+        const miniAgendaPreviousMonth = e.target.closest(".miniAgendaPreviousMonth");
+        if (miniAgendaPreviousMonth) {
+            this.controller.dateNavigationModel.miniAgendaPreviousMonth();
+            const date = this.controller.dateNavigationModel.dateSelected;
             this.controller.show(date);
         }
 

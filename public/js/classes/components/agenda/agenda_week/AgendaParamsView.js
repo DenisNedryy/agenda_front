@@ -3,7 +3,7 @@ import { HOST } from "../../../../constants/host.js";
 export class AgendaParamsView {
 
     render(params) {
-        const el = document.querySelector(".agendaContent__body__left");
+        const el = document.querySelector(".agenda__left__parameters__options");
         if (el) {
 
             // options pour width 600px
@@ -41,16 +41,16 @@ export class AgendaParamsView {
 
 
     renderUsers(container, params) {
-        const userTitle = document.createElement("p");
-        userTitle.className = "agendaContent__body__left--category";
-        userTitle.textContent = "Users";
+        // const userTitle = document.createElement("p");
+        // userTitle.className = "agendaContent__body__left--category";
+        // userTitle.textContent = "Users";
 
         const ul = document.createElement("ul");
         const users = params.filter((param) => param.name);
         for (let i = 0; i < users.length; i++) {
             const li = document.createElement("li");
             const check = document.createElement("div");
-            check.className = "checkBox";
+            check.className = "checkBox box-user";
             check.setAttribute("data-userId", users[i].id)
             if (users[i].isSelected) {
                 const i = document.createElement("i");
@@ -59,23 +59,23 @@ export class AgendaParamsView {
             }
             const name = document.createElement("p");
             name.textContent = users[i].name;
-            const miniAvatar = document.createElement("img");
-            miniAvatar.setAttribute("src", `${HOST}/api/images/avatars/${users[i].img_url}`)
+            // const miniAvatar = document.createElement("img");
+            // miniAvatar.setAttribute("src", `${HOST}/api/images/avatars/${users[i].img_url}`)
 
             li.appendChild(check);
             li.appendChild(name);
-            li.appendChild(miniAvatar);
+            // li.appendChild(miniAvatar);
             ul.appendChild(li);
         };
 
-        container.appendChild(userTitle);
+        // container.appendChild(userTitle);
         container.appendChild(ul);
     }
 
     renderParameters(container, params) {
-        const paramTitle = document.createElement("p");
-        paramTitle.className = "agendaContent__body__left--category";
-        paramTitle.textContent = "Params";
+        // const paramTitle = document.createElement("p");
+        // paramTitle.className = "agendaContent__body__left--category";
+        // paramTitle.textContent = "Params";
 
         const paramUl = document.createElement("ul");
 
@@ -108,7 +108,7 @@ export class AgendaParamsView {
         birth.appendChild(birthPara);
         paramUl.appendChild(birth);
 
-        container.appendChild(paramTitle);
+        // container.appendChild(paramTitle);
         container.appendChild(paramUl);
     }
 

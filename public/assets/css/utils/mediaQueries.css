@@ -1,7 +1,4 @@
 @media screen and (max-width: 1529px) {
-    body #root {
-        padding: 20px 10px;
-    }
 
     body .agendaContent__body__left {
         width: 152px;
@@ -62,9 +59,7 @@
         padding: 13px 0px;
     }
 
-    body .asside__top__logoContainer__left {
-        padding: 23px 0px 11px 11px;
-    }
+
 
     body .asside__top__logoContainer p {
         display: none;
@@ -114,9 +109,7 @@
 }
 
 @media screen and (max-width: 725px) {
-    .profil__header__menu__forms {
-        flex-direction: column;
-    }
+
 
     .profil__header__menu__forms>div {
         width: fit-content;
@@ -574,11 +567,6 @@
         display: none;
     }
 
-    body .auth {
-        background-color: rgb(29, 29, 31);
-        align-items: unset;
-        margin: 7px;
-    }
 
     body .auth form {
         margin-top: 34px;
@@ -641,4 +629,105 @@
         bottom: -67px;
         left: 137px;
     }
+}
+
+@media screen and (max-width: 795px) {
+    body .home__bodyContainer__left {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1599px) {
+    body .dayFicheContainer {
+        display: flex;
+        width: 100%;
+    }
+
+    body .dayFiche {
+        width: 13.5%;
+    }
+}
+
+
+@media screen and (max-width: 1424px) {
+
+    body .agenda {
+        background-color: rgb(248, 249, 251);
+        padding: 0px;
+    }
+}
+
+
+
+@media screen and (max-width: 1308px) {
+
+    body .agenda__left {
+        padding: 0px;
+    }
+
+    body .agenda__left__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body .agendaTask__header__headerSubject {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        border-radius: 50%;
+        top: -14px;
+        left: 15px;
+        border: 1px solid white;
+        padding: 1px;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    body .agendaTask__header {
+        text-align: center;
+    }
+
+    body .agendaTask__body {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 827px) {
+    body .periodOfTheDay {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    body .agenda__left {
+        width: 0px;
+    }
+    body .agenda__left__header{
+        display:none;
+    }
+
+    body .dayFiche {
+        width: 15.5%;
+    }
+
+    body .header__left--greetings {
+        display: none;
+    }
+
+    body .header__right__links a li {
+        list-style-type: none;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body .agenda__right__header {
+        padding: 0px;
+        margin: 15px;
+    }
+
 }

@@ -12,16 +12,17 @@ export class ProfilView {
                     <div class="profil__header__bg">
                       <label for="img-avatar">  
                          <img class="avatar-preview profilUpdate-img" src="${HOST}/api/images/avatars/${data.img_url}"/>  
+                         <i class="fa-solid fa-camera-retro img_profil"></i>
                       </label>
+                    <div class="nameAndRole">
+                            <p>${data.name}</p>
+                           <div> <i class="fa-solid fa-briefcase"></i><p>${data.role}</p> </div>
+                    </div>
                       <input id="img-avatar" type="file"/>
                       
                     </div>
                     
                     <div class="profil__header__menu">
-                    <div class="profil__header__menu__name">
-                        <p>${data.name}</p>
-                        <div><i class="fa-solid fa-briefcase"></i><p>${data.role}</p></div>
-                    </div>
                     <div class="profil__header__menu__forms">
                             <div><p class="profilActive profilUpdate-name">Name</p></div>
                             <div><p class="profilUpdate-role">Role</p></div>
@@ -33,8 +34,8 @@ export class ProfilView {
                     
                  
                 </div>
-                <div class="profil__body box">
-                     <div class="profil_form"></div>
+                <div class="profil__body">
+                     <div class="profil_form"></div> 
                 </div>
              
    

@@ -6,7 +6,7 @@ export class PlanningView {
 
 
     render(tasks, type = "all") {
-        const el = document.querySelector(".agendaContent");
+        const el = document.querySelector(".agenda");
         if (el) {
             el.innerHTML = `
             <div class="tasksFilters">

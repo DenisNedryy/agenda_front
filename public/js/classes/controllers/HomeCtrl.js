@@ -23,7 +23,6 @@ export class HomeCtrl {
         this.homeView.render();
         this.renderDayOff();
         this.renderProjets();
-        this.renderMap();
 
         this.seoManager.setTitle('Schedule - Accueil');
         this.homeEventBinder.addEventListeners();
@@ -54,16 +53,5 @@ export class HomeCtrl {
         this.homeEventBinder.initDragAndDrop();
     }
 
-    async renderMap() {
-        // vérification si vocabulaire 
-        const isVocabulary = await this.vocabularyModel.isVocabulary();
-        if (!isVocabulary) {
-            this.englishView.render404();
-            return;
-        }
 
-        // affichage de la view english
-        const pourcentageTotal = await this.vocabularyModel.getTotalFamilyPercentage();
-        this.englishView.render(pourcentageTotal);
-    }
 }

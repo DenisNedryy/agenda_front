@@ -1,12 +1,48 @@
 .btn {
     padding: 15px;
     border: none;
-    background-color: rgb(0, 95, 242);
+    background-color: rgb(255, 197, 25);
     border-radius: 3px;
-    color: white;
+    color: black;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(216, 69, 138);
+    color: white;
+}
+
+.btn-white {
+    padding: 15px;
+    border: none;
+    background-color: white;
+    border-radius: 3px;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-white:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.btn-current {
+    padding: 15px;
+    border: none;
+    background-color: rgb(255, 197, 25);
+    border-radius: 3px;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-current:hover {
+    background-color: rgb(216, 69, 138);
+    color: white;
 }
 
 .btn2 {
@@ -24,13 +60,18 @@
 .btn-mini {
     padding: 5px;
     border: none;
-    background-color: rgb(4, 74, 183);
+    background-color: rgb(253, 243, 217);
     border-radius: 3px;
-    color: snow;
+    color: black;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     margin: 5px;
+}
+
+.btn-mini:hover {
+    background-color: rgb(216, 69, 138);
+    color: white;
 }
 
 .btn-mini-white {
@@ -83,9 +124,6 @@
 .box {
     background-color: rgb(29, 29, 31);
     color: white;
-    padding: 24px;
-    border-radius: 7px;
-    margin: 20px 15px;
 }
 
 .box h2 {
@@ -128,13 +166,13 @@
 
 
 .mutatedBludeBg {
-    background-color: rgb(63, 121, 211);
+    background-color: rgb(217, 230, 251);
 }
 
 .mutatedRed {
-    background-color: #9d3c3c;
+    background-color: rgb(252, 230, 241);
 }
 
 .redBg {
-    background-color: #ac1111;
+    background-color: rgb(253, 243, 217);
 }

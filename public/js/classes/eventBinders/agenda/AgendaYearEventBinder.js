@@ -5,7 +5,7 @@ export class AgendaYearEventBinder {
     }
 
     setController(controller) {
-        this.controller = controller; 
+        this.controller = controller;
     }
 
     addEventListeners() {
@@ -17,8 +17,9 @@ export class AgendaYearEventBinder {
         if (e.target.classList.contains("numero")) {
             const dateStr = e.target.getAttribute("data-date");
             const date = new Date(dateStr);
-            this.controller.dateNavigationModel.dateSelected = date.getTime(); 
-            this.controller.show();
+            this.controller.dateNavigationModel.dateSelected = date.getTime();
+            const miniCalendarDate = this.controller.dateNavigationModel.dateSelected;
+            this.controller.show(miniCalendarDate);
         }
 
         else if (e.target.classList.contains("agendaYearTurnLeft")) {
@@ -39,6 +40,8 @@ export class AgendaYearEventBinder {
             const currentDate = new Date();
             const currentYear = currentDate.getFullYear();
             const data = this.controller.calendarModel.getAgendaPerYear(currentYear);
+            this.controller.dateNavigationModel.dateSelected = null;
+              this.controller.dateNavigationModel.stateYear = new Date().getFullYear();
             this.controller.yearView.render(data);
         }
     }

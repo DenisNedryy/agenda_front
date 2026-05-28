@@ -1,79 +1,76 @@
 aside {
-    background-color: rgb(29, 29, 31);
-    color: white;
-    width: 17%;
+    background-color: rgb(0, 52, 62);
+    width: 58px;
     height: 100vh;
-    position: relative;
+    overflow: visible;
 }
 
-.asside__top__logoContainer__left {
-    display: flex;
-    align-items: center;
-    padding: 18px;
-}
-
-.asside__top__logoContainer__left img {
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-}
-
-.asside__top__logoContainer__left p {
-    margin-left: 15px;
-    font-weight: 600;
-}
-
-aside .active {
-    background-color: rgb(55, 54, 57);
-    border-radius: 5px;
-}
-
-aside nav {
-    margin-top: 18px;
+.active {
+    background-color: rgb(51, 95, 105);
 }
 
 aside nav ul {
-    list-style-type: none;
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 aside a {
-    color: inherit;
+    color: white;
     text-decoration: none;
-    margin-bottom: 13px;
-}
-
-aside a:hover li{
-background-color: rgb(0, 95, 242);
 }
 
 aside li {
+    position: relative;
+    width: 58px;
+    height: 58px;
     display: flex;
     align-items: center;
-    padding: 10px;
-    font-size: 15px;
+    justify-content: center;
+    font-size: 20px;
 }
 
-aside nav ul li i {
-    color: white;
-    margin-right: 15px;
+aside li:hover {
+    background-color: rgb(0, 36, 43);
 }
 
-.aside__bottom {
+.nomage_page {
     position: absolute;
-    bottom: 5%;
-}
+    left: 58px;
+    top: 0;
 
-.aside__bottom li {
+    height: 58px;
+    min-width: 120px;
+    padding: 0 18px;
+
     display: flex;
     align-items: center;
-    padding: 10px;
+
+    background-color: rgb(0, 36, 43);
     color: white;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    opacity: 0;
+    transform: translateX(-8px);
+    pointer-events: none;
+
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 50;
 }
 
-.aside__bottom li i {
-    margin-right: 15px;
+aside li:hover .nomage_page {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.asside__top__logoContainer__left img {
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(255, 197, 25);
+}
+
+.asside__top__logoContainer__left {
+    height: 60px;
 }

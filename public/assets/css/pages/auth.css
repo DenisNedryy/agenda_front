@@ -1,26 +1,27 @@
 .auth {
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(29, 29, 31);
-    border-radius: 7px;
     min-height: 100%;
 }
 
 .auth form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: rgb(29, 29, 31);
     padding: 40px;
-    height: 551px;
+    margin: 25px;
+    background-color: rgba(255, 255, 255, .9);
+    width: 500px;
+    padding: 24px;
+    border-left: 1px solid black;
 }
 
 .form__header {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-bottom: 25px;
+    font-family: dragonBall;
 }
 
 .form__header img {
@@ -28,10 +29,21 @@
     height: 40px;
     object-fit: cover;
     margin-bottom: 23px;
+    padding: 5px;
+    background-color: rgb(255, 197, 25);
 }
 
 .form__header p {
-    font-size: 22px;
+    display: flex;
+    font-size: 4rem;
+    line-height: 1;
+    color: black;
+    width: 100%;
+    font-weight: 700;
+    font-size: 6rem;
+    line-height: 0.9;
+    letter-spacing: 0px;
+    text-transform: uppercase;
 }
 
 .form__body {
@@ -51,25 +63,41 @@
     position: absolute;
     top: -16px;
     left: 15px;
-    color: #dfdbdb;
+    color: white;
     font-size: 12px;
-    background-color: rgb(29, 29, 31);
+    background-color: rgb(216, 69, 138);
     padding: 6px 5px;
+    border-radius: 3px;
+}
+
+.authPage {
+    -webkit-text-fill-color: transparent;
+    background-image: url("/public/assets/images/bg/bg_lol_pink.jpg");
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: text;
+    color: rgb(37, 37, 37);
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 5rem;
+    line-height: 0.9;
 }
 
 .auth input {
     height: 100%;
-    background-color: rgb(29, 29, 31);
-    border-radius: 7px;
+    border-radius: 3px;
     border: none;
     outline: none;
-    color: #dfdbdb;
+    color: black;
     padding-left: 10px;
     width: 100%;
+    background-color: rgb(254, 250, 199);
 }
 
 .form__footer {
     width: 100%;
+    position: relative;
 }
 
 .form__footer button {
@@ -79,6 +107,7 @@
 .form__footer p {
     margin-top: 25px;
     text-align: center;
+    color: rgba(0, 0, 0, .7);
 }
 
 form .bold {
@@ -90,7 +119,9 @@ form .bold {
     display: flex;
     align-items: center;
     padding: 15px;
-
+    position: absolute;
+    top: 30px;
+    left: 35%;
     border-radius: 3px;
 }
 
@@ -117,4 +148,27 @@ body .form__footer__answer p {
     animation-name: rtl;
     animation-duration: .4s;
     animation-fill-mode: forwards;
+}
+
+.form__header h2 {
+    color: black;
+}
+
+.auth__left {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth__left h2 {
+    color: black;
+    padding: 0px 29px;
+    text-transform: uppercase;
+    font-family: dragonBall;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.form__footer .bold {
+    color: rgb(216, 69, 138)
 }

@@ -19,38 +19,56 @@ export class AuthCtrl {
         this.authEventBinder.addEventListeners();
     }
 
-    async inscription(data) {
-        try {
-            const result = await this.authModel.inscription(data);
-            if (result.ok) {
-                this.authView.showSuccess("Registration successful");
-            } else {
-                this.authView.showError(result.data?.msg || "Something went wrong.");
-            }
+async inscription(data) {
+    try {
+        const result = await this.authModel.inscription(data);
 
-        } catch (error) {
-            console.error("Erreur d'inscription :", error);
+        if (result.ok) {
+            this.authView.showSuccess("Registration successful");
+        } else {
             this.authView.showError(result.data?.msg || "Something went wrong.");
         }
+
+    } catch (error) {
+        console.error("Erreur d'inscription :", error);
+
+        this.authView.showError(
+            error.message || "Something went wrong."
+        );
     }
+}
 
-    async connection(data) {
-        try {
-            const result = await this.authModel.connection(data);
-            if (result.ok) {
-                this.authView.showSuccess("Connection successful");
-                const auth = await this.authServices.setCurrentUser();
-                this.authServices.userIdSelected = auth.id;
-                this.majAuth.init();
-                return true;
-            } else {
-                this.authView.showError(result.data?.msg || "Something went wrong.");
-                return false;
-            }
+async connection(data) {
+    try {
+        const result = await this.authModel.connection(data);
 
-        } catch (error) {
-            console.error("Erreur d'inscription :", error);
-            this.authView.showError(result.data?.msg || "Something went wrong.");
+        if (result.ok) {
+            this.authView.showSuccess("Connection successful");
+
+            const auth = await this.authServices.setCurrentUser();
+
+            this.authServices.userIdSelected = auth.id;
+
+            this.majAuth.init();
+
+            return true;
+
+        } else {
+            this.authView.showError(
+                result.data?.msg || "Something went wrong."
+            );
+
+            return false;
         }
+
+    } catch (error) {
+        console.error("Erreur de connexion :", error);
+
+        this.authView.showError(
+            error.message || "Something went wrong."
+        );
+
+        return false;
     }
+}
 }

@@ -7,8 +7,6 @@ import { HomeEventBinder } from "../classes/eventBinders/homeEventBinder.js";
 import { DateModel } from "../classes/models/agenda/DateModel.js";
 import { TaskModel } from "../classes/models/agenda/TaskModel.js";
 import { TaskServices } from "../classes/services/TaskServices.js";
-import { VocabularyModel } from "../classes/models/vocabulary/vocabularyModel.js";
-import { VocabularyService } from "../classes/services/VocabularyService.js";
 import { WeekEndService } from "../classes/services/WeekEndService.js";
 import { WeekEndModel } from "../classes/models/agenda/WeekEndModel.js";
 
@@ -21,8 +19,6 @@ export function initHome(seoManager) {
     const homeView = new HomeView();
     const taskServices = new TaskServices();
     const homeEventBinder = new HomeEventBinder();
-    const vocabularyService = new VocabularyService();
-    const vocabularyModel = new VocabularyModel(vocabularyService);
     const taskModel = new TaskModel(dateModel, taskServices);
     const weekEndService = new WeekEndService();
     const weekEndModel = new WeekEndModel(weekEndService);
@@ -37,7 +33,6 @@ export function initHome(seoManager) {
     const homeModels = Object.freeze({
         dateModel: dateModel,
         taskModel: taskModel,
-        vocabularyModel: vocabularyModel,
         weekEndModel:weekEndModel
     });
 

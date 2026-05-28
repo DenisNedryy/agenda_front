@@ -5,29 +5,36 @@ export class AgendaView {
         if (el) {
             el.innerHTML = `
             <div class="agenda">
-                <div class="agenda__viewSelection box">
-                    <p class="agenda__viewSelection--title">Views</p>
-                    <ul class="agenda__viewSelection__viewContainer"> 
-                        <li class="weekView">
-                            <i class="fa-solid fa-calendar-week weekViewi"></i>
-                            <p class="weekViewPara">Week</p>
-                        </li>
-                        <li class="yearView">
-                             <i class="fa-solid fa-calendar-days yearViewi"></i>
-                             <p class="yearViewPara">Year</p>
-                        </li>
-                        <li class="planningView">
-                             <i class="fa-solid fa-rectangle-list planningViewi"></i>
-                             <p class="planningViewPara">Planning</p>
-                        </li> 
-                        <li class="dayOff-manager">
-                               <i class="fa-solid fa-bed"></i>
-                             <p class="planningViewPara">Day-off mger</p>
-                        </li>
-                    </ul>
+                <div class="agenda__left">
+                    <div class="agenda__left__header">
+                    <h2>Calendar</h2>
+                    <p>Manage your schedule</p>
+                    <button class="yearView btn">Year view</button>
+                    </div>
+                    <div class="agenda__left__miniCalendar"></div>
+                    <div class="agenda__left__parameters">
+                    <p>My calendars</p>
+                    <div class="agenda__left__parameters__options"></div>
+                    </div>
                 </div>
-                <div class="agendaContent box"></div> 
-                
+                <div class="agenda__right">
+                    <div class="agenda__right__header">
+                        <button class="btn-today btn-current">Today</button
+                        <div class="agenda__right__header__navigation">
+                            <div class="agenda__right__header__navigation__arrows">
+                            <div>
+                                <i class="fa-solid fa-angle-left previousWeek"></i>
+                            </div>
+                            <div>
+                                 <i class="fa-solid fa-angle-right nextWeek"></i>
+                            </div>
+                            </div>
+                            <div class="agenda__right__header__navigation__date"></div>
+                        
+                        <div class="agenda__right__header__view"></div>
+                    </div>
+                    <div class="agenda__right__agenda"></div> 
+                </div>                
             </div>
             `
         }

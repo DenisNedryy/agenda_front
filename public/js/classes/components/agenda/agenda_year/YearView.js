@@ -7,14 +7,16 @@ export class YearView {
     }
 
     render(data) {
-        const el = document.querySelector(".agendaContent");
+        const el = document.querySelector(".agenda");
         if (el) {
             el.innerHTML = "";
+            const agendaContainer = document.createElement("div");
+            agendaContainer.className = "agenda__container";
 
             const agendaYearConsole = document.createElement("div");
             agendaYearConsole.className = "agendaWeek__console";
             const today = document.createElement("p");
-            today.className = "agendYear__console__today btn";
+            today.className = "agendYear__console__today btn-current";
             today.textContent = "Today";
             agendaYearConsole.appendChild(today);
 
@@ -32,9 +34,7 @@ export class YearView {
             dateText.textContent = data[0].year;
             agendaYearConsole.appendChild(dateText);
 
-
-
-            el.appendChild(agendaYearConsole);
+            agendaContainer.appendChild(agendaYearConsole);
 
             const agendaEl = document.createElement("div");
             agendaEl.className = "agendaYear";
@@ -47,7 +47,7 @@ export class YearView {
                 const monthBoxHeader = document.createElement("div");
                 monthBoxHeader.classList = "agendaYear__monthBox__header";
                 const monthBoxHeaderContent = document.createElement("p");
-                monthBoxHeaderContent.textContent = this.yearMonth[index];
+                monthBoxHeaderContent.innerHTML = `<i class="fa-regular fa-calendar"></i> ${this.yearMonth[index]}`;
                 monthBoxHeader.appendChild(monthBoxHeaderContent);
                 monthBox.appendChild(monthBoxHeader);
 
@@ -140,7 +140,8 @@ export class YearView {
                 // fin
                 agendaEl.appendChild(monthBox);
             });
-            el.appendChild(agendaEl);
+            agendaContainer.appendChild(agendaEl);
+            el.appendChild(agendaContainer);
         }
     }
 

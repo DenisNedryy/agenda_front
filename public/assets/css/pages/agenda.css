@@ -1,8 +1,45 @@
+.agenda {
+    background-color: rgb(248, 249, 251);
+    padding: 50px;
+}
+
+.agenda__left {
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+.agenda__right {
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.agenda__left__miniCalendar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.agenda__left__parameters {
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .agenda__viewSelection {
-    background-color: rgb(29, 29, 31);
-    color: white;
+    background-color: white;
+    color: black;
     padding: 24px;
     border-radius: 7px;
+    max-width: 600px;
 }
 
 .agenda__viewSelection__viewContainer {
@@ -22,7 +59,7 @@
     overflow: hidden;
     margin-right: 15px;
     cursor: pointer;
-    color: white;
+    color: black;
 }
 
 .agenda__viewSelection__viewContainer li i {
@@ -49,8 +86,8 @@
 }
 
 .agendaContent {
-    background-color: rgb(29, 29, 31);
-    color: white;
+    background-color: white;
+    color: black;
     padding: 24px;
     border-radius: 7px;
     margin-top: 20px;
@@ -62,6 +99,6 @@
     width: fit-content;
     margin-bottom: 6px;
     border-radius: 3px;
-    background-color: rgb(4, 74, 183);
+    background-color: rgb(216, 69, 138);
     color: white;
 }

@@ -100,7 +100,8 @@ export class TaskServices {
                     subject: data.subject,
                     author_id: data.author_id || null,
                     owner_id: data.owner_id || null,
-                    author_img_url: data.author_img_url || null
+                    author_img_url: data.author_img_url || null,
+                    scheduled_time: data.scheduled_time || null
                 }),
             });
             const res = await preRes.json();
@@ -125,7 +126,8 @@ export class TaskServices {
                 body: JSON.stringify({
                     name: data.name,
                     description: data.description,
-                    type: data.type
+                    type: data.type,
+                    scheduled_time:data.scheduled_time || null
                 }),
             });
             const res = await preRes.json();

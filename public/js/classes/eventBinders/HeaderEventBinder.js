@@ -20,8 +20,8 @@ export class HeaderEventBinder {
         const logOut = e.target.closest(".log-out");
         if (logOut) {
             // créer une déconection des cookies https-only
-            await this.userServices.logOut(); 
-            await this.miseAJourAuth.init();
+            await this.userServices.logOut();   
+            await this.miseAJourAuth.init();  
         }
 
 

@@ -10,7 +10,7 @@ export class UserServices {
                     'Content-Type': "application/json"
                 },
                 credentials: "include",
-            });
+            }); 
             const res = await preRes.json();
             return {
                 status: preRes.status,
@@ -124,7 +124,7 @@ export class UserServices {
 
     async logOut() {
         try {
-            const preRes = await fetch(`${HOST}/api/auth/logOut`, {
+            const preRes = await fetch(`${HOST}/api/auth/logOut`, { 
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json"
