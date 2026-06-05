@@ -145,6 +145,7 @@ export class FocusModalView {
 
         const options = [
             { value: "tasks", text: "Tasks" },
+            { value: "movies", text: "Movies" },
             { value: "courses", text: "Courses" },
             { value: "rdvs", text: "Rdvs" },
             { value: "events", text: "Events" },
@@ -304,7 +305,7 @@ export class FocusModalView {
         const typeSelect = document.createElement('select');
         typeSelect.id = 'typeSelect';
         typeSelect.name = 'type';
-        ['tasks', 'courses', 'rdvs', 'events', 'projets'].forEach(value => {
+        ['tasks', 'movies', 'courses', 'rdvs', 'events', 'projets'].forEach(value => {
             const option = document.createElement('option');
             option.value = value;
             option.textContent = value.charAt(0).toUpperCase() + value.slice(1);

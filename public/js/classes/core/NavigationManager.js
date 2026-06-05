@@ -33,7 +33,7 @@ export class NavigationManager {
         }
     }
 
-    async navigate(pageKey, push = true) {
+    async navigate(pageKey, push = true, params = null) {
         const pageKeyWithoutParams = pageKey.split("?")[0];
         const controller = this.routes[pageKeyWithoutParams];
         const userServices = new UserServices();

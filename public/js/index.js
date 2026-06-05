@@ -29,15 +29,20 @@ const userServices = new UserServices();
 const authServices = new AuthServices(userServices);
 const miseAJourAuth = new MiseAJourAuth(authServices);
 const headerEventBinder = new HeaderEventBinder(userServices, miseAJourAuth);
-const agendaCtrl = initAgenda();
+const agendaCtrl = initAgenda(seoManager);
 const headerCtrl = new HeaderCtrl(headerEventBinder, taskModel, modalView, agendaCtrl);
 headerCtrl.init();
 
+
 const routes = {
-    "home": initHome(seoManager),
-    "auth": initAuth(seoManager),
-    "agenda": initAgenda(seoManager),
-    "profil": initProfil(seoManager),
+    home: initHome(seoManager, {
+        goToAgendaDate: (dateSelected) => {
+            agendaCtrl.show(dateSelected);
+        }
+    }),
+    auth: initAuth(seoManager),
+    agenda: agendaCtrl,
+    profil: initProfil(seoManager),
 };
 
 const navHighLighter = new NavHighLighter();

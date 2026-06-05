@@ -176,8 +176,12 @@ export class CalendarModel {
                 return 'bgTasks';
                 break;
 
+            case 'movies':
+                return 'bgMovies';
+                break;
+
             case 'events':
-                return 'bgEvents';
+                return 'bgEvents'; 
                 break;
 
             case 'rdvs':

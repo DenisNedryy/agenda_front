@@ -29,6 +29,7 @@ export class AddModelView {
         <label for="typeSelect">Type</label>
         <select id="typeSelect" name="type">
           <option value="tasks">Tasks</option>
+          <option value="movies">Movies</option>
           <option value="spaced_repetition">Spaced repetition</option>
           <option value="courses">Courses</option>
           <option value="rdvs">Rdvs</option>
@@ -107,6 +108,7 @@ export class AddModelView {
         <label for="typeSelect">Type</label>
         <select id="typeSelect" name="type">
           <option value="tasks">Tasks</option>
+          <option value="movies">Movies</option>
           <option value="spaced_repetition">Spaced repetition</option>
           <option value="courses">Courses</option>
           <option value="rdvs">Rdvs</option>

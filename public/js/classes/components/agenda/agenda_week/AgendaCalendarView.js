@@ -162,7 +162,7 @@ export class AgendaCalendarView {
 
                         if (tasksByList[i]) {
 
-                            li.className = `${tasksByList[i].bg} task`;
+                            li.className = `${tasksByList[i].bg} task`; 
                             li.setAttribute("data-id", tasksByList[i].id);
 
                             const task = document.createElement("div");

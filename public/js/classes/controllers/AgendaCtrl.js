@@ -49,7 +49,12 @@ export class AgendaCtrl {
 
     async show(dateSelected = null, month = null) {
         await this.authServices.init();
-        this.dateNavigationModel.setCurrentDateSelected();
+
+        if (dateSelected !== null) {
+            this.dateNavigationModel.dateSelected = dateSelected;
+        } else {
+            this.dateNavigationModel.setCurrentDateSelected();
+        }
         const auth = await this.authServices.getAuth();
         const userSelectedRes = await this.authServices.getUserById(this.authServices.userIdSelected);
         const userSelected = userSelectedRes.data.user;

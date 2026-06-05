@@ -95,6 +95,7 @@ body .banner__text--title {
 /* ------body container------ */
 .home__bodyContainer {
     display: flex;
+    flex-direction: column;
 }
 
 .home__bodyContainer__plannings {
@@ -171,7 +172,8 @@ body .home__bodyContainer__plannings__rdvs {
 }
 
 .home__bodyContainer__left {
-    width: 60%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .home__bodyContainer__left__dayOff__dateOff {
@@ -183,6 +185,30 @@ body .home__bodyContainer__plannings__rdvs {
 .home__bodyContainer__right__englishMap img {
     width: 370px;
     padding: 37px;
+}
+
+
+.home__bodyContainer__left__todayTasks__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 23px;
+}
+
+body .home__bodyContainer__left__todayTasks__header a {
+    color: rgb(216, 69, 138);
+    cursor: pointer;
+    border: 0px;
+    background: none;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.home__bodyContainer__left__todayTasks__header a:hover {
+    color: rgb(70, 6, 35);
+
 }
 
 .list {
@@ -225,6 +251,7 @@ body .home__bodyContainer__plannings__rdvs {
     aspect-ratio: 421 / 593;
     display: block;
     height: auto;
+    padding: 15px;
 }
 
 .fill-uk {
@@ -312,4 +339,415 @@ body .home__bodyContainer__plannings__rdvs {
 .home__bodyContainer__left__projets__projetsContainer li:hover {
     background-color: rgb(216, 69, 138);
     color: white;
+}
+
+.todaySchedule {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.todaySchedule__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 60px;
+    padding: 0 20px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: rgba(255, 255, 255, .8);
+    margin: 10px 0px;
+}
+
+.todaySchedule__time {
+    width: 70px;
+    flex-shrink: 0;
+    color: #ff4f9a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.todaySchedule__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #f2c200;
+    background: white;
+    flex-shrink: 0;
+}
+
+.todaySchedule__name {
+    color: #444;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.home__bodyContainer__left__todayTasks {
+    margin: 25px;
+    background-color: rgba(255, 255, 255, .92);
+    border-radius: 7px;
+    padding: 24px;
+    min-width: 500px;
+}
+
+.home__bodyContainer__left__todayTasks__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.home__bodyContainer__left__todayTasks__header p {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(37, 37, 37);
+}
+
+.home__bodyContainer__left__todayTasks__header a {
+    color: rgb(216, 69, 138);
+    text-decoration: none;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.home__bodyContainer__left__todayTasks__header a:hover {
+    color: rgb(70, 6, 35);
+}
+
+.todayTasksList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.todayTasksList__item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    min-height: 70px;
+    border-bottom: 1px solid #ececec;
+    transition: .2s;
+    background-color: rgba(255, 255, 255, .9);
+    margin: 5px 0px;
+    padding: 10px;
+}
+
+.todayTasksList__item:last-child {
+    border-bottom: none;
+}
+
+.todayTasksList__item:hover {
+    background-color: rgba(216, 69, 138, .03);
+}
+
+.todayTasksList__time {
+    width: 75px;
+    flex-shrink: 0;
+    color: rgb(216, 69, 138);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.todayTasksList__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 197, 25);
+    background-color: white;
+    flex-shrink: 0;
+}
+
+.todayTasksList__name {
+    color: rgb(55, 55, 55);
+    font-size: 15px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home__bodyContainer__right {
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.home__bodyContainer__right__movies,
+.home__bodyContainer__right__findTasks {
+    margin: 25px;
+    background-color: rgba(255, 255, 255, .9);
+    max-width: 760px;
+    border-radius: 7px;
+    padding: 24px;
+}
+
+.home__bodyContainer__right__movies__header p,
+.home__bodyContainer__right__findTasks__header p {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(37, 37, 37);
+}
+
+.home__bodyContainer__right__findTasks__header {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 600;
+}
+
+.home__bodyContainer__right__findTasks__header i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.moviesList {
+    list-style: none;
+    margin-top: 15px;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.moviesList__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 16px;
+
+    background: white;
+
+    border: 1px solid rgba(0, 0, 0, .1);
+
+    border-radius: 12px;
+
+    transition: .2s;
+
+    cursor: pointer;
+}
+
+.moviesList__item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+
+.moviesList__item::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: #ff4d4d;
+
+    flex-shrink: 0;
+}
+
+.moviesList__name {
+    color: black;
+    font-size: .95rem;
+    font-weight: 500;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home__bodyContainer__right__findTasks__body__content {
+    margin-top: 22px;
+}
+
+.findTasks__task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 58px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(15, 23, 42, .08);
+    color: #111827;
+}
+
+.findTasks__task:last-child {
+    border-bottom: none;
+}
+
+.findTasks__task__left {
+    flex: 1;
+    min-width: 0;
+    width: 250px;
+}
+
+.findTasks__task__name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.findTasks__task__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-shrink: 0;
+    width: 400px;
+}
+
+.findTasks__task__type {
+    min-width: 74px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.findTasks__task__date,
+.findTasks__task__time {
+    font-size: 13px;
+    color: #4b5563;
+    white-space: nowrap;
+}
+
+.findTasks__task__actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.findTasks__task__btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #111827;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.findTasks__task__btn:hover {
+    background: rgba(15, 23, 42, .08);
+}
+
+.type-tasks,
+.type-projets,
+.type-events {
+    background: #ffe4f1;
+    color: #e91e7e;
+}
+
+.home__bodyContainer__right__movies__header {
+    display: flex;
+    align-items: center;
+}
+
+.home__bodyContainer__right__movies__header i {
+    color: black;
+    font-size: 28px;
+    margin-right: 15px;
+}
+
+.type-movies {
+    background: #eee7ff;
+    color: #6d4aff;
+}
+
+.type-spaced_repetition,
+.type-courses {
+    background: #e6f3ff;
+    color: #1686d9;
+}
+
+.type-rdvs,
+.type-alert {
+    background: #fff2cc;
+    color: #b77900;
+}
+
+.type-dayOff {
+    background: #e7f8ed;
+    color: #1f9d55;
+}
+
+.findTasks__empty {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.home__bodyContainer__right__findTasks__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.home__bodyContainer__right__findTasks__header i {
+    font-size: 22px;
+    color: #111827;
+}
+
+.home__bodyContainer__right__findTasks__header p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1;
+}
+
+.home__bodyContainer__right__findTasks__body__inputs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.findTasksSearch {
+    position: relative;
+    flex: 1;
+}
+
+.findTasksSearchInput {
+    width: 100%;
+    height: 46px;
+    padding: 0 45px 0 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    color: #111827;
+    font-size: 14px;
+}
+
+.findTasksSearch i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+}
+
+.findTasksFilters {
+    display: flex;
+    gap: 12px;
+}
+
+.findTasksType,
+.findTasksSort {
+    height: 46px;
+    min-width: 140px;
+    padding: 0 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    color: #111827;
+    font-size: 14px;
 }

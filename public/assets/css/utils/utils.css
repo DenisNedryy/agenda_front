@@ -124,6 +124,7 @@
 .box {
     background-color: rgb(29, 29, 31);
     color: white;
+    width: 684px;
 }
 
 .box h2 {

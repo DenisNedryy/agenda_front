@@ -3,6 +3,25 @@ import { HOST } from "../../constants/host.js";
 export class TaskServices {
 
 
+    async getTodayTasks() {
+        try {
+            const preRes = await fetch(`${HOST}/api/tasks/today`, {
+                method: "GET",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                credentials: "include",
+            });
+            const res = await preRes.json();
+            return {
+                status: preRes.status,
+                ok: preRes.ok,
+                data: res
+            };
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
     async getTasks() {
         try {
@@ -23,6 +42,64 @@ export class TaskServices {
             console.error(err);
         }
     }
+
+
+    async getMovies() {
+        try {
+            const preRes = await fetch(`${HOST}/api/tasks/movies`, {
+                method: "GET",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                credentials: "include",
+            });
+            const res = await preRes.json();
+            return {
+                status: preRes.status,
+                ok: preRes.ok,
+                data: res
+            };
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+async getSearchTasks(data = {
+    search: "",
+    type: "all",
+    sort: "recent"
+}) {
+    try {
+        const preRes = await fetch(`${HOST}/api/tasks/tasksByFilter`, {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                search: data.search || "",
+                type: data.type || "all",
+                sort: data.sort || "recent"
+            }),
+        });
+
+        const res = await preRes.json();
+
+        return {
+            status: preRes.status,
+            ok: preRes.ok,
+            data: res
+        };
+    } catch (err) {
+        console.error(err);
+
+        return {
+            status: 500,
+            ok: false,
+            data: []
+        };
+    }
+}
 
     async getAlerts() {
         try {
@@ -127,7 +204,7 @@ export class TaskServices {
                     name: data.name,
                     description: data.description,
                     type: data.type,
-                    scheduled_time:data.scheduled_time || null
+                    scheduled_time: data.scheduled_time || null
                 }),
             });
             const res = await preRes.json();

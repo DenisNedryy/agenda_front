@@ -117,7 +117,7 @@ export class TaskModel {
                 uniqueDateArr.push(sameDateFormat[i]);
             }
         }
-        
+
         return uniqueDateArr;
     }
 
@@ -185,6 +185,21 @@ export class TaskModel {
     async reviewTomorow(taskId) {
         const res = await this.taskService.reviewTomorow(taskId);
         return res.data.msg;
+    }
+
+    async getTasksForToday() {
+        const tasksRes = await this.taskService.getTodayTasks();
+        return tasksRes.data.tasks;
+    }
+
+    async getMoviesList(){
+        const movies = await this.taskService.getMovies();
+        return movies.data.movies;
+    }
+
+    async getSearchTasks(data){
+        const tasks = await this.taskService.getSearchTasks(data);
+        return tasks.data.tasks;
     }
 
 }
