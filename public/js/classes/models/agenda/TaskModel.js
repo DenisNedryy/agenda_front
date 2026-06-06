@@ -202,4 +202,8 @@ export class TaskModel {
         return tasks.data.tasks;
     }
 
+
+    async deleteTask(cardId){
+        await this.taskService.deleteTask(cardId);
+    }
 }

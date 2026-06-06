@@ -1,2 +1,1 @@
-
 export const HOST = `https://agenda-perso.skysleep.fr`;

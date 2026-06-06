@@ -36,8 +36,16 @@ export class HomeEventBinder {
                 this.controller.dateNavigationModel.dateSelected = date.getTime();
                 this.controller.actions.goToAgendaDate(date.getTime());
             }
+            return;
         }
-        return;
+
+        const deleteTaskBtn = e.target.closest(".deleteTaskBtn");
+        if (deleteTaskBtn) {
+            const taskId = deleteTaskBtn.closest(".findTasks__task").getAttribute("data-id");
+            await this.controller.taskModel.deleteTask(taskId);
+            this.controller.show();
+            return;
+        }
 
 
 
