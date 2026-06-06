@@ -34,7 +34,7 @@ export class HomeEventBinder {
                 const dateStr = el.getAttribute("data-date");
                 const date = new Date(dateStr);
                 this.controller.dateNavigationModel.dateSelected = date.getTime();
-                this.controller.actions.goToAgendaDate(date.getTime());
+                await this.controller.actions.goToAgendaDate(date.getTime());
             }
             return;
         }
