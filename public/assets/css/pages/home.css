@@ -149,12 +149,10 @@ body .home__bodyContainer__plannings__rdvs {
     border: 1px solid rgba(255, 255, 255, .3);
     padding: 15px;
     font-size: 15px;
-    margin: 10px;
     background-color: rgb(255, 197, 25);
     color: black;
     cursor: pointer;
     border-radius: 4px;
-    padding: 20px 30px;
     display: block;
     max-width: 100%;
     font-family: Roboto, sans-serif;
@@ -172,8 +170,8 @@ body .home__bodyContainer__plannings__rdvs {
 }
 
 .home__bodyContainer__left {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .home__bodyContainer__left__dayOff__dateOff {
@@ -214,6 +212,8 @@ body .home__bodyContainer__left__todayTasks__header a {
 .list {
     list-style: none;
     padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .list li {
@@ -467,7 +467,7 @@ body .home__bodyContainer__left__todayTasks__header a {
 
 .home__bodyContainer__right {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
 .home__bodyContainer__right__movies,
