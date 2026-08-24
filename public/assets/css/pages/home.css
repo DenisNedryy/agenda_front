@@ -95,7 +95,6 @@ body .banner__text--title {
 /* ------body container------ */
 .home__bodyContainer {
     display: flex;
-    flex-direction: column;
 }
 
 .home__bodyContainer__plannings {
@@ -468,6 +467,7 @@ body .home__bodyContainer__left__todayTasks__header a {
 .home__bodyContainer__right {
     display: flex;
     flex-wrap: wrap;
+    padding-top:60px;
 }
 
 .home__bodyContainer__right__movies,
@@ -477,6 +477,8 @@ body .home__bodyContainer__left__todayTasks__header a {
     max-width: 760px;
     border-radius: 7px;
     padding: 24px;
+    max-height: 400px;
+    overflow: scroll;
 }
 
 .home__bodyContainer__right__movies__header p,

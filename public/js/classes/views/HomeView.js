@@ -7,11 +7,7 @@ export class HomeView {
             el.innerHTML = `
                 <div class="home">
 
-                    <div class="video_bg">
-                        <video autoplay muted loop>
-                            <source src="/public/assets/videos/smoke_colors.mp4" type="video/mp4">
-                        </video>
-                    </div>
+
 
                     <div class="home__bodyContainer">
 
@@ -27,13 +23,7 @@ export class HomeView {
 
                                 </div> 
                             </div>
-                              <div class="home__bodyContainer__left__todayTasks box">
-                                <div class="home__bodyContainer__left__todayTasks__header">
-                                    <p>Today's schedule</p>
-                                    <a href="/agenda" data-link>View Full calendar</a>
-                                </div>
-                                <div class="home__bodyContainer__left__todayTasks__body"></div>
-                              </div>
+
 
                         </div>
 

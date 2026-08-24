@@ -27,10 +27,8 @@ export class HomeCtrl {
         this.homeView.render();
         this.renderDayOff();
         this.renderProjets();
-        this.renderTodayList();
         this.renderMoviesList();
         this.renderTasksManager();
-
 
         this.seoManager.setTitle('Schedule - Accueil');
         this.homeEventBinder.addEventListeners();
@@ -59,10 +57,6 @@ export class HomeCtrl {
         this.homeEventBinder.initDragAndDrop();
     }
 
-    async renderTodayList() {
-        const todayTasks = await this.taskModel.getTasksForToday();
-        this.todayList.render(todayTasks);
-    }
 
     async renderMoviesList() {
         const movies = await this.taskModel.getMoviesList();
