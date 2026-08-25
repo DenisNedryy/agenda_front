@@ -294,7 +294,7 @@ body .home__bodyContainer__left__todayTasks__header a {
 .home__bodyContainer__left__projets {
     margin: 25px;
     background-color: rgba(255, 255, 255, .9);
-    max-width: 760px;
+    max-width: 426px;
     border-radius: 7px;
     padding: 24px;
 }
@@ -467,7 +467,7 @@ body .home__bodyContainer__left__todayTasks__header a {
 .home__bodyContainer__right {
     display: flex;
     flex-wrap: wrap;
-    padding-top:60px;
+    padding-top: 60px;
 }
 
 .home__bodyContainer__right__movies,
